@@ -6,13 +6,14 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 
 import com.vondear.rxtools.RxActivityTool;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
-    private android.support.v4.app.FragmentManager fragmentManager;
-    private Fragment showFragment;
+    protected android.support.v4.app.FragmentManager fragmentManager;
+    protected Fragment showFragment;
     public Activity mContext;
 
     @Override
@@ -20,13 +21,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //禁止横向转换,防止生命周期改变
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
-
         mContext = this;
         this.setMyTheme();
         this.setContentView(this.getContentID());
         RxActivityTool.addActivity(this);
         fragmentManager = getSupportFragmentManager();
-
 
         this.initView();
         this.bindView();
