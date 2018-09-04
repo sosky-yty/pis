@@ -1,26 +1,20 @@
 package com.example.sosky.pis_copy.bean;
 
-import android.text.InputFilter;
-
-import java.util.List;
-
 /**
- *  家庭信息　
+ * 单个家庭信息
  */
-public class UpXumuInfoBean {
+public class UpOneXumuBean {
+    private DataSetBean dataSet;
 
-    private List<InfoBean> infoBeans;
-
-    public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+    public DataSetBean getDataSet() {
+        return dataSet;
     }
 
-    public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+    public void setDataSet(DataSetBean dataSet) {
+        this.dataSet = dataSet;
     }
 
-    public static class InfoBean{
-
+    public static class DataSetBean{
         private String ord_hz;
         private String ord_hzsfz;
         private String ord_jtrks;
@@ -62,6 +56,7 @@ public class UpXumuInfoBean {
 
         private String ord_flag;
         private String ord_yl;
+
         public String getOrd_hz() {
             return ord_hz;
         }
