@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="mine"/>
-</android.support.constraint.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_relogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/theme_color"
+            android:text="@string/btn_relogin"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btn_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/theme_color"
+            android:text="@string/btn_download"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <Button
+            android:id="@+id/btn_sync"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@color/md_green_700"
+            android:text="@string/btn_sync"
+            android:textColor="@color/white"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/tv_pan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="9999"
+            android:minHeight="320dp"
+            android:padding="@dimen/margin"
+            android:scrollbars="vertical"
+            android:text="@string/mode"
+            android:textColor="@color/assist_text_color"/>
+    </LinearLayout>
+
+</ScrollView>
