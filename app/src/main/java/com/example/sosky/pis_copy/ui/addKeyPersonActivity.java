@@ -151,6 +151,14 @@ public class addKeyPersonActivity extends BaseActivity{
      */
     @Override
     protected  void bindView(){
+
+    }
+
+    /**
+     * 初始话view
+     */
+    @Override
+    protected  void initView(){
         mContext = this;
         rxTitle = findViewById(R.id.rx_title);
 
@@ -246,14 +254,6 @@ public class addKeyPersonActivity extends BaseActivity{
         ord_ahqhdw = findViewById(R.id.add_ord_ahqhdw);
         s_ord_fhsz = findViewById(R.id.add_ord_fhsz);
         linear_jsxx = findViewById(R.id.linear_jsxx);
-    };
-
-    /**
-     * 初始话view
-     */
-    @Override
-    protected  void initView(){
-
-    };
+    }
 
 }
