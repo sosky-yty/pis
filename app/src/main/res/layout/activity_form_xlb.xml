@@ -49,7 +49,7 @@
                     android:lineSpacingExtra="3dp"
                     android:text="姓名："/>
                 <EditText
-                    android:id="@+id/mztk_ord_xm"
+                    android:id="@+id/xlb_ord_xm"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -66,7 +66,7 @@
                     android:lineSpacingExtra="3dp"
                     android:text="身份证："/>
                 <EditText
-                    android:id="@+id/mztk_ord_sfz"
+                    android:id="@+id/xlb_ord_sfz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -81,26 +81,9 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否享受农村特困："/>
-                <Switch
-                    android:id="@+id/zktk_ord_xf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="农村特困享受年限："/>
+                    android:text="首次参与新农保日期："/>
                 <EditText
-                    android:id="@+id/mztk_ord_nctkxsnx"
+                    android:id="@+id/xlb_ord_sccyxnbrq"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -115,80 +98,115 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否享受城市特困："/>
-                <Switch
-                    android:id="@+id/mztk_ord_xf"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:checked="false"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="城市特困享受年限："/>
+                    android:text="参保情况："/>
                 <EditText
-                    android:id="@+id/mztk_ord_cstkxsnx"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="享受金额："/>
-                <EditText
-                    android:id="@+id/mztk_ord_xsje"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="供养方式："/>
-                <EditText
-                    android:id="@+id/mztk_ord_gyfs"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
-                    android:inputType="none"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="备注："/>
-                <EditText
-                    android:id="@+id/mztk_ord_bz"
+                    android:id="@+id/xlb_ord_cbqk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="养老保险金额（/年）："/>
+                <EditText
+                    android:id="@+id/xlb_ord_ylbxje"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="退休时间"/>
+                <EditText
+                    android:id="@+id/xlb_ord_txsj"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="领取待遇（/月）"/>
+                <EditText
+                    android:id="@+id/xlb_ord_lqdy"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="交费年限"/>
+                <EditText
+                    android:id="@+id/xlb_ord_jfnx"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="注销日期"/>
+                <EditText
+                    android:id="@+id/xlb_ord_zxrq"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="备注"/>
+                <EditText
+                    android:id="@+id/xlb_ord_bz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
 
 
             <Button
