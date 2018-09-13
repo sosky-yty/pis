@@ -11,12 +11,12 @@ import com.example.sosky.pis_copy.ui.EditPersonActivity;
 
 import java.util.List;
 
-public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, BaseViewHolder>{
+public class ServerPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, BaseViewHolder> {
     List<UpPersonBean.InfoBean> mList;
     Context mContext;
 
 
-    public LocalPersonAdapter(List<UpPersonBean.InfoBean> datas, Context context) {
+    public ServerPersonAdapter(List<UpPersonBean.InfoBean> datas, Context context) {
         super(R.layout.item_people, datas);
         mList = datas;
         mContext = context;
@@ -26,7 +26,6 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
     protected void convert(BaseViewHolder helper, UpPersonBean.InfoBean item) {
 
         helper.setText(R.id.tv_name_it, item.getOrd_xm());
-//        RxLogTool.e(item.getOrd2_xm());
         helper.setText(R.id.tv_sex_it, item.getOrd_xb());
         helper.setText(R.id.tv_area_it, item.getOrd_szxq());
 
@@ -34,7 +33,6 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
 
             Intent i = new Intent(mContext, EditPersonActivity.class);
             i.putExtra("id", item.getOrd_sfz());
-            i.putExtra("type", "local");
             i.putExtra("action", "person");
             mContext.startActivity(i);
 

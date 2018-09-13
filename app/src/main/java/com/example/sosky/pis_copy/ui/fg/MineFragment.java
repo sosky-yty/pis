@@ -53,4 +53,5 @@ public class MineFragment extends BaseFragment {
         btnSync = (Button) activity.findViewById(R.id.btn_sync);
         tvPan = (TextView) activity.findViewById(R.id.tv_pan);
     }
+
 }

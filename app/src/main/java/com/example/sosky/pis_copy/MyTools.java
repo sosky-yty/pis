@@ -14,6 +14,8 @@ import android.graphics.Canvas;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.sosky.pis_copy.ui.LoginActivity;
@@ -326,6 +328,35 @@ public class MyTools {
             dialog.dismiss();
         });
         builder.create().show();
+    }
+
+    /**
+     * 设置ｌｉｎｅａｒｌａｙｏｕｔ可见性
+     * @param linearLayout
+     * @param mode
+     */
+    public static void setLinearLayoutVisibility(LinearLayout linearLayout, Boolean mode){
+        if (mode){
+            linearLayout.setVisibility(View.VISIBLE);
+        }else{
+            linearLayout.setVisibility(View.GONE);
+        }
+    }
+
+    /**
+     * 设置ｓｗｉｔｃｈ监听器，于ｌｉｎｅａｒｌａｙｏｕｔ显示关联
+     * @param linearLayout
+     * @param sw
+     */
+    public static void setSwitchLisenter(LinearLayout linearLayout, Switch sw){
+        sw.setOnCheckedChangeListener(((compoundButton, b) -> {
+            if (b){
+                setLinearLayoutVisibility(linearLayout,true);
+            }else{
+                setLinearLayoutVisibility(linearLayout,false);
+            }
+        }));
+
     }
 
     public static void showMultiChooseDialog(String[] items, Context context, TextView editText) {

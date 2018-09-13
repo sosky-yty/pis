@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/it_family"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="4dp"
+    android:background="@color/white"
+    android:foreground="@drawable/touch_fg"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_name_it_family"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:gravity="center|left"
+        android:text="张三"/>
+
+    <TextView
+        android:id="@+id/tv_num_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:text="man"/>
+
+    <TextView
+        android:id="@+id/tv_jtzk_it"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin"
+        android:gravity="center|right"
+        android:text="xx区"
+        android:textSize="10sp"/>
+
+</LinearLayout>

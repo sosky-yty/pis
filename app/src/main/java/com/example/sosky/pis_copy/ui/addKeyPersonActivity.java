@@ -3,11 +3,16 @@ package com.example.sosky.pis_copy.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
+import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
+import android.widget.TextView;
 
+import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.vondear.rxtools.view.RxTitle;
@@ -21,7 +26,6 @@ public class addKeyPersonActivity extends BaseActivity{
             "俄罗斯族", "鄂温克族", "德昂族", "保安族", "裕固族", "京族", "塔塔尔族", "独龙族", "鄂伦春族", "赫哲族", "门巴族", "珞巴族", "基诺族"};
 
     String[] sex = {"男", "女"};
-    String[] hy = {"未婚", "已婚", "离异"};
     //证件类型
     String[] sfzlb ={"身份证","非身份证"};
     //政治面貌
@@ -36,7 +40,7 @@ public class addKeyPersonActivity extends BaseActivity{
     //文化程度
     String[] whcd={"文盲","小学","中学","高中（含中专）","大学专科","大学本科","研究生","博士"};
     //就业状态
-    String[] jyzt={"待业","就业","失业"};
+    String[] jyzk={"待业","就业","失业"};
     //兵役状态
     String[] byzt={"已服","未服"};
     //参与集体经济项目
@@ -150,9 +154,133 @@ public class addKeyPersonActivity extends BaseActivity{
      * 绑定view
      */
     @Override
-    protected  void bindView(){
+        protected  void bindView(){
+            ord_xb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(sex,mContext,ord_xb);
+                }
+            });
 
-    }
+            ord_mz.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(minzu,mContext,ord_xb);
+                }
+            });
+
+            ord_hyzk.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(hyzk,mContext,ord_hyzk);
+                }
+            });
+
+            ord_zjlb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(sfzlb,mContext,ord_zjlb);
+                }
+            });
+
+            ord_zzmm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(zzmm,mContext,ord_zzmm);
+                }
+            });
+
+            ord_yhzgx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(yhzgx,mContext,ord_yhzgx);
+                }
+            });
+
+            ord_szxq.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(szxq,mContext,ord_szxq);
+                }
+            });
+            ord_whcd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(whcd,mContext,ord_whcd);
+                }
+            });
+            ord_jyzk.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(jyzk,mContext,ord_jyzk);
+                }
+            });
+            ord_byzt.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(byzt,mContext,ord_byzt);
+                }
+            });
+            ord_cyjtjjdxm.setOnClickListener(new View.OnClickListener(){
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(cyjtjjxm,mContext,ord_cyjtjjdxm);
+                }
+            });
+            ord_zdrylx.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(zdrylx,mContext,ord_zdrylx);
+                }
+            });
+
+            ord_yf.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    MyTools.showSelectDialog(yf,mContext,ord_yf);
+                }
+            });
+            //监听为女，显示计生信息
+            ord_xb.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                    if(ord_xb.getText().toString().equals("女")){
+                        MyTools.setLinearLayoutVisibility(linear_jsxx,true);
+                    }else if(ord_xb.getText().toString().equals("男")){
+                        MyTools.setLinearLayoutVisibility(linear_jsxx,false);
+                    }
+                    return false;
+                }
+            });
+        MyTools.setSwitchLisenter(linear_gwmc,s_ord_sfcygyxgw);
+        MyTools.setSwitchLisenter(linear_szyx,s_ord_sfzd);
+        MyTools.setSwitchLisenter(linear_cyjtjjdxm,s_ord_sfcyjtjj);
+        MyTools.setSwitchLisenter(linear_gegyfs,s_ord_sfwge);
+        MyTools.setSwitchLisenter(linear_zdrylx,s_ord_sfwzdry);
+        MyTools.setSwitchLisenter(linear_clxx,s_ord_sfwcjr);
+        MyTools.setSwitchLisenter(linear_sfxx,s_ord_sfyfzqk);
+        MyTools.setSwitchLisenter(linear_smxx,s_ord_sfsn);
+
+        ord_jyzk.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (ord_jyzk.getText().toString().equals("待业")||ord_jyzk.getText().toString().equals("失业")){
+                    MyTools.setLinearLayoutVisibility(linear_jydw,true);
+                }else{
+                    MyTools.setLinearLayoutVisibility(linear_jydw,false);
+                }
+                return false;
+            }
+        });
+
+        //todo 获得所有信息，保存进UpPersonBean.InfoBean
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        }
 
     /**
      * 初始话view
