@@ -2,6 +2,9 @@ package com.example.sosky.pis_copy.bean;
 
 import java.util.List;
 
+/**
+ * 低保
+ */
 public class UpLowInsuranceBean {
 
     List<infoBean> infoBeans;

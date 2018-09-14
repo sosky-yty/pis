@@ -1,12 +1,7 @@
 package com.example.sosky.pis_copy.ui;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
@@ -69,8 +64,8 @@ public class LoginActivity extends BaseActivity {
 
         });
         buttonSet.setOnClickListener(view -> {
-            address.setText("http://ebs.flobit.cn");
-            new SPHelper(MyApp.getContext(), "server").put("address", "http://ebs.flobit.cn");
+            address.setText("http://nat.flobit.cn:94");
+            new SPHelper(MyApp.getContext(), "server").put("address", "http://nat.flobit.cn:94");
         });
 
         buttonOffline.setOnClickListener(view -> toMain());
@@ -78,7 +73,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void login(String s, String s1) {
-        RxToast.normal("绑定成功");
+        RxToast.normal("成功");
     }
 
     /**
@@ -86,7 +81,6 @@ public class LoginActivity extends BaseActivity {
      */
     private void toMain() {
         RxActivityTool.skipActivityAndFinish(LoginActivity.this, MainActivity.class);
-
 
     }
 
