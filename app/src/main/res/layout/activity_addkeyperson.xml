@@ -87,7 +87,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -106,7 +106,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -125,7 +125,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -144,7 +144,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -180,7 +180,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -199,7 +199,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -218,7 +218,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -271,7 +271,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -290,7 +290,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -429,7 +429,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -521,7 +521,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -576,7 +576,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -703,7 +703,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:inputType="none"/>
             </LinearLayout>
 
@@ -764,7 +764,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"
                         android:inputType="none"/>
                 </LinearLayout>
             </LinearLayout>
@@ -903,7 +903,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"
                         android:inputType="none"/>
                 </LinearLayout>
 
@@ -1068,7 +1068,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"
                         android:inputType="none"/>
                 </LinearLayout>
 
@@ -1105,7 +1105,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"
                         android:inputType="none"/>
                 </LinearLayout>
 
@@ -1124,7 +1124,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableLeft="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"
                         android:inputType="none"/>
                 </LinearLayout>
 
