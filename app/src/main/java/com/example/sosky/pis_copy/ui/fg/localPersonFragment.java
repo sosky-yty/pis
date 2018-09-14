@@ -13,10 +13,9 @@ import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.adapter.LocalPersonAdapter;
 import com.example.sosky.pis_copy.base.BaseFragment;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
-import com.example.sosky.pis_copy.ui.EditPersonActivity;
+import com.example.sosky.pis_copy.ui.EditFormActivity;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
-import com.vondear.rxtools.RxTool;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -60,7 +59,7 @@ public class localPersonFragment extends BaseFragment {
         loadDatas();
 
         btnAdd.setOnClickListener(view1 -> {
-            Intent i = new Intent(mContext, EditPersonActivity.class);
+            Intent i = new Intent(mContext, EditFormActivity.class);
             i.putExtra("action", "person");
             mContext.startActivity(i);
         });
