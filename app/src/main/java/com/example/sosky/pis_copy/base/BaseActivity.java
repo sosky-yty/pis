@@ -1,12 +1,11 @@
 package com.example.sosky.pis_copy.base;
 
 import android.app.Activity;
-import android.support.v4.app.Fragment;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Window;
 
 import com.vondear.rxtools.RxActivityTool;
 
@@ -29,6 +28,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         this.initView();
         this.bindView();
+        this.bindListener();
         this.loadDatas();
     }
 
@@ -41,6 +41,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      * 绑定view
      */
     protected  void bindView(){};
+    /**
+     * 绑定view
+     */
+    protected  void bindListener(){};
+    
 
     /**
      * 初始话view
