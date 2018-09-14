@@ -29,7 +29,6 @@
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".ui.addKeyFamilyActivity"/>
         <activity android:name=".ui.addKeyPersonActivity"/>
-        <activity android:name=".ui.EditFormActivity"/>
     </application>
 
 </manifest>
