@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -126,7 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -145,7 +145,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -181,7 +181,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -200,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -219,7 +219,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -272,7 +272,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -291,7 +291,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -438,7 +438,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -495,7 +495,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -532,7 +532,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -589,7 +589,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -726,7 +726,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:drawableRight="@drawable/ic_down"
-                    android:inputType="none"/>
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -789,7 +789,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableRight="@drawable/ic_down"
-                        android:inputType="none"/>
+                        android:editable="false"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -932,7 +932,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableRight="@drawable/ic_down"
-                        android:inputType="none"/>
+                        android:editable="false"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -1097,7 +1097,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableRight="@drawable/ic_down"
-                        android:inputType="none"/>
+                        android:editable="false"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -1134,7 +1134,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableRight="@drawable/ic_down"
-                        android:inputType="none"/>
+                        android:editable="false"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -1153,7 +1153,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:drawableRight="@drawable/ic_down"
-                        android:inputType="none"/>
+                        android:editable="false"/>
                 </LinearLayout>
 
                 <LinearLayout

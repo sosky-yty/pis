@@ -204,8 +204,8 @@ public class ApiManger {
      */
     public static void autologin(StringCallback stringCallback) {
         String username, password;
-        username = MyApp.preferenceR.getString("username", "");
-        password = MyApp.preferenceR.getString("password", "");
+        username = MyApp.SPR.getString("username", "");
+        password = MyApp.SPR.getString("password", "");
         OkGo.<String>post(API_LOGIN)
                 .params("username", username)
                 .params("password", password)

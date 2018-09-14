@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.text.StaticLayout;
 
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.cookie.CookieJarImpl;
@@ -26,8 +25,8 @@ public class MyApp extends Application{
 
     //本地设置保存对象
     public static SharedPreferences NSP;
-    public static SharedPreferences.Editor editSP;
-    public static SharedPreferences loginSP;
+    public static SharedPreferences.Editor SPE;
+    public static SharedPreferences SPR;
 
     @Override
     public void onCreate() {
@@ -35,8 +34,8 @@ public class MyApp extends Application{
 
         context = getApplicationContext();
 
-        editSP = getSharedPreferences("pis_copy",MODE_PRIVATE).edit();
-        loginSP = getSharedPreferences("pis_copy",MODE_PRIVATE);
+        SPE = getSharedPreferences("pis_copy",MODE_PRIVATE).edit();
+        SPR = getSharedPreferences("pis_copy",MODE_PRIVATE);
 
         NSP = PreferenceManager.getDefaultSharedPreferences(this);
 
@@ -84,18 +83,18 @@ public class MyApp extends Application{
     }
 
     public static void savePassword(String um ,String pw){
-        editSP.putString("username",um).apply();
-        editSP.putString("password",pw).apply();
-        editSP.putBoolean("isLogin",true).apply();
+        SPE.putString("username",um).apply();
+        SPE.putString("password",pw).apply();
+        SPE.putBoolean("isLogin",true).apply();
     }
 
     public static boolean isLogin(){
-        return loginSP.getBoolean("isLogin",false);
+        return SPR.getBoolean("isLogin",false);
     }
 
     public static void removePassword(){
-        editSP.putString("username","").apply();
-        editSP.putString("password","").apply();
-        editSP.putBoolean("isLogin",false).apply();
+        SPE.putString("username","").apply();
+        SPE.putString("password","").apply();
+        SPE.putBoolean("isLogin",false).apply();
     }
 }
