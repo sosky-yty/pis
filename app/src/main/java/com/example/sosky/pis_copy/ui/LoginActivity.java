@@ -10,6 +10,8 @@ import com.example.sosky.pis_copy.MyApp;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SPHelper;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
@@ -72,8 +74,35 @@ public class LoginActivity extends BaseActivity {
         buttonLogin.setOnClickListener(view -> login(user.getText().toString(), password.getText().toString()));
     }
 
-    private void login(String s, String s1) {
+    private void login(String u, String p) {
+        ApiManger.login(u, p, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                if (response.body() == null) {
+                    RxToast.error("服务器错误");
+                    return;
+                }
+                if (response.body().contains("ok")) {
+                    RxToast.success("登录成功");
+                    savepass(u, p);
+                    toMain();
+                }
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+                RxToast.error("网络错误");
+            }
+        });
         RxToast.normal("成功");
+    }
+
+    private void savepass(String u, String p) {
+        MyApp.SPE.putString("username", u).apply();
+        MyApp.SPE.putString("password", p).apply();
+        MyApp.SPE.putBoolean("isLogin", true).apply();
+
     }
 
     /**

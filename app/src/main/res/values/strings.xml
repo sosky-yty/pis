@@ -6,7 +6,7 @@
     <string name="title_notifications">我的</string>
     <string name="btn_relogin">登录</string>
     <string name="btn_download">下载数据</string>
-    <string name="btn_sync">同步数据</string>
+    <string name="btn_sync">上传数据</string>
     <string name="mode">状态:</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="pis">Pis</string>
