@@ -252,6 +252,7 @@ public class addKeyPersonActivity extends BaseActivity{
                     return false;
                 }
             });
+
         MyTools.setSwitchLisenter(linear_gwmc,s_ord_sfcygyxgw);
         MyTools.setSwitchLisenter(linear_szyx,s_ord_sfzd);
         MyTools.setSwitchLisenter(linear_cyjtjjdxm,s_ord_sfcyjtjj);

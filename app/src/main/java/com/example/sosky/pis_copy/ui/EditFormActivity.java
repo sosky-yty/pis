@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.base.BaseActivity;
 
-public class EditPersonActivity extends AppCompatActivity{
+public class EditFormActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
