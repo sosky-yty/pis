@@ -7,7 +7,7 @@ import java.util.List;
 /**
  *  家庭信息　
  */
-public class UpXumuInfoBean {
+public class UpFamilyInfoBean {
 
     private List<InfoBean> infoBeans;
 

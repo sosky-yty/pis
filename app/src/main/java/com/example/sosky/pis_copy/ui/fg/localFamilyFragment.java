@@ -12,7 +12,7 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.adapter.LocalFamilyAdapter;
 import com.example.sosky.pis_copy.base.BaseFragment;
-import com.example.sosky.pis_copy.bean.UpXumuInfoBean;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 import com.google.gson.Gson;
 
@@ -23,7 +23,7 @@ import java.util.Map;
 
 public class localFamilyFragment extends BaseFragment {
     private RecyclerView recycler;
-    List<UpXumuInfoBean.InfoBean> datas = new ArrayList<>();
+    List<UpFamilyInfoBean.InfoBean> datas = new ArrayList<>();
     private Button btnAdd;
 
     private LocalFamilyAdapter mFamilyAdapter;
@@ -84,10 +84,10 @@ public class localFamilyFragment extends BaseFragment {
             if (values.size() == 0) {
                 return;
             }
-            UpXumuInfoBean beans = new UpXumuInfoBean();
+            UpFamilyInfoBean beans = new UpFamilyInfoBean();
             beans.setInfoBeans(new ArrayList<>());
             for (String value : values) {
-                UpXumuInfoBean bean = new Gson().fromJson(value, UpXumuInfoBean.class);
+                UpFamilyInfoBean bean = new Gson().fromJson(value, UpFamilyInfoBean.class);
 
                 //添加到LIST
                 beans.getInfoBeans().add(bean.getInfoBeans().get(0));
@@ -95,7 +95,7 @@ public class localFamilyFragment extends BaseFragment {
                 //  RxLogTool.e(bean.toString());
             }
 
-            List<UpXumuInfoBean.InfoBean> info = beans.getInfoBeans();
+            List<UpFamilyInfoBean.InfoBean> info = beans.getInfoBeans();
             mFamilyAdapter = new LocalFamilyAdapter(info, getActivity());
             recycler.setAdapter(mFamilyAdapter);
         } catch (Exception e) {

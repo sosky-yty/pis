@@ -3,7 +3,7 @@ package com.example.sosky.pis_copy;
 import android.util.ArrayMap;
 
 import com.example.sosky.pis_copy.bean.UpPersonBean;
-import com.example.sosky.pis_copy.bean.UpXumuInfoBean;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
 
@@ -53,11 +53,11 @@ public class SaveTool {
      * 通过户主身份证　进行存取
      * @param infoBean
      */
-    public static void saveOneXumu(UpXumuInfoBean.InfoBean infoBean){
+    public static void saveOneXumu(UpFamilyInfoBean.InfoBean infoBean){
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(),"xumus");
-        UpXumuInfoBean upXumuInfoBean = new UpXumuInfoBean();
+        UpFamilyInfoBean upXumuInfoBean = new UpFamilyInfoBean();
 
-        upXumuInfoBean.setInfoBeans(new ArrayList<UpXumuInfoBean.InfoBean>());
+        upXumuInfoBean.setInfoBeans(new ArrayList<UpFamilyInfoBean.InfoBean>());
         upXumuInfoBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upXumuInfoBean);
         mSPHelper.put(infoBean.getOrd_hzsfz(),json);
