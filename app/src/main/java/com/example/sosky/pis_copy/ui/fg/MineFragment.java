@@ -48,10 +48,10 @@ public class MineFragment extends BaseFragment {
     protected void initView(View view) {
         super.initView(view);
         FragmentActivity activity =getActivity();
-        btnRelogin = (Button) activity.findViewById(R.id.btn_relogin);
-        btnDownload = (Button) activity.findViewById(R.id.btn_download);
-        btnSync = (Button) activity.findViewById(R.id.btn_sync);
-        tvPan = (TextView) activity.findViewById(R.id.tv_pan);
+        btnRelogin = activity.findViewById(R.id.btn_relogin);
+        btnDownload = activity.findViewById(R.id.btn_download);
+        btnSync = activity.findViewById(R.id.btn_sync);
+        tvPan = activity.findViewById(R.id.tv_pan);
     }
 
 }

@@ -36,14 +36,14 @@ public class LoginActivity extends BaseActivity {
     protected void initView() {
         super.initView();
 
-        rxTitle = (RxTitle) findViewById(R.id.rx_title);
-        user = (AutoCompleteTextView) findViewById(R.id.user);
-        password = (EditText) findViewById(R.id.password);
-        buttonLogin = (AppCompatButton) findViewById(R.id.button_login);
-        buttonOffline = (AppCompatButton) findViewById(R.id.button_offline);
-        address = (AutoCompleteTextView) findViewById(R.id.address);
-        buttonSave = (AppCompatButton) findViewById(R.id.button_save);
-        buttonSet = (AppCompatButton) findViewById(R.id.button_set);
+        rxTitle = findViewById(R.id.rx_title);
+        user = findViewById(R.id.user);
+        password = findViewById(R.id.password);
+        buttonLogin = findViewById(R.id.button_login);
+        buttonOffline = findViewById(R.id.button_offline);
+        address = findViewById(R.id.address);
+        buttonSave = findViewById(R.id.button_save);
+        buttonSet = findViewById(R.id.button_set);
 
     }
 
