@@ -333,28 +333,30 @@ public class MyTools {
 
     /**
      * 设置ｌｉｎｅａｒｌａｙｏｕｔ可见性
+     *
      * @param linearLayout
      * @param mode
      */
-    public static void setLinearLayoutVisibility(LinearLayout linearLayout, Boolean mode){
-        if (mode){
+    public static void setLinearLayoutVisibility(LinearLayout linearLayout, Boolean mode) {
+        if (mode) {
             linearLayout.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             linearLayout.setVisibility(View.GONE);
         }
     }
 
     /**
      * 设置ｓｗｉｔｃｈ监听器，于ｌｉｎｅａｒｌａｙｏｕｔ显示关联
+     *
      * @param linearLayout
      * @param sw
      */
-    public static void setSwitchLisenter(LinearLayout linearLayout, Switch sw){
+    public static void setSwitchLisenter(LinearLayout linearLayout, Switch sw) {
         sw.setOnCheckedChangeListener(((compoundButton, b) -> {
-            if (b){
-                setLinearLayoutVisibility(linearLayout,true);
-            }else{
-                setLinearLayoutVisibility(linearLayout,false);
+            if (b) {
+                setLinearLayoutVisibility(linearLayout, true);
+            } else {
+                setLinearLayoutVisibility(linearLayout, false);
             }
         }));
 
@@ -408,6 +410,7 @@ public class MyTools {
 
     /**
      * 日期时间选择器
+     *
      * @param context
      * @param editText
      */
@@ -529,7 +532,7 @@ public class MyTools {
     /**
      * json string convert to xml string
      */
-    public static String JSON2xml(String json){
+    public static String JSON2xml(String json) {
         StringReader input = new StringReader(json);
         StringWriter output = new StringWriter();
         JsonXMLConfig config = new JsonXMLConfigBuilder().multiplePI(false).repairingNamespaces(false).build();
@@ -540,7 +543,7 @@ public class MyTools {
             writer.add(reader);
             reader.close();
             writer.close();
-        } catch( Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -559,7 +562,7 @@ public class MyTools {
     /**
      * xml string convert to json string
      */
-    public static String xml2JSON(String xml){
+    public static String xml2JSON(String xml) {
         StringReader input = new StringReader(xml);
         StringWriter output = new StringWriter();
         JsonXMLConfig config = new JsonXMLConfigBuilder().autoArray(true).autoPrimitive(true).prettyPrint(true).build();
@@ -569,7 +572,7 @@ public class MyTools {
             writer.add(reader);
             reader.close();
             writer.close();
-        } catch( Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
             try {
@@ -581,10 +584,6 @@ public class MyTools {
         }
         return output.toString();
     }
-
-
-
-
 
 
     /**
@@ -677,7 +676,7 @@ public class MyTools {
         tvTitle.setText("完成");
         tvTitle.setTextColor(RxTool.getContext().getResources().getColor(R.color.theme_color));
     }
-    
+
 
     public static int getMax(int[] str) {
 
@@ -695,14 +694,16 @@ public class MyTools {
 
     /**
      * 验证id 15位或者１８位
+     *
      * @return
      */
-    public static Boolean verificationID(String ID){
-        if (ID.isEmpty()){
+    public static Boolean verificationID(String ID) {
+        if (ID.isEmpty()) {
             return false;
-        }else if (ID.length()!=15||ID.length()!= 18){
+        } else if (ID.length() != 15 && ID.length() != 18) {
             return false;
         }
         return true;
     }
+
 }

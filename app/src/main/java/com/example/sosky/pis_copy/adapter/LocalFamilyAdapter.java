@@ -34,7 +34,7 @@ public class LocalFamilyAdapter extends BaseQuickAdapter<UpXumuInfoBean.InfoBean
 
             Intent i = new Intent(mContext, addKeyFamilyActivity.class);
             i.putExtra("id", item.getOrd_hzsfz());
-            i.putExtra("type", "local");
+            i.putExtra("action", "local");
             mContext.startActivity(i);
 
         });

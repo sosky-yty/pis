@@ -83,28 +83,4 @@ public class SaveTool {
         return map;
     }
 
-
-    /**
-     * 保存服务器数据
-     * @param content
-     */
-    public static void saveServerPerson(String content){
-        SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "server");
-        mSPHelper.put("person", content);
-    }
-
-    public static void saveServerXumu(String content){
-        SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "server");
-        mSPHelper.put("xumu", content);
-    }
-
-    public static String getServerPerson(){
-        SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "server");
-        return (String) mSPHelper.getSharedpreference("person", "");
-    }
-
-    public static String getServerXumu(){
-        SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "server");
-        return (String) mSPHelper.getSharedpreference("xumu", "");
-    }
 }

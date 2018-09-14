@@ -33,7 +33,7 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
 
             Intent i = new Intent(mContext, addKeyPersonActivity.class);
             i.putExtra("id", item.getOrd_sfz());
-            i.putExtra("type", "local");
+            i.putExtra("action", "local");
             mContext.startActivity(i);
 
         });

@@ -60,7 +60,7 @@ public class localPersonFragment extends BaseFragment {
 
         btnAdd.setOnClickListener(view1 -> {
             Intent i = new Intent(mContext, addKeyPersonActivity.class);
-            i.putExtra("action", "person");
+            i.putExtra("action", "new");
             mContext.startActivity(i);
         });
 

@@ -19,7 +19,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //禁止横向转换,防止生命周期改变
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mContext = this;
         this.setMyTheme();
         this.setContentView(this.getContentID());

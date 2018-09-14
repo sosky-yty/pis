@@ -2,6 +2,8 @@ package com.example.sosky.pis_copy.ui;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -15,8 +17,12 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
+import com.google.gson.Gson;
+import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
+
+import java.util.Map;
 
 public class addKeyPersonActivity extends BaseActivity {
 
@@ -44,6 +50,10 @@ public class addKeyPersonActivity extends BaseActivity {
     String[] jyzk = {"待业", "就业", "失业"};
     //兵役状态
     String[] byzt = {"已服", "未服"};
+
+    //残疾等级
+    String [] cjdj = {"1","2","3","4"};
+
     //参与集体经济项目
     String[] cyjtjjxm = {"乡村酒店", "大棚蔬菜", "瓦须黑帐篷体验园区", "生态畜牧专业合作"};
 
@@ -142,10 +152,21 @@ public class addKeyPersonActivity extends BaseActivity {
     private Switch s_ord_fhsz;
     private LinearLayout linear_jsxx;
 
+    private UpPersonBean.InfoBean mInfoBean = new UpPersonBean.InfoBean();
+    private String mID;
 
     @Override
     protected int getContentID() {
         return R.layout.activity_addkeyperson;
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if ("local".equals(getIntent().getStringExtra("action"))) {
+            mID= getIntent().getStringExtra("id");
+            loadlocal();
+        }
     }
 
 
@@ -295,11 +316,13 @@ public class addKeyPersonActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UpPersonBean.InfoBean bean = saveDatas();
-                if (bean == null) {
-                    RxToast.error("身份证格式不正确，请检查后重新输入");
-                } else {
+                if(MyTools.verificationID(bean.getOrd_sfz())){
                     SaveTool.saveOnePerson(bean);
+                    RxToast.success("保存成功");
+                }else{
+                    RxToast.error("身份证错误");
                 }
+
             }
         });
     }
@@ -316,18 +339,17 @@ public class addKeyPersonActivity extends BaseActivity {
             MyTools.showDataPicker(mContext, ord_qpm);
         });
 
+        ord_rssj.setOnClickListener(v -> {
+            MyTools.showDataPicker(mContext, ord_rssj);
+        });
+        ord_cjdj.setOnClickListener(v->{
+            MyTools.showSelectDialog(cjdj, mContext, ord_cjdj);
+        });
 
     }
 
     //获取控件值,判断身份证是否合格
     private UpPersonBean.InfoBean saveDatas() {
-
-        //身份证判断逻辑
-        if (!ord_zjlb.getText().toString().equals("非身份证")) {
-            if (MyTools.verificationID(ord_sfz.getText().toString())) {
-                return null;
-            }
-        }
         UpPersonBean.InfoBean infoBeans = new UpPersonBean.InfoBean();
         infoBeans.setOrd_xm(ord_xm.getText().toString());
         infoBeans.setOrd_zm(ord_zm.getText().toString());
@@ -345,35 +367,35 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_szxq(ord_szxq.getText().toString());
         infoBeans.setOrd_xjzd(ord_xjzd.getText().toString());
         infoBeans.setOrd_lxdh(ord_lxdh.getText().toString());
-        infoBeans.setOrd_sfcygyxgw(s_ord_sfcygyxgw.getText().toString());
+        infoBeans.setOrd_sfcygyxgw(s_ord_sfcygyxgw.isChecked()?"是":"否");
         infoBeans.setOrd_gwmc(ord_gwmc.getText().toString());
-        infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.getText().toString());
-        infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.getText().toString());
+        infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.isChecked()?"是":"否");
+        infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.isChecked()?"是":"否");
         infoBeans.setOrd_sfcygyxgw(s_ord_sfcydbylbx.getText().toString());
         infoBeans.setOrd_whcd(ord_whcd.getText().toString());
-        infoBeans.setOrd_sfzd(s_ord_sfzd.getText().toString());
+        infoBeans.setOrd_sfzd(s_ord_sfzd.isChecked()?"是":"否");
         infoBeans.setOrd_szyx(ord_szyx.getText().toString());
         infoBeans.setOrd_jyzk(ord_jyzk.getText().toString());
         infoBeans.setOrd_jydw(ord_jydw.getText().toString());
         infoBeans.setOrd_byzt(ord_byzt.getText().toString());
         infoBeans.setOrd_zp(ord_zp.getText().toString());
-        infoBeans.setOrd_sfcyjtjj(s_ord_sfcyjtjj.getText().toString());
+        infoBeans.setOrd_sfcyjtjj(s_ord_sfcyjtjj.isChecked()?"是":"否");
         infoBeans.setOrd_cyjtjjdxm(ord_cyjtjjdxm.getText().toString());
-        infoBeans.setOrd_sfwnctk(s_ord_sfwnctk.getText().toString());
-        infoBeans.setOrd_sfwcstk(s_ord_sfwcstk.getText().toString());
-        infoBeans.setOrd_sfwge(s_ord_sfwge.getText().toString());
+        infoBeans.setOrd_sfwnctk(s_ord_sfwnctk.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwcstk(s_ord_sfwcstk.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwge(s_ord_sfwge.isChecked()?"是":"否");
         infoBeans.setOrd_gegyfs(ord_gegyfs.getText().toString());
-        infoBeans.setOrd_sfwlset(s_ord_sfwlset.getText().toString());
-        infoBeans.setOrd_sfwzdry(s_ord_sfwzdry.getText().toString());
+        infoBeans.setOrd_sfwlset(s_ord_sfwlset.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwzdry(s_ord_sfwzdry.isChecked()?"是":"否");
         infoBeans.setOrd_zdrylx(ord_zdrylx.getText().toString());
-        infoBeans.setOrd_sfwcjr(s_ord_sfwcjr.getText().toString());
+        infoBeans.setOrd_sfwcjr(s_ord_sfwcjr.isChecked()?"是":"否");
         infoBeans.setOrd_cjzh(ord_cjzh.getText().toString());
         infoBeans.setOrd_cjdj(ord_cjdj.getText().toString());
-        infoBeans.setOrd_sfyfzqk(s_ord_sfyfzqk.getText().toString());
+        infoBeans.setOrd_sfyfzqk(s_ord_sfyfzqk.isChecked()?"是":"否");
         infoBeans.setOrd_fzlx(ord_fzlx.getText().toString());
         infoBeans.setOrd_jzqx(ord_jzqx.getText().toString());
         infoBeans.setOrd_bfqx(ord_bfqx.getText().toString());
-        infoBeans.setOrd_sfsn(s_ord_sfsn.getText().toString());
+        infoBeans.setOrd_sfsn(s_ord_sfsn.isChecked()?"是":"否");
         infoBeans.setOrd_szsm(ord_szsm.getText().toString());
         infoBeans.setOrd_rssj(ord_rssj.getText().toString());
         infoBeans.setOrd_jzryzshm(ord_jzryzshm.getText().toString());
@@ -389,7 +411,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_apm(ord_apm.getText().toString());
         infoBeans.setOrd_qpm(ord_qpm.getText().toString());
         infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
-        infoBeans.setOrd_fhsz(s_ord_fhsz.getText().toString());
+        infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked()?"是":"否");
 
         return infoBeans;
     }
@@ -401,6 +423,8 @@ public class addKeyPersonActivity extends BaseActivity {
     protected void initView() {
         mContext = this;
         rxTitle = findViewById(R.id.rx_title);
+
+        rxTitle.setLeftFinish(this);
 
         button = findViewById(R.id.btn_save);
         ord_xm = findViewById(R.id.add_ord_xm);
@@ -495,4 +519,97 @@ public class addKeyPersonActivity extends BaseActivity {
         linear_jsxx = findViewById(R.id.linear_jsxx);
     }
 
+    private void inputDatas() {
+        ord_xm.setText(mInfoBean.getOrd_xm());
+        ord_zm.setText(mInfoBean.getOrd_zm());
+        ord_xb.setText(mInfoBean.getOrd_xb());
+        ord_zjlb.setText(mInfoBean.getOrd_zjlb());
+        ord_sfz.setText(mInfoBean.getOrd_sfz());
+        ord_csrq.setText(mInfoBean.getOrd_csrq());
+        ord_nl.setText(mInfoBean.getOrd_nl());
+        ord_mz.setText(mInfoBean.getOrd_mz());
+        ord_zzmm.setText(mInfoBean.getOrd_zzmm());
+        ord_yhzgx.setText(mInfoBean.getOrd_yhzgx());
+        ord_hz.setText(mInfoBean.getOrd_hz());
+        ord_hzsfz.setText(mInfoBean.getOrd_hzsfz());
+        ord_hyzk.setText(mInfoBean.getOrd_hyzk());
+        ord_szxq.setText(mInfoBean.getOrd_szxq());
+        ord_xjzd.setText(mInfoBean.getOrd_xjzd());
+        ord_lxdh.setText(mInfoBean.getOrd_lxdh());
+
+        ord_gwmc.setText(mInfoBean.getOrd_gwmc());
+
+        ord_whcd.setText(mInfoBean.getOrd_whcd());
+
+        ord_szyx.setText(mInfoBean.getOrd_szyx());
+        ord_jyzk.setText(mInfoBean.getOrd_jyzk());
+        ord_jydw.setText(mInfoBean.getOrd_jydw());
+        ord_byzt.setText(mInfoBean.getOrd_byzt());
+        ord_zp.setText(mInfoBean.getOrd_zp());
+
+        ord_cyjtjjdxm.setText(mInfoBean.getOrd_cyjtjjdxm());
+
+        ord_gegyfs.setText(mInfoBean.getOrd_gegyfs());
+
+        ord_zdrylx.setText(mInfoBean.getOrd_zdrylx());
+
+        ord_cjzh.setText(mInfoBean.getOrd_cjzh());
+        ord_cjdj.setText(mInfoBean.getOrd_cjdj());
+        ord_fzlx.setText(mInfoBean.getOrd_fzlx());
+        ord_jzqx.setText(mInfoBean.getOrd_jzqx());
+        ord_bfqx.setText(mInfoBean.getOrd_bfqx());
+
+        ord_szsm.setText(mInfoBean.getOrd_szsm());
+        ord_rssj.setText(mInfoBean.getOrd_rssj());
+        ord_jzryzshm.setText(mInfoBean.getOrd_jzryzshm());
+        ord_lhlszrr.setText(mInfoBean.getOrd_lhlszrr());
+        ord_lhlszrrdw.setText(mInfoBean.getOrd_lhlszrrdw());
+        ord_lhlszrrlxdh.setText(mInfoBean.getOrd_lhlszrrlxdh());
+        ord_sskf.setText(mInfoBean.getOrd_sskf());
+        ord_jlfz.setText(mInfoBean.getOrd_jlfz());
+        ord_tbfz.setText(mInfoBean.getOrd_tbfz());
+        ord_xse.setText(mInfoBean.getOrd_xse());
+        ord_yf.setText(mInfoBean.getOrd_yf());
+        ord_cs.setText(mInfoBean.getOrd_cs());
+        ord_apm.setText(mInfoBean.getOrd_apm());
+        ord_qpm.setText(mInfoBean.getOrd_qpm());
+        ord_ahqhdw.setText(mInfoBean.getOrd_ahqhdw());
+        RxLogTool.e(mInfoBean.getOrd_fhsz());
+        s_ord_fhsz.setChecked(mInfoBean.getOrd_fhsz().equals("是"));
+        s_ord_sfcygyxgw.setChecked(mInfoBean.getOrd_sfcygyxgw().equals("是"));
+        s_ord_sfsn.setChecked(mInfoBean.getOrd_sfsn().equals("是"));
+        s_ord_sfyfzqk.setChecked(mInfoBean.getOrd_sfyfzqk().equals("是"));
+        s_ord_sfwcjr.setChecked(mInfoBean.getOrd_sfwcjr().equals("是"));
+        s_ord_sfwlset.setChecked(mInfoBean.getOrd_sfwlset().equals("是"));
+        s_ord_sfwzdry.setChecked(mInfoBean.getOrd_sfwzdry().equals("是"));
+        s_ord_sfwnctk.setChecked(mInfoBean.getOrd_sfwnctk().equals("是"));
+        s_ord_sfwcstk.setChecked(mInfoBean.getOrd_sfwcstk().equals("是"));
+        s_ord_sfwge.setChecked(mInfoBean.getOrd_sfwge().equals("是"));
+        s_ord_sfcyjtjj.setChecked(mInfoBean.getOrd_sfcyjtjj().equals("是"));
+        s_ord_sfzd.setChecked(mInfoBean.getOrd_sfzd().equals("是"));
+        s_ord_sfcyxnb.setChecked(mInfoBean.getOrd_sfcyxnb().equals("是"));
+        s_ord_sfcyxnh.setChecked(mInfoBean.getOrd_sfcyxnh().equals("是"));
+        s_ord_sfcydbylbx.setChecked(mInfoBean.getOrd_sfcydbylbx().equals("是"));
+        if (ord_xb.getText().toString().equals("女")){
+            MyTools.setLinearLayoutVisibility(linear_jsxx,true);
+        }
+    }
+
+    private void loadlocal() {
+        RxLogTool.e("开始加载本地");
+        try {
+            //个人
+            Map<String, String> personMap = SaveTool.getPerson();
+            String json = personMap.get(mID);
+            UpPersonBean upPersonBean = new Gson().fromJson(json, UpPersonBean.class);
+            mInfoBean = upPersonBean.getInfoBeans().get(0);
+            if (mInfoBean != null) {
+                inputDatas();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }
