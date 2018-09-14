@@ -16,16 +16,28 @@ import java.util.Map;
 public class SaveTool {
     static Gson gson = new Gson();
 
+    /**
+     *
+     * @param id 身份证
+     */
     public static void clearPerson(String id){
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(),"persons");
         mSPHelper.remove(id);
     }
 
+    /**
+     *
+     * @param id 户主身份证
+     */
     public static void clearXumu(String id){
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(),"xumus");
         mSPHelper.remove(id);
     }
 
+    /**
+     * 通过身份证标识　进行存取
+     * @param infoBean
+     */
     public static void saveOnePerson(UpPersonBean.InfoBean infoBean){
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(),"persons");
         UpPersonBean mbean = new UpPersonBean();
@@ -37,6 +49,10 @@ public class SaveTool {
         RxLogTool.d(json);
     }
 
+    /**
+     * 通过户主身份证　进行存取
+     * @param infoBean
+     */
     public static void saveOneXumu(UpXumuInfoBean.InfoBean infoBean){
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(),"xumus");
         UpXumuInfoBean upXumuInfoBean = new UpXumuInfoBean();
@@ -47,6 +63,7 @@ public class SaveTool {
         mSPHelper.put(infoBean.getOrd_hzsfz(),json);
         RxLogTool.d(json);
     }
+
 
     public static Map<String,String> getPerson(){
         SPHelper msp = new SPHelper(MyApp.getContext(),"persons");

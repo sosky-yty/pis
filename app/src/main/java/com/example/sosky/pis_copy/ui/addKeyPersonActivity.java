@@ -14,8 +14,11 @@ import android.widget.TextView;
 
 import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.vondear.rxtools.view.RxTitle;
+import com.vondear.rxtools.view.RxToast;
 
 public class addKeyPersonActivity extends BaseActivity{
 
@@ -278,11 +281,90 @@ public class addKeyPersonActivity extends BaseActivity{
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                    UpPersonBean.InfoBean  bean = saveDatas();
+                    if (bean == null){
+                        RxToast.error("身份证格式不正确，请检查后重新输入");
+                    }else{
+                        SaveTool.saveOnePerson(bean);
+                    }
             }
         });
         }
 
+        //获取控件值,判断身份证是否合格
+        private UpPersonBean.InfoBean saveDatas(){
+
+            //身份证判断逻辑
+            if (!ord_zjlb.getText().toString().equals("非身份证")) {
+                if (MyTools.verificationID(ord_sfz.getText().toString())) {
+                    return null;
+                }
+            }
+            UpPersonBean.InfoBean infoBeans = new UpPersonBean.InfoBean();
+            infoBeans.setOrd_xm(ord_xm.getText().toString());
+            infoBeans.setOrd_zm(ord_zm.getText().toString());
+            infoBeans.setOrd_xb(ord_xb.getText().toString());
+            infoBeans.setOrd_zjlb(ord_zjlb.getText().toString());
+            infoBeans.setOrd_sfz(ord_sfz.getText().toString());
+            infoBeans.setOrd_csrq(ord_csrq.getText().toString());
+            infoBeans.setOrd_nl(ord_nl.getText().toString());
+            infoBeans.setOrd_mz(ord_mz.getText().toString());
+            infoBeans.setOrd_zzmm(ord_zzmm.getText().toString());
+            infoBeans.setOrd_yhzgx(ord_yhzgx.getText().toString());
+            infoBeans.setOrd_hz(ord_hz.getText().toString());
+            infoBeans.setOrd_hzsfz(ord_hzsfz.getText().toString());
+            infoBeans.setOrd_hyzk(ord_hyzk.getText().toString());
+            infoBeans.setOrd_szxq(ord_szxq.getText().toString());
+            infoBeans.setOrd_xjzd(ord_xjzd.getText().toString());
+            infoBeans.setOrd_lxdh(ord_lxdh.getText().toString());
+            infoBeans.setOrd_sfcygyxgw(s_ord_sfcygyxgw.getText().toString());
+            infoBeans.setOrd_gwmc(ord_gwmc.getText().toString());
+            infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.getText().toString());
+            infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.getText().toString());
+            infoBeans.setOrd_sfcygyxgw(s_ord_sfcydbylbx.getText().toString());
+            infoBeans.setOrd_whcd(ord_whcd.getText().toString());
+            infoBeans.setOrd_sfzd(s_ord_sfzd.getText().toString());
+            infoBeans.setOrd_szyx(ord_szyx.getText().toString());
+            infoBeans.setOrd_jyzk(ord_jyzk.getText().toString());
+            infoBeans.setOrd_jydw(ord_jydw.getText().toString());
+            infoBeans.setOrd_byzt(ord_byzt.getText().toString());
+            infoBeans.setOrd_zp(ord_zp.getText().toString());
+            infoBeans.setOrd_sfcyjtjj(s_ord_sfcyjtjj.getText().toString());
+            infoBeans.setOrd_cyjtjjdxm(ord_cyjtjjdxm.getText().toString());
+            infoBeans.setOrd_sfwnctk(s_ord_sfwnctk.getText().toString());
+            infoBeans.setOrd_sfwcstk(s_ord_sfwcstk.getText().toString());
+            infoBeans.setOrd_sfwge(s_ord_sfwge.getText().toString());
+            infoBeans.setOrd_gegyfs(ord_gegyfs.getText().toString());
+            infoBeans.setOrd_sfwlset(s_ord_sfwlset.getText().toString());
+            infoBeans.setOrd_sfwzdry(s_ord_sfwzdry.getText().toString());
+            infoBeans.setOrd_zdrylx(ord_zdrylx.getText().toString());
+            infoBeans.setOrd_sfwcjr(s_ord_sfwcjr.getText().toString());
+            infoBeans.setOrd_cjzh(ord_cjzh.getText().toString());
+            infoBeans.setOrd_cjdj(ord_cjdj.getText().toString());
+            infoBeans.setOrd_sfyfzqk(s_ord_sfyfzqk.getText().toString());
+            infoBeans.setOrd_fzlx(ord_fzlx.getText().toString());
+            infoBeans.setOrd_jzqx(ord_jzqx.getText().toString());
+            infoBeans.setOrd_bfqx(ord_bfqx.getText().toString());
+            infoBeans.setOrd_sfsn(s_ord_sfsn.getText().toString());
+            infoBeans.setOrd_szsm(ord_szsm.getText().toString());
+            infoBeans.setOrd_rssj(ord_rssj.getText().toString());
+            infoBeans.setOrd_jzryzshm(ord_jzryzshm.getText().toString());
+            infoBeans.setOrd_lhlszrr(ord_lhlszrr.getText().toString());
+            infoBeans.setOrd_lhlszrr(ord_lhlszrrdw.getText().toString());
+            infoBeans.setOrd_lhlszrrlxdh(ord_lhlszrrlxdh.getText().toString());
+            infoBeans.setOrd_sskf(ord_sskf.getText().toString());
+            infoBeans.setOrd_jlfz(ord_jlfz.getText().toString());
+            infoBeans.setOrd_tbfz(ord_tbfz.getText().toString());
+            infoBeans.setOrd_xse(ord_xse.getText().toString());
+            infoBeans.setOrd_yf(ord_yf.getText().toString());
+            infoBeans.setOrd_cs(ord_cs.getText().toString());
+            infoBeans.setOrd_apm(ord_apm.getText().toString());
+            infoBeans.setOrd_qpm(ord_qpm.getText().toString());
+            infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
+            infoBeans.setOrd_fhsz(s_ord_fhsz.getText().toString());
+
+            return infoBeans;
+        }
     /**
      * 初始话view
      */

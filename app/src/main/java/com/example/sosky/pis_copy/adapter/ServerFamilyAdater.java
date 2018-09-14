@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.bean.UpXumuInfoBean;
-import com.example.sosky.pis_copy.ui.EditFormActivity;
+import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class ServerFamilyAdater extends BaseQuickAdapter<UpXumuInfoBean.InfoBean
 
         helper.getView(R.id.it_family).setOnClickListener(view -> {
 
-            Intent i = new Intent(mContext, EditFormActivity.class);
+            Intent i = new Intent(mContext, addKeyFamilyActivity.class);
             i.putExtra("id", item.getOrd_hzsfz());
             i.putExtra("action", "xumu");
             mContext.startActivity(i);

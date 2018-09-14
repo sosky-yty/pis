@@ -7,7 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
-import com.example.sosky.pis_copy.ui.EditFormActivity;
+import com.example.sosky.pis_copy.ui.addKeyPersonActivity;
 
 import java.util.List;
 
@@ -31,10 +31,9 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
 
         helper.getView(R.id.it_people).setOnClickListener(view -> {
 
-            Intent i = new Intent(mContext, EditFormActivity.class);
+            Intent i = new Intent(mContext, addKeyPersonActivity.class);
             i.putExtra("id", item.getOrd_sfz());
             i.putExtra("type", "local");
-            i.putExtra("action", "person");
             mContext.startActivity(i);
 
         });
