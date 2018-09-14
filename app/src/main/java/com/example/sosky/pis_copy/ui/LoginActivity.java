@@ -75,6 +75,8 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void login(String u, String p) {
+        RxToast.normal("登录中 请稍候...");
+
         ApiManger.login(u, p, new StringCallback() {
             @Override
             public void onSuccess(Response<String> response) {
@@ -95,7 +97,6 @@ public class LoginActivity extends BaseActivity {
                 RxToast.error("网络错误");
             }
         });
-        RxToast.normal("成功");
     }
 
     private void savepass(String u, String p) {
