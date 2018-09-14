@@ -46,7 +46,7 @@ public class localFamilyFragment extends BaseFragment {
             load();
             btnAdd.setOnClickListener(view1 -> {
                 Intent i = new Intent(mContext, addKeyFamilyActivity.class);
-                i.putExtra("action", "xumu");
+                i.putExtra("action", "new");
                 mContext.startActivity(i);
             });
         }

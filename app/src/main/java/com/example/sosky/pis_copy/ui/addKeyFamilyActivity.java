@@ -1,15 +1,29 @@
 package com.example.sosky.pis_copy.ui;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 
+import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
+import com.google.gson.Gson;
+import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
+import com.vondear.rxtools.view.RxToast;
+
+import java.util.Map;
 
 public class addKeyFamilyActivity extends BaseActivity {
+
+    private String[] jtzk = {"优", "良", "差"};
+    private String[] xsdzc = {"新居", "易地", "地质", "牧民", "定居"};
 
     private RxTitle rxTitle;
     private EditText faOrdHz;
@@ -51,6 +65,8 @@ public class addKeyFamilyActivity extends BaseActivity {
     private EditText addOrdXsdbz;
     private EditText addOrdQjf;
     private Button btnSaveClxx;
+    private UpFamilyInfoBean.InfoBean mInfoBean = new UpFamilyInfoBean.InfoBean();
+    private String mID;
 
 
     @Override
@@ -59,9 +75,100 @@ public class addKeyFamilyActivity extends BaseActivity {
     }
 
     @Override
+    protected void bindListener() {
+        addOrdJtzk.setOnClickListener(v->{
+            MyTools.showSelectDialog(jtzk, mContext, addOrdJtzk);
+        });
+
+        addOrdXsdzc.setOnClickListener(v->{
+            MyTools.showSelectDialog(xsdzc, mContext, addOrdXsdzc);
+        });
+
+        MyTools.setSwitchLisenter(linearZcwchdyy, addOrdSfwwch);
+
+        btnSaveClxx.setOnClickListener(v->{
+            UpFamilyInfoBean.InfoBean bean = saveDatas();
+            if(MyTools.verificationID(bean.getOrd_hzsfz())){
+                SaveTool.saveOneXumu(bean);
+                RxToast.success("保存成功");
+            }else{
+                RxToast.error("身份证错误");
+            }
+        });
+    }
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if ("local".equals(getIntent().getStringExtra("action"))) {
+            mID = getIntent().getStringExtra("id");
+            loadlocal();
+        }
+    }
+
+    private void loadlocal() {
+        RxLogTool.e("开始加载本地");
+        try {
+            //个人
+            Map<String, String> xumuMap = SaveTool.getXumu();
+            String json = xumuMap.get(mID);
+            UpFamilyInfoBean upPersonBean = new Gson().fromJson(json, UpFamilyInfoBean.class);
+            mInfoBean = upPersonBean.getInfoBeans().get(0);
+            if (mInfoBean != null) {
+                inputDatas();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void inputDatas() {
+        faOrdHz.setText(mInfoBean.getOrd_hz());
+        faOrdHzsfz.setText(mInfoBean.getOrd_hzsfz());
+        faOrdJtrks.setText(mInfoBean.getOrd_jtrks());
+        faOrdNzrs.setText(mInfoBean.getOrd_nzrs());
+        addOrdSfwwch.setText(mInfoBean.getOrd_sfwwch());
+        faOrdLdls.setText(mInfoBean.getOrd_ldls());
+        faOrdJntc.setText(mInfoBean.getOrd_jntc());
+        faOrdZcwchdyy.setText(mInfoBean.getOrd_zcwchdyy());
+        faOrdGlscclhj.setText(mInfoBean.getOrd_glscclhj());
+        faOrdMnhj.setText(mInfoBean.getOrd_mnhj());
+        faOrdMnzchj.setText(mInfoBean.getOrd_mnzchj());
+        faOrdMnnfmchj.setText(mInfoBean.getOrd_mnnfmchj());
+        faOrdMyhj.setText(mInfoBean.getOrd_myhj());
+        faOrdSyhj.setText(mInfoBean.getOrd_syhj());
+        faOrdMhj.setText(mInfoBean.getOrd_mhj());
+        faOrdBz.setText(mInfoBean.getOrd_bz());
+        addOrdTpnx.setText(mInfoBean.getOrd_tpnx());
+        addOrdYdfpbqyy.setText(mInfoBean.getOrd_ydfpbqyy());
+        addOrdPkhsx.setText(mInfoBean.getOrd_pkhsx());
+        addOrdJtzk.setText(mInfoBean.getOrd_jtzk());
+        addOrdSfjnp.setText(mInfoBean.getOrd_sfjnp());
+        addOrdJfhlx.setText(mInfoBean.getOrd_jfhlx());
+        addOrdJzfmj.setText(mInfoBean.getOrd_jzfmj());
+        addOrdJzftp.setText(mInfoBean.getOrd_jzftp());
+        addOrdXzfmj.setText(mInfoBean.getOrd_xzfmj());
+        addOrdXzftp.setText(mInfoBean.getOrd_xzftp());
+        addOrdCjfk.setText(mInfoBean.getOrd_cjfk());
+        addOrdXjjslx.setText(mInfoBean.getOrd_xjjslx());
+        addOrdDzzhbqyy.setText(mInfoBean.getOrd_dzzhbqyy());
+        addOrdXsdzc.setText(mInfoBean.getOrd_xsdzc());
+        addOrdXsdbz.setText(mInfoBean.getOrd_xsdbz());
+        addOrdQjf.setText(mInfoBean.getOrd_qjf());
+        addOrdSfjdlkpkh.setChecked(mInfoBean.getOrd_sfjdlkpkh().equals("是"));
+        addOrdSfjnp.setChecked(mInfoBean.getOrd_sfjnp().equals("是"));
+        addOrdSfxsdb.setChecked(mInfoBean.getOrd_sfxsdb().equals("是"));
+        addOrdSfxslsjz.setChecked(mInfoBean.getOrd_sfxslsjz().equals("是"));
+        addOrdSfjsgfw.setChecked(mInfoBean.getOrd_sfjsgfw().equals("是"));
+        addOrdXf.setChecked(mInfoBean.getOrd_xf().equals("是"));
+
+    }
+
+    @Override
     protected void bindView() {
 
         rxTitle = findViewById(R.id.rx_title);
+        rxTitle.setLeftFinish(this);
         faOrdHz = findViewById(R.id.fa_ord_hz);
         faOrdHzsfz = findViewById(R.id.fa_ord_hzsfz);
         faOrdJtrks = findViewById(R.id.fa_ord_jtrks);
@@ -112,7 +219,6 @@ public class addKeyFamilyActivity extends BaseActivity {
      */
     public UpFamilyInfoBean.InfoBean saveDatas() {
 
-
         UpFamilyInfoBean.InfoBean infoBean = new UpFamilyInfoBean.InfoBean();
         infoBean.setOrd_hz(faOrdHz.getText().toString());
         infoBean.setOrd_hzsfz(faOrdHzsfz.getText().toString());
@@ -147,9 +253,15 @@ public class addKeyFamilyActivity extends BaseActivity {
 
         //todo 是否 
         infoBean.setOrd_sfjdlkpkh(addOrdSfjdlkpkh.isChecked() ? "是" : "否");
+        infoBean.setOrd_sfjnp(addOrdSfjnp.isChecked() ? "是" : "否");
+        infoBean.setOrd_sfxsdb(addOrdSfxsdb.isChecked() ? "是" : "否");
+        infoBean.setOrd_sfxslsjz(addOrdSfxslsjz.isChecked() ? "是" : "否");
+        infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
+        infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
+        infoBean.setOrd_xf(addOrdXf.isChecked() ? "是" : "否");
 
         return infoBean;
     }
-    
-    
+
+
 }
