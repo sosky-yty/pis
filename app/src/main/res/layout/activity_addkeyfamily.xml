@@ -157,7 +157,9 @@
                     android:id="@+id/add_ord_sfwwch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout
@@ -339,7 +341,9 @@
                     android:id="@+id/add_ord_sfjdlkpkh"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout
@@ -426,7 +430,9 @@
                     android:id="@+id/add_ord_sfjnp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout
@@ -443,7 +449,9 @@
                     android:id="@+id/add_ord_sfxsdb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout
@@ -460,7 +468,9 @@
                     android:id="@+id/add_ord_sfxslsjz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout
@@ -477,7 +487,9 @@
                     android:id="@+id/add_ord_sfjsgfw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
 
@@ -601,7 +613,9 @@
                     android:id="@+id/add_ord_xf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="false"/>
+                    android:checked="false"
+                    android:textOn="是"
+                    android:textOff="否"/>
             </LinearLayout>
 
             <LinearLayout

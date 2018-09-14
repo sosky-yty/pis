@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.MainActivity">
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,12 +24,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.LoginActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_login"
             android:theme="@style/AppTheme"></activity>
         <activity android:name=".ui.addKeyFamilyActivity"/>
         <activity android:name=".ui.addKeyPersonActivity"/>
-        <activity android:name=".ui.EditFormActivity"/>
     </application>
 
 </manifest>

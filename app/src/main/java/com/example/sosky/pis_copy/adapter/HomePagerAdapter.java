@@ -5,9 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.example.sosky.pis_copy.ui.fg.FamilyFragment;
-import com.example.sosky.pis_copy.ui.fg.PersonFragment;
+
 import com.example.sosky.pis_copy.ui.fg.MineFragment;
+import com.example.sosky.pis_copy.ui.fg.localFamilyFragment;
+import com.example.sosky.pis_copy.ui.fg.localPersonFragment;
 
 public class HomePagerAdapter extends FragmentPagerAdapter {
     private final int PAGE_COUNT = 3;
@@ -21,8 +22,8 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch(position){
-            case 0: return new PersonFragment();
-            case 1: return new FamilyFragment();
+            case 0: return new localPersonFragment();
+            case 1: return new localFamilyFragment();
             case 2: return new MineFragment();
         }
         return null;

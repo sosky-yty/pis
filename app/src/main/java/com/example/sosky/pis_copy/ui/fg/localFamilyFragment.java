@@ -13,7 +13,7 @@ import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.adapter.LocalFamilyAdapter;
 import com.example.sosky.pis_copy.base.BaseFragment;
 import com.example.sosky.pis_copy.bean.UpXumuInfoBean;
-import com.example.sosky.pis_copy.ui.EditFormActivity;
+import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -45,7 +45,7 @@ public class localFamilyFragment extends BaseFragment {
         if (isVisiable) {
             load();
             btnAdd.setOnClickListener(view1 -> {
-                Intent i = new Intent(mContext, EditFormActivity.class);
+                Intent i = new Intent(mContext, addKeyFamilyActivity.class);
                 i.putExtra("action", "xumu");
                 mContext.startActivity(i);
             });
@@ -67,7 +67,7 @@ public class localFamilyFragment extends BaseFragment {
         load();
 
         btnAdd.setOnClickListener(view1 -> {
-            Intent i = new Intent(mContext, EditFormActivity.class);
+            Intent i = new Intent(mContext, addKeyFamilyActivity.class);
             i.putExtra("action", "xumu");
             mContext.startActivity(i);
         });

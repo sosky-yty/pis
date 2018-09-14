@@ -687,4 +687,17 @@ public class MyTools {
         }
         return max;
     }
+
+    /**
+     * 验证id 15位或者１８位
+     * @return
+     */
+    public static Boolean verificationID(String ID){
+        if (ID.isEmpty()){
+            return false;
+        }else if (ID.length()!=15||ID.length()!= 18){
+            return false;
+        }
+        return true;
+    }
 }
