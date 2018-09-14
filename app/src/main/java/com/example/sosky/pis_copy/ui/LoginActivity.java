@@ -10,6 +10,8 @@ import com.example.sosky.pis_copy.MyApp;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SPHelper;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
@@ -34,14 +36,14 @@ public class LoginActivity extends BaseActivity {
     protected void initView() {
         super.initView();
 
-        rxTitle = (RxTitle) findViewById(R.id.rx_title);
-        user = (AutoCompleteTextView) findViewById(R.id.user);
-        password = (EditText) findViewById(R.id.password);
-        buttonLogin = (AppCompatButton) findViewById(R.id.button_login);
-        buttonOffline = (AppCompatButton) findViewById(R.id.button_offline);
-        address = (AutoCompleteTextView) findViewById(R.id.address);
-        buttonSave = (AppCompatButton) findViewById(R.id.button_save);
-        buttonSet = (AppCompatButton) findViewById(R.id.button_set);
+        rxTitle = findViewById(R.id.rx_title);
+        user = findViewById(R.id.user);
+        password = findViewById(R.id.password);
+        buttonLogin = findViewById(R.id.button_login);
+        buttonOffline = findViewById(R.id.button_offline);
+        address = findViewById(R.id.address);
+        buttonSave = findViewById(R.id.button_save);
+        buttonSet = findViewById(R.id.button_set);
 
     }
 
@@ -72,8 +74,36 @@ public class LoginActivity extends BaseActivity {
         buttonLogin.setOnClickListener(view -> login(user.getText().toString(), password.getText().toString()));
     }
 
-    private void login(String s, String s1) {
-        RxToast.normal("成功");
+    private void login(String u, String p) {
+        RxToast.normal("登录中 请稍候...");
+
+        ApiManger.login(u, p, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                if (response.body() == null) {
+                    RxToast.error("服务器错误");
+                    return;
+                }
+                if (response.body().contains("ok")) {
+                    RxToast.success("登录成功");
+                    savepass(u, p);
+                    toMain();
+                }
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+                RxToast.error("网络错误");
+            }
+        });
+    }
+
+    private void savepass(String u, String p) {
+        MyApp.SPE.putString("username", u).apply();
+        MyApp.SPE.putString("password", p).apply();
+        MyApp.SPE.putBoolean("isLogin", true).apply();
+
     }
 
     /**

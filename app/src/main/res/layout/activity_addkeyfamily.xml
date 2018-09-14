@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.vondear.rxtools.view.RxTitle
         android:id="@+id/rx_title"
@@ -24,37 +24,40 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:foreground="@null"
             android:gravity="center"
+            android:orientation="vertical"
             >
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:layout_margin="@dimen/margin"
+                android:gravity="center_vertical"
                 android:text="畜牧信息"
-                android:textSize="20dp"
-                android:textColor="@color/assist_text_color"/>
+                android:textColor="@color/assist_text_color"
+                android:textSize="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="户主："/>
+
                 <EditText
                     android:id="@+id/fa_ord_hz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -62,104 +65,116 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="户主身份证："/>
+
                 <EditText
                     android:id="@+id/fa_ord_hzsfz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="家庭人口数："/>
+
                 <EditText
                     android:id="@+id/fa_ord_jtrks"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="男子人数："/>
+
                 <EditText
                     android:id="@+id/fa_ord_nzrs"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="劳动力数："/>
-                <EditText
-                    android:id="@+id/fa_ord_ldls"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="技能特长："/>
-                <EditText
-                    android:id="@+id/fa_ord_jntc"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="是否为无畜户："/>
+
                 <Switch
                     android:id="@+id/add_ord_sfwwch"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="劳动力数："/>
+
+                <EditText
+                    android:id="@+id/fa_ord_ldls"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:text="技能特长："/>
+
+                <EditText
+                    android:id="@+id/fa_ord_jntc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
@@ -167,169 +182,188 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="造成无畜户的原因："/>
+
                 <EditText
                     android:id="@+id/fa_ord_zcwchdyy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="各类牲畜存栏合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_glscclhj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="牦牛合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_mnhj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="牦牛仔畜合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_mnzchj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="牦牛能繁母畜合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_mnnfmchj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="绵羊合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_myhj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="山羊合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_syhj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="马合计："/>
+
                 <EditText
                     android:id="@+id/fa_ord_mhj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="备注："/>
+
                 <EditText
                     android:id="@+id/fa_ord_bz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
                 android:layout_margin="@dimen/margin"
+                android:gravity="center_vertical"
                 android:text="家庭信息"
-                android:textSize="20dp"
-                android:textColor="@color/assist_text_color"/>
+                android:textColor="@color/assist_text_color"
+                android:textSize="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
@@ -342,77 +376,85 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="脱贫年限"/>
+
                 <EditText
                     android:id="@+id/add_ord_tpnx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="易地扶贫搬迁意愿"/>
+
                 <EditText
                     android:id="@+id/add_ord_ydfpbqyy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="贫困户属性（五个一批类型）"/>
+
                 <EditText
                     android:id="@+id/add_ord_pkhsx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="家庭状况"/>
+
                 <EditText
                     android:id="@+id/add_ord_jtzk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -420,76 +462,84 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="是否建暖棚"/>
+
                 <Switch
                     android:id="@+id/add_ord_sfjnp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="是否享受低保"/>
+
                 <Switch
                     android:id="@+id/add_ord_sfxsdb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="是否享受临时救助"/>
+
                 <Switch
                     android:id="@+id/add_ord_sfxslsjz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="是否建设过房屋"/>
+
                 <Switch
                     android:id="@+id/add_ord_sfjsgfw"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
 
@@ -497,52 +547,58 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="建房户类型"/>
+
                 <EditText
                     android:id="@+id/add_ord_jfhlx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="旧住房面积"/>
+
                 <EditText
                     android:id="@+id/add_ord_jzfmj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="旧住房图片"/>
+
                 <EditText
                     android:id="@+id/add_ord_jzftp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -550,35 +606,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="新住房面积"/>
+
                 <EditText
                     android:id="@+id/add_ord_xzfmj"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="新住房图片"/>
+
                 <EditText
                     android:id="@+id/add_ord_xzftp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -586,88 +646,98 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="拆旧复垦"/>
+
                 <EditText
                     android:id="@+id/add_ord_cjfk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="修复"/>
+
                 <Switch
                     android:id="@+id/add_ord_xf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
-                    android:textOn="是"
-                    android:textOff="否"/>
+                    android:textOff="否"
+                    android:textOn="是"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="新居建设类型"/>
+
                 <EditText
                     android:id="@+id/add_ord_xjjslx"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="地质灾害搬迁原因"/>
+
                 <EditText
                     android:id="@+id/add_ord_dzzhbqyy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="享受的政策"/>
+
                 <EditText
                     android:id="@+id/add_ord_xsdzc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableLeft="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -675,34 +745,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="享受的标准"/>
+
                 <EditText
                     android:id="@+id/add_ord_xsdbz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:text="全家福"/>
+
                 <EditText
                     android:id="@+id/add_ord_qjf"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:layout_weight="1"/>
             </LinearLayout>
 
             <Button

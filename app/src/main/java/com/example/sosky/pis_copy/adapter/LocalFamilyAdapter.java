@@ -6,17 +6,17 @@ import android.content.Intent;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.sosky.pis_copy.R;
-import com.example.sosky.pis_copy.bean.UpXumuInfoBean;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 
 import java.util.List;
 
-public class LocalFamilyAdapter extends BaseQuickAdapter<UpXumuInfoBean.InfoBean,BaseViewHolder>{
-    private final List<UpXumuInfoBean.InfoBean> mList;
+public class LocalFamilyAdapter extends BaseQuickAdapter<UpFamilyInfoBean.InfoBean,BaseViewHolder>{
+    private final List<UpFamilyInfoBean.InfoBean> mList;
     Context mContext;
 
 
-    public LocalFamilyAdapter(List<UpXumuInfoBean.InfoBean> datas, Context context) {
+    public LocalFamilyAdapter(List<UpFamilyInfoBean.InfoBean> datas, Context context) {
         super(R.layout.item_family, datas);
 
         mList = datas;
@@ -24,7 +24,7 @@ public class LocalFamilyAdapter extends BaseQuickAdapter<UpXumuInfoBean.InfoBean
     }
 
     @Override
-    protected void convert(BaseViewHolder helper, UpXumuInfoBean.InfoBean item) {
+    protected void convert(BaseViewHolder helper, UpFamilyInfoBean.InfoBean item) {
 
         helper.setText(R.id.tv_name_it_family, item.getOrd_hz());
         helper.setText(R.id.tv_num_it, item.getOrd_jtrks());

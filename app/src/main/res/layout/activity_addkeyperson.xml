@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin"
                 android:gravity="center_vertical"
-                android:text="注：＊为选填，其他为必填"
+                android:text="注：身份证为必填"
                 android:textColor="@color/assist_text_color"/>
 
             <LinearLayout
