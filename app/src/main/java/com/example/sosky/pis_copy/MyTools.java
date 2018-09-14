@@ -24,6 +24,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxPermissionsTool;
+import com.vondear.rxtools.RxTool;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -661,6 +662,17 @@ public class MyTools {
         return ret;
     }
 
+
+    /**
+     * 改变TextView状态
+     *
+     * @param tvTitle
+     */
+    public static void changeTV2Over(TextView tvTitle) {
+        tvTitle.setText("完成");
+        tvTitle.setTextColor(RxTool.getContext().getResources().getColor(R.color.theme_color));
+    }
+    
 
     public static int getMax(int[] str) {
 
