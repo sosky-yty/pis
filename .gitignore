@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *.iml
 .gradle
 /local.properties
@@ -8,3 +9,17 @@
 /build
 /captures
 .externalNativeBuild
+=======
+ 
+.idea/
+.idea/gradle.xml
+.idea/inspectionProfiles/
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/workspace.xml
+local.properties
+pis.iml
+build/
+.gradle/
+>>>>>>> 2b44e915bc7fae36d6bb14f561851115fa0c88a8
