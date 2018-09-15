@@ -6,7 +6,7 @@ import java.util.List;
  * 医保信息
  */
 public class UpMedicalBean {
-    public static class DataSetBean {
+    public static class InfoBean {
         private String ord2_xm;
         private String ord2_sfz;
         private String ord2_sccyybrq;
@@ -72,13 +72,13 @@ public class UpMedicalBean {
         }
     }
 
-    List<DataSetBean> dataSetBeans;
+    List<InfoBean> infoBeans;
 
-    public List<DataSetBean> getDataSetBeans() {
-        return dataSetBeans;
+    public List<InfoBean> getInfoBeans() {
+        return infoBeans;
     }
 
-    public void setDataSetBeans(List<DataSetBean> dataSetBeans) {
-        this.dataSetBeans = dataSetBeans;
+    public void setInfoBeans(List<InfoBean> infoBeans) {
+        this.infoBeans = infoBeans;
     }
 }

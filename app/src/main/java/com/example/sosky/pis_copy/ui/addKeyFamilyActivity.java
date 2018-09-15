@@ -12,7 +12,6 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
-import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;

@@ -7,17 +7,17 @@ import java.util.List;
  */
 public class UpPovertyBean {
 
-    List<infoBean> infoBeans;
+    List<InfoBean> infoBeans;
 
-    public List<infoBean> getInfoBeans() {
+    public List<InfoBean> getInfoBeans() {
         return infoBeans;
     }
 
-    public void setInfoBeans(List<infoBean> infoBeans) {
+    public void setInfoBeans(List<InfoBean> infoBeans) {
         this.infoBeans = infoBeans;
     }
 
-    public static class infoBean{
+    public static class InfoBean{
         private String ord2_hz;
         private String ord2_hzsfz;
         private String ord2_bfzrr;
