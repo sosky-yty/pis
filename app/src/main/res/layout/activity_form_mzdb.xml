@@ -83,7 +83,7 @@
                     android:lineSpacingExtra="3dp"
                     android:text="是否享受低保："/>
                 <Switch
-                    android:id="@+id/mzdb_ord_xf"
+                    android:id="@+id/mzdb_ord_sfxsdb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:checked="false"
