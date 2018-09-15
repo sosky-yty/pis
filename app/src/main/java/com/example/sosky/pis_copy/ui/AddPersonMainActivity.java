@@ -161,7 +161,9 @@ public class AddPersonMainActivity extends BaseActivity {
 
         File file = (new File(RxPhotoTool.getImageAbsolutePath(mContext, uri)));
 
-        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + idcard + getexname(file));
+        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) +"个人照片"+ idcard + getexname(file));
+
+        RxFileTool.deleteFile(tofile);
         RxFileTool.moveFile(file, tofile);
 
         String tofileName = tofile.getName();

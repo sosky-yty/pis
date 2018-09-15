@@ -202,7 +202,7 @@
 
 
             <RelativeLayout
-                android:id="@+id/rl_tekun"
+                android:id="@+id/rl_nongbao"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
@@ -216,7 +216,7 @@
                     android:textColor="@color/important_text_color"/>
 
                 <TextView
-                    android:id="@+id/tv_tekun"
+                    android:id="@+id/tv_nongbao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -268,23 +268,54 @@
                 android:layout_height="1px"
                 android:background="@color/line_color"/>
 
-
             <RelativeLayout
-                android:id="@+id/rl_lingshi"
+                android:id="@+id/rl_tekun"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/margin"
-                    android:text="临时救助信息"
+                    android:text="特困信息"
                     android:textColor="@color/important_text_color"/>
 
                 <TextView
-                    android:id="@+id/tv_lingshi"
+                    android:id="@+id/tv_tekun"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin"
+                    android:drawablePadding="10dp"
+                    android:drawableRight="@drawable/ic_next"
+                    android:gravity="center"
+                    android:text="未完成"
+                    android:textColor="@color/assist_text_color"/>
+            </RelativeLayout>
+        
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_color"/>
+
+            <RelativeLayout
+                android:id="@+id/rl_canlian"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/white">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:text="残联信息"
+                    android:textColor="@color/important_text_color"/>
+
+                <TextView
+                    android:id="@+id/tv_canlian"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -297,44 +328,7 @@
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/line_color"/>
-
-
-            <RelativeLayout
-                android:id="@+id/rl_jingzhun"
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/white">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:text="精准扶贫信息"
-                    android:textColor="@color/important_text_color"/>
-
-                <TextView
-                    android:id="@+id/tv_jingzhun"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/margin"
-                    android:drawablePadding="10dp"
-                    android:drawableRight="@drawable/ic_next"
-                    android:gravity="center"
-                    android:text="未完成"
-                    android:textColor="@color/assist_text_color"/>
-            </RelativeLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/line_color"/>
+        
 
 
         </LinearLayout>
