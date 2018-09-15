@@ -1,20 +1,27 @@
 package com.example.sosky.pis_copy.ui;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatButton;
+import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.example.sosky.pis_copy.ApiManger;
 import com.example.sosky.pis_copy.MyApp;
+import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SPHelper;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
+import com.vondear.rxtools.RxDeviceTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
+import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
+
+import java.util.List;
 
 public class LoginActivity extends BaseActivity {
 
@@ -26,6 +33,7 @@ public class LoginActivity extends BaseActivity {
     private AutoCompleteTextView address;
     private AppCompatButton buttonSave;
     private AppCompatButton buttonSet;
+    private List<String> mPermission;
 
     @Override
     protected void bindView() {
@@ -44,6 +52,8 @@ public class LoginActivity extends BaseActivity {
         address = findViewById(R.id.address);
         buttonSave = findViewById(R.id.button_save);
         buttonSet = findViewById(R.id.button_set);
+
+        mPermission = MyTools.requestPermissions(this);
 
     }
 
@@ -118,4 +128,35 @@ public class LoginActivity extends BaseActivity {
     protected int getContentID() {
         return R.layout.activity_login;
     }
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        boolean isGetAllPermission = true;
+        for (String s : mPermission) {
+            if (!RxDeviceTool.checkPermission(this, s)) {
+                isGetAllPermission = false;
+            }
+        }
+        if (!isGetAllPermission) {
+            final RxDialogSureCancel rxDialogSureCancel = new RxDialogSureCancel(LoginActivity.this);//提示弹窗
+            rxDialogSureCancel.getTitleView().setText("重要提示");
+            rxDialogSureCancel.setContent("部分权限未获得\n可能导致APP部分功能异常\n重新请求权限?");
+            rxDialogSureCancel.getSureView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPermission = MyTools.requestPermissions(LoginActivity.this);
+                    rxDialogSureCancel.cancel();
+                }
+            });
+            rxDialogSureCancel.getCancelView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    rxDialogSureCancel.cancel();
+                }
+            });
+            rxDialogSureCancel.show();
+        }
+    }
+
 }

@@ -19,6 +19,7 @@ import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
 
 import java.io.File;
+import java.io.IOException;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
@@ -155,17 +156,22 @@ public class AddPersonMainActivity extends BaseActivity {
         String idcard = editSfz.getText().toString();
 
 
-        Glide.with(mContext).
-                load(uri).
-                into(ivZp);
-
         File file = (new File(RxPhotoTool.getImageAbsolutePath(mContext, uri)));
 
-        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) +"个人照片"+ idcard + getexname(file));
+        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) +"个人照片/"+ idcard + getexname(file));
 
         RxFileTool.deleteFile(tofile);
-        RxFileTool.moveFile(file, tofile);
 
+        try {
+            RxFileTool.copyFile(file, tofile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Glide.with(mContext).
+                load(tofile).
+                into(ivZp);
+        
         String tofileName = tofile.getName();
         tvZp.setText(tofileName);
         RxLogTool.e("照片" + file.getAbsolutePath());

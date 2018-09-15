@@ -280,20 +280,7 @@ public class MyTools {
     }
 
 
-    /**
-     * 请求权限
-     *
-     * @param activity
-     * @return
-     */
-    public static List<String> requestPermissions(Activity activity) {
-        return RxPermissionsTool.
-                with(activity).
-                addPermission(Manifest.permission.READ_EXTERNAL_STORAGE).
-                addPermission(Manifest.permission.CALL_PHONE).
-                addPermission(Manifest.permission.READ_PHONE_STATE).
-                initPermission();
-    }
+ 
 
     /**
      * 通过HashSet剔除重复元素
@@ -706,4 +693,23 @@ public class MyTools {
         return true;
     }
 
+
+    /**
+     * 请求权限
+     *
+     * @param activity
+     * @return
+     */
+    public static List<String> requestPermissions(Activity activity) {
+        return RxPermissionsTool.
+                with(activity).
+                addPermission(Manifest.permission.READ_EXTERNAL_STORAGE).
+           //     addPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE).
+                addPermission(Manifest.permission.CAMERA).
+                addPermission(Manifest.permission.CALL_PHONE).
+                addPermission(Manifest.permission.READ_PHONE_STATE).
+            //    addPermission(Manifest.permission.RECORD_AUDIO).
+                initPermission();
+    }
+    
 }
