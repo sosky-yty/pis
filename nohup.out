@@ -2,3 +2,4 @@ Gtk-Message: 10:25:14.982: Failed to load module "canberra-gtk-module"
 Gtk-Message: 16:29:56.413: Failed to load module "canberra-gtk-module"
 Sep 14, 2018 8:21:59 PM io.grpc.internal.ManagedChannelImpl <init>
 INFO: [ManagedChannelImpl@15158490] Created with target directaddress:///io.grpc.inprocess.InProcessSocketAddress@618f4932
+Gtk-Message: 13:32:08.055: Failed to load module "canberra-gtk-module"

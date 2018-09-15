@@ -770,15 +770,15 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="全家福"
-                    android:drawableRight="@drawable/ic_down"
-                    android:editable="false"/>
+                    android:text="全家福"/>
 
                 <EditText
                     android:id="@+id/add_ord_qjf"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/ic_down"
+                    android:editable="false"/>
             </LinearLayout>
 
             <Button
