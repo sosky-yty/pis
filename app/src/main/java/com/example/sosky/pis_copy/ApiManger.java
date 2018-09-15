@@ -224,7 +224,16 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
-
+    /**
+     * 下载个人信息
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadKeyPerson(String data,StringCallback stringCallback){
+        OkGo.<String>get(API_GET_PERSON_INFO)
+                .params("data",data)
+                .execute(stringCallback);
+    }
 
     
 }
