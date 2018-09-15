@@ -20,6 +20,9 @@ import com.vondear.rxtools.view.RxToast;
 
 import java.util.Map;
 
+/**
+ * 残联信息
+ */
 public class addClxxActivity extends BaseActivity {
 
     private String[] cjyy = {"疾病", "遗传", "意外", "地震", "其他"};
@@ -52,17 +55,17 @@ public class addClxxActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
-            loadlocal();
+            loadDatas();
         }
 
     }
 
-    private void loadlocal() {
+    @Override
+    protected void loadDatas() {
         RxLogTool.e("开始加载本地");
         try {
-            //个人
-            Map<String, String> xumuMap = SaveTool.getResidual();
-            String json = xumuMap.get(mID);
+            Map<String, String> residualMap = SaveTool.getResidual();
+            String json = residualMap.get(mID);
             UpResidualBean upResidualBean = new Gson().fromJson(json, UpResidualBean.class);
             mInfoBean = upResidualBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
@@ -72,6 +75,7 @@ public class addClxxActivity extends BaseActivity {
             e.printStackTrace();
         }
     }
+
 
     @Override
     protected void inputDatas() {

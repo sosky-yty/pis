@@ -277,18 +277,6 @@ public class addKeyPersonActivity extends BaseActivity {
                 MyTools.showSelectDialog(yf, mContext, ord_yf);
             }
         });
-//            //监听为女，显示计生信息
-//            ord_xb.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//                @Override
-//                public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
-//                    if(ord_xb.getText().toString().equals("女")){
-//                        MyTools.setLinearLayoutVisibility(linear_jsxx,true);
-//                    }else if(ord_xb.getText().toString().equals("男")){
-//                        MyTools.setLinearLayoutVisibility(linear_jsxx,false);
-//                    }
-//                    return false;
-//                }
-//            });
 
         MyTools.setSwitchLisenter(linear_gwmc, s_ord_sfcygyxgw);
         MyTools.setSwitchLisenter(linear_szyx, s_ord_sfzd);
@@ -311,7 +299,6 @@ public class addKeyPersonActivity extends BaseActivity {
             }
         });
 
-        //todo 获得所有信息，保存进UpPersonBean.InfoBean
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
