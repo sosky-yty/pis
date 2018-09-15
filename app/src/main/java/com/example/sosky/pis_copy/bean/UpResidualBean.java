@@ -25,6 +25,42 @@ public class UpResidualBean {
         private String ord2_cjlb;
         private String ord2_sfxszc;
         private String ord2_zclb;
+        private String ord2_sfxsshbt;
+        private String ord2_yhkh;
+        private String ord2_flag;
+        private String ord2_yl;
+
+        public String getOrd2_sfxsshbt() {
+            return ord2_sfxsshbt;
+        }
+
+        public void setOrd2_sfxsshbt(String ord2_sfxsshbt) {
+            this.ord2_sfxsshbt = ord2_sfxsshbt;
+        }
+
+        public String getOrd2_yhkh() {
+            return ord2_yhkh;
+        }
+
+        public void setOrd2_yhkh(String ord2_yhkh) {
+            this.ord2_yhkh = ord2_yhkh;
+        }
+
+        public String getOrd2_flag() {
+            return ord2_flag;
+        }
+
+        public void setOrd2_flag(String ord2_flag) {
+            this.ord2_flag = ord2_flag;
+        }
+
+        public String getOrd2_yl() {
+            return ord2_yl;
+        }
+
+        public void setOrd2_yl(String ord2_yl) {
+            this.ord2_yl = ord2_yl;
+        }
 
         public String getOrd2_xm() {
             return ord2_xm;

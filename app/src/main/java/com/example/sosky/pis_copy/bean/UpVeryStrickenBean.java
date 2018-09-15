@@ -28,6 +28,15 @@ public class UpVeryStrickenBean {
         private String ord2_gyfs;
         private String ord2_bz;
         private String ord2_flag;
+        private String ord2_yl;
+
+        public String getOrd2_yl() {
+            return ord2_yl;
+        }
+
+        public void setOrd2_yl(String ord2_yl) {
+            this.ord2_yl = ord2_yl;
+        }
 
         public String getOrd2_xm() {
             return ord2_xm;
