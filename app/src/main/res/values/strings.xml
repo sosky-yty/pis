@@ -10,4 +10,5 @@
     <string name="mode">状态:</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="pis">Pis</string>
+    <string name="photo_path">色柯照片/</string>
 </resources>

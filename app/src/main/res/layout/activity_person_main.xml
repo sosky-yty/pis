@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.vondear.rxtools.view.RxTitle
@@ -18,7 +18,7 @@
         app:title="查看与编辑"
         app:titleColor="@color/white">
     </com.vondear.rxtools.view.RxTitle>
-    
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -28,12 +28,76 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:text="姓名:"
+                    android:textColor="@color/important_text_color"/>
+
+                <EditText
+                    android:id="@+id/edit_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:hint="必填"
+                    android:textColor="@color/assist_text_color"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/margin"
+                    android:text="身份证号:"
+                    android:textColor="@color/important_text_color"/>
+
+                <EditText
+                    android:id="@+id/edit_sfz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/margin"
+                    android:layout_weight="1"
+                    android:drawablePadding="10dp"
+                    android:gravity="center"
+                    android:hint="必填"
+                    android:textColor="@color/assist_text_color"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/line_color"/>
+
             <RelativeLayout
                 android:id="@+id/rl_ord_zp"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,11 +108,12 @@
 
                 <ImageView
                     android:id="@+id/iv_zp"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/photo"
-                    android:layout_margin="4dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="4dp"
+                    android:src="@drawable/photo"/>
+
                 <TextView
                     android:id="@+id/tv_zp"
                     android:layout_width="wrap_content"
@@ -66,13 +131,14 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="@color/line_color"/>   
-            
+                android:background="@color/line_color"/>
+
             <RelativeLayout
                 android:id="@+id/rl_jichu"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -106,6 +172,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -134,12 +201,12 @@
                 android:background="@color/line_color"/>
 
 
-
             <RelativeLayout
                 android:id="@+id/rl_tekun"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -168,13 +235,12 @@
                 android:background="@color/line_color"/>
 
 
-
-
             <RelativeLayout
                 android:id="@+id/rl_caoyuan"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -208,6 +274,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -236,12 +303,12 @@
                 android:background="@color/line_color"/>
 
 
-
             <RelativeLayout
                 android:id="@+id/rl_jingzhun"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:background="@color/white">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -268,8 +335,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/line_color"/>
-            
-            
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
