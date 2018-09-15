@@ -52,6 +52,11 @@ public abstract class BaseActivity extends AppCompatActivity {
      */
     protected  void initView(){};
 
+    /**
+     * 控件数据初始化
+     */
+    protected void inputDatas(){};
+
     protected abstract int getContentID();
 
     /**

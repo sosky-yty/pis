@@ -122,7 +122,8 @@ public class addKeyFamilyActivity extends BaseActivity {
         }
     }
 
-    private void inputDatas() {
+    @Override
+    protected void inputDatas() {
         faOrdHz.setText(mInfoBean.getOrd_hz());
         faOrdHzsfz.setText(mInfoBean.getOrd_hzsfz());
         faOrdJtrks.setText(mInfoBean.getOrd_jtrks());

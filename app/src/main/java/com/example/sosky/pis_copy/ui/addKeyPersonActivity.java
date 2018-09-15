@@ -518,8 +518,8 @@ public class addKeyPersonActivity extends BaseActivity {
         s_ord_fhsz = findViewById(R.id.add_ord_fhsz);
         linear_jsxx = findViewById(R.id.linear_jsxx);
     }
-
-    private void inputDatas() {
+    @Override
+    protected void inputDatas() {
         ord_xm.setText(mInfoBean.getOrd_xm());
         ord_zm.setText(mInfoBean.getOrd_zm());
         ord_xb.setText(mInfoBean.getOrd_xb());
