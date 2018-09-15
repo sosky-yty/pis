@@ -39,6 +39,7 @@
         <activity android:name=".ui.addJzfpActivity" />
         <activity android:name=".ui.addCybzActivity" />
         <activity android:name=".ui.addClxxActivity" />
+        <activity android:name=".ui.AddFamilyMainActivity"/>
     </application>
 
 </manifest>

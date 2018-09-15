@@ -20,6 +20,9 @@ import java.io.IOException;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
+/**
+ * 家庭信息主界面
+ */
 public class AddFamilyMainActivity extends BaseActivity {
 
     private RxTitle rxTitle;

@@ -27,6 +27,7 @@ public class MyApp extends Application{
     public static SharedPreferences NSP;
     public static SharedPreferences.Editor SPE;
     public static SharedPreferences SPR;
+    public static String action = "local";
 
     @Override
     public void onCreate() {
