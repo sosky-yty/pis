@@ -4,8 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <com.vondear.rxtools.view.RxTitle
+        android:id="@+id/rx_title"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/theme_color"
+        android:layoutMode="opticalBounds"
+        app:leftIconVisibility="true"
+        app:title="查看与编辑"
+        app:titleColor="@color/white">
+    </com.vondear.rxtools.view.RxTitle>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -123,7 +134,7 @@
                     android:src="@drawable/photo"/>
 
                 <TextView
-                    android:id="@+id/tv_zp"
+                    android:id="@+id/tv_xzfzp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
