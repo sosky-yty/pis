@@ -127,7 +127,6 @@ public class addKeyFamilyActivity extends BaseActivity {
         faOrdHzsfz.setText(mInfoBean.getOrd_hzsfz());
         faOrdJtrks.setText(mInfoBean.getOrd_jtrks());
         faOrdNzrs.setText(mInfoBean.getOrd_nzrs());
-        addOrdSfwwch.setText(mInfoBean.getOrd_sfwwch());
         faOrdLdls.setText(mInfoBean.getOrd_ldls());
         faOrdJntc.setText(mInfoBean.getOrd_jntc());
         faOrdZcwchdyy.setText(mInfoBean.getOrd_zcwchdyy());
@@ -143,7 +142,6 @@ public class addKeyFamilyActivity extends BaseActivity {
         addOrdYdfpbqyy.setText(mInfoBean.getOrd_ydfpbqyy());
         addOrdPkhsx.setText(mInfoBean.getOrd_pkhsx());
         addOrdJtzk.setText(mInfoBean.getOrd_jtzk());
-        addOrdSfjnp.setText(mInfoBean.getOrd_sfjnp());
         addOrdJfhlx.setText(mInfoBean.getOrd_jfhlx());
         addOrdJzfmj.setText(mInfoBean.getOrd_jzfmj());
         addOrdJzftp.setText(mInfoBean.getOrd_jzftp());
@@ -161,7 +159,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         addOrdSfxslsjz.setChecked(mInfoBean.getOrd_sfxslsjz().equals("是"));
         addOrdSfjsgfw.setChecked(mInfoBean.getOrd_sfjsgfw().equals("是"));
         addOrdXf.setChecked(mInfoBean.getOrd_xf().equals("是"));
-
+        addOrdSfwwch.setChecked(mInfoBean.getOrd_sfwwch().equals("是"));
     }
 
     @Override
@@ -259,7 +257,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
         infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
         infoBean.setOrd_xf(addOrdXf.isChecked() ? "是" : "否");
-
+        infoBean.setOrd_sfwwch(addOrdSfwwch.isChecked()?"是":"否");
         return infoBean;
     }
 
