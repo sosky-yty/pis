@@ -32,6 +32,13 @@
         <activity android:name=".ui.addKeyPersonActivity"/>
         <activity android:name=".ui.AddPersonMainActivity"/>
         <activity android:name=".ui.addMzdbActivity" />
+        <activity android:name=".ui.addYbxxActivity" />
+        <activity android:name=".ui.addXlbActivity" />
+        <activity android:name=".ui.addMztkActivity" />
+        <activity android:name=".ui.addLsjzActivity" />
+        <activity android:name=".ui.addJzfpActivity" />
+        <activity android:name=".ui.addCybzActivity" />
+        <activity android:name=".ui.addClxxActivity" />
     </application>
 
 </manifest>

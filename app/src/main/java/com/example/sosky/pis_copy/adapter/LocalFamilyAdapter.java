@@ -27,8 +27,7 @@ public class LocalFamilyAdapter extends BaseQuickAdapter<UpFamilyInfoBean.InfoBe
     protected void convert(BaseViewHolder helper, UpFamilyInfoBean.InfoBean item) {
 
         helper.setText(R.id.tv_name_it_family, item.getOrd_hz());
-        helper.setText(R.id.tv_num_it, item.getOrd_jtrks());
-        helper.setText(R.id.tv_jtzk_it, item.getOrd_jtzk());
+        helper.setText(R.id.tv_num_it, item.getOrd_hzsfz());
 
         helper.getView(R.id.it_family).setOnClickListener(view -> {
 
