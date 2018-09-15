@@ -16,6 +16,7 @@ import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
@@ -303,8 +304,14 @@ public class addKeyPersonActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 UpPersonBean.InfoBean bean = saveDatas();
+                UpFamilyInfoBean.InfoBean bean_fa =  new UpFamilyInfoBean.InfoBean();
                 if(MyTools.verificationID(bean.getOrd_sfz())){
                     SaveTool.saveOnePerson(bean);
+                    if("户主".equals(bean.getOrd_yhzgx())) {
+                        bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
+                        bean_fa.setOrd_hz(bean.getOrd_xm());
+                        SaveTool.saveOneXumu(bean_fa);
+                    }
                     RxToast.success("保存成功");
                 }else{
                     RxToast.error("身份证错误");

@@ -26,8 +26,7 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
     protected void convert(BaseViewHolder helper, UpPersonBean.InfoBean item) {
 
         helper.setText(R.id.tv_name_it, item.getOrd_xm());
-        helper.setText(R.id.tv_sex_it, item.getOrd_xb());
-        helper.setText(R.id.tv_area_it, item.getOrd_szxq());
+        helper.setText(R.id.tv_sex_it, item.getOrd_sfz());
 
         helper.getView(R.id.it_people).setOnClickListener(view -> {
 
