@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -38,17 +39,21 @@ public class AddPersonMainActivity extends BaseActivity {
     private TextView tvZp;
     private RelativeLayout rlJichu;
     private TextView tvJichu;
-    private RelativeLayout rlDibao;
-    private TextView tvDibao;
+    private RelativeLayout rlYibao;
+    private TextView tvYibao;
+    private RelativeLayout rlNongbao;
+    private TextView tvNongbao;
+    private RelativeLayout rlJisheng;
+    private TextView tvJisheng;
     private RelativeLayout rlTekun;
     private TextView tvTekun;
-    private RelativeLayout rlCaoyuan;
-    private TextView tvCaoyuan;
-    private RelativeLayout rlLingshi;
-    private TextView tvLingshi;
-    private RelativeLayout rlJingzhun;
-    private TextView tvJingzhun;
-    private String mId;
+    private RelativeLayout rlCanlian;
+    private TextView tvCanlian;
+    private Button btnSave;
+
+
+    public String mName;
+    public String mId;
 
 
     @Override
@@ -61,6 +66,8 @@ public class AddPersonMainActivity extends BaseActivity {
 
         rxTitle = findViewById(R.id.rx_title);
         rxTitle.setLeftFinish(this);
+
+
         editName = findViewById(R.id.edit_name);
         editSfz = findViewById(R.id.edit_sfz);
         rlOrdZp = findViewById(R.id.rl_ord_zp);
@@ -68,50 +75,57 @@ public class AddPersonMainActivity extends BaseActivity {
         tvZp = findViewById(R.id.tv_zp);
         rlJichu = findViewById(R.id.rl_jichu);
         tvJichu = findViewById(R.id.tv_jichu);
-        rlDibao = findViewById(R.id.rl_dibao);
-        tvDibao = findViewById(R.id.tv_dibao);
+        rlYibao = findViewById(R.id.rl_yibao);
+        tvYibao = findViewById(R.id.tv_yibao);
+        rlNongbao = findViewById(R.id.rl_nongbao);
+        tvNongbao = findViewById(R.id.tv_nongbao);
+        rlJisheng = findViewById(R.id.rl_jisheng);
+        tvJisheng = findViewById(R.id.tv_jisheng);
         rlTekun = findViewById(R.id.rl_tekun);
         tvTekun = findViewById(R.id.tv_tekun);
-        rlCaoyuan = findViewById(R.id.rl_caoyuan);
-        tvCaoyuan = findViewById(R.id.tv_caoyuan);
-        rlLingshi = findViewById(R.id.rl_lingshi);
-        tvLingshi = findViewById(R.id.tv_lingshi);
-        rlJingzhun = findViewById(R.id.rl_jingzhun);
-        tvJingzhun = findViewById(R.id.tv_jingzhun);
-
+        rlCanlian = findViewById(R.id.rl_canlian);
+        tvCanlian = findViewById(R.id.tv_canlian);
+        btnSave = findViewById(R.id.btn_save);
 
         mId = getIntent().getStringExtra("id");
     }
 
-    
+
     @Override
     protected void bindListener() {
 
         //fixme  xxxx
         Bundle bundle = new Bundle();
-        bundle.putString("id",editSfz.getText().toString());
-        bundle.putString("action","local");
+        bundle.putString("id", editSfz.getText().toString());
+        bundle.putString("action", "local");
         rlOrdZp.setOnClickListener(v -> showImgDialog());
 
-        rlDibao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addMzdbActivity.class);
-        });
-        rlCaoyuan.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addCybzActivity.class);
-        });
+        //基础
         rlJichu.setOnClickListener(v -> {
             RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class);
         });
-        rlJingzhun.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addJzfpActivity.class);
+        //医保
+        rlYibao.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addYbxxActivity.class);
+
         });
-        rlLingshi.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addLsjzActivity.class);
+
+        //农保        //fixme
+        rlNongbao.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addMztkActivity.class);
+
         });
+
+        //计生
+        //fixme
+        
+        //特困
         rlTekun.setOnClickListener(v -> {
-         
-            
-            RxActivityTool.skipActivity(mContext, addMztkActivity.class,bundle);
+            RxActivityTool.skipActivity(mContext, addMztkActivity.class, bundle);
+        });
+        //残联
+        rlCanlian.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addClxxActivity.class, bundle);
         });
 
     }

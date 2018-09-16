@@ -59,7 +59,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -101,7 +101,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -143,7 +143,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -176,7 +176,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -209,7 +209,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -245,7 +245,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -278,7 +278,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -312,7 +312,7 @@
                     android:drawablePadding="10dp"
                     android:drawableRight="@drawable/ic_next"
                     android:gravity="center"
-                    android:text="未完成"
+                    android:text=""
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
@@ -320,8 +320,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="1px"
                 android:background="@color/line_color"/>
-            
-            
+
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@color/theme_color"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
