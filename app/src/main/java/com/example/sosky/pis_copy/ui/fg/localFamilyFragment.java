@@ -13,6 +13,7 @@ import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.adapter.LocalFamilyAdapter;
 import com.example.sosky.pis_copy.base.BaseFragment;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
+import com.example.sosky.pis_copy.ui.AddFamilyMainActivity;
 import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 import com.google.gson.Gson;
 
@@ -45,7 +46,7 @@ public class localFamilyFragment extends BaseFragment {
         if (isVisiable) {
             load();
             btnAdd.setOnClickListener(view1 -> {
-                Intent i = new Intent(mContext, addKeyFamilyActivity.class);
+                Intent i = new Intent(mContext, AddFamilyMainActivity.class);
                 i.putExtra("action", "new");
                 mContext.startActivity(i);
             });

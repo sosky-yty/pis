@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.RxPhotoTool;
@@ -84,6 +85,9 @@ public class AddFamilyMainActivity extends BaseActivity {
     @Override
     protected void bindListener() {
 
+//        Bundle bundle = getIntent().getBundleExtra("b");
+        
+        //照片
         rlOrdZp.setOnClickListener(v -> {
             whichzp = 1;
             showImgDialog();
@@ -95,6 +99,32 @@ public class AddFamilyMainActivity extends BaseActivity {
         rlOrdXzfzp.setOnClickListener(v -> {
             whichzp = 3;
             showImgDialog();
+        });
+
+        //基础家庭信息
+        rlJiating.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addKeyFamilyActivity.class);
+
+        });
+
+
+        //精准扶贫
+        rlJingzhun.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addJzfpActivity.class);
+        });
+        //临时救助
+        rlLingshi.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addLsjzActivity.class);
+        });
+
+        //草原
+        rlCaoyuan.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addCybzActivity.class);
+        });
+        
+        //低保
+        rlDibao.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addMzdbActivity.class);
         });
     }
 
