@@ -2,6 +2,7 @@ package com.example.sosky.pis_copy.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.RxPhotoTool;
@@ -43,6 +45,7 @@ public class AddPersonMainActivity extends BaseActivity {
     private TextView tvLingshi;
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
+    private String mId;
 
 
     @Override
@@ -74,12 +77,39 @@ public class AddPersonMainActivity extends BaseActivity {
         tvJingzhun = findViewById(R.id.tv_jingzhun);
 
 
+        mId = getIntent().getStringExtra("id");
     }
 
+    
     @Override
     protected void bindListener() {
 
+        //fixme  xxxx
+        Bundle bundle = new Bundle();
+        bundle.putString("id",editSfz.getText().toString());
+        bundle.putString("action","local");
         rlOrdZp.setOnClickListener(v -> showImgDialog());
+
+        rlDibao.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addMzdbActivity.class);
+        });
+        rlCaoyuan.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addCybzActivity.class);
+        });
+        rlJichu.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class);
+        });
+        rlJingzhun.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addJzfpActivity.class);
+        });
+        rlLingshi.setOnClickListener(v -> {
+            RxActivityTool.skipActivity(mContext, addLsjzActivity.class);
+        });
+        rlTekun.setOnClickListener(v -> {
+         
+            
+            RxActivityTool.skipActivity(mContext, addMztkActivity.class,bundle);
+        });
 
     }
 
@@ -158,7 +188,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
         File file = (new File(RxPhotoTool.getImageAbsolutePath(mContext, uri)));
 
-        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) +"个人照片/"+ idcard + getexname(file));
+        File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/" + idcard + getexname(file));
 
         RxFileTool.deleteFile(tofile);
 
@@ -171,7 +201,7 @@ public class AddPersonMainActivity extends BaseActivity {
         Glide.with(mContext).
                 load(tofile).
                 into(ivZp);
-        
+
         String tofileName = tofile.getName();
         tvZp.setText(tofileName);
         RxLogTool.e("照片" + file.getAbsolutePath());
