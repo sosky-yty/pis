@@ -25,6 +25,9 @@ import java.io.IOException;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
+/**
+ * 个人信息
+ */
 public class AddPersonMainActivity extends BaseActivity {
 
     private RxTitle rxTitle;
