@@ -155,9 +155,7 @@ public class AddFamilyMainActivity extends BaseActivity {
             case RxPhotoTool.GET_IMAGE_FROM_PHONE:
                 //选择相册之后的处理
                 if (resultCode == RESULT_OK) {
-
                     roadImageView(data.getData());
-
                 }
 
                 break;
@@ -186,7 +184,8 @@ public class AddFamilyMainActivity extends BaseActivity {
      */
     private void roadImageView(Uri uri) {
 
-        String idcard = getIntent().getStringExtra("idcard");
+        String idcard = getIntent().getStringExtra("id");
+        idcard = "11111111111111111";
         File file = (new File(RxPhotoTool.getImageAbsolutePath(mContext, uri)));
 
         File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/" + idcard + getexname(file));

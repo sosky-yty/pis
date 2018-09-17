@@ -53,7 +53,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
 
     public String mName;
-    public String mId;
+    public static String mId;
 
 
     @Override
@@ -88,13 +88,15 @@ public class AddPersonMainActivity extends BaseActivity {
         btnSave = findViewById(R.id.btn_save);
 
         mId = getIntent().getStringExtra("id");
+        
+        //todo 本地查看
     }
 
 
     @Override
     protected void bindListener() {
 
-        //fixme  xxxx
+        //fixme  传值
         Bundle bundle = new Bundle();
         bundle.putString("id", editSfz.getText().toString());
         bundle.putString("action", "local");
@@ -110,7 +112,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
         });
 
-        //农保        //fixme
+        //农保        
         rlNongbao.setOnClickListener(v -> {
             RxActivityTool.skipActivity(mContext, addXlbActivity.class);
 
