@@ -75,22 +75,22 @@ public class addKeyFamilyActivity extends BaseActivity {
 
     @Override
     protected void bindListener() {
-        addOrdJtzk.setOnClickListener(v->{
+        addOrdJtzk.setOnClickListener(v -> {
             MyTools.showSelectDialog(jtzk, mContext, addOrdJtzk);
         });
 
-        addOrdXsdzc.setOnClickListener(v->{
+        addOrdXsdzc.setOnClickListener(v -> {
             MyTools.showSelectDialog(xsdzc, mContext, addOrdXsdzc);
         });
 
         MyTools.setSwitchLisenter(linearZcwchdyy, addOrdSfwwch);
 
-        btnSaveClxx.setOnClickListener(v->{
+        btnSaveClxx.setOnClickListener(v -> {
             UpFamilyInfoBean.InfoBean bean = saveDatas();
-            if(MyTools.verificationID(bean.getOrd_hzsfz())){
+            if (MyTools.verificationID(bean.getOrd_hzsfz())) {
                 SaveTool.saveOneFamily(bean);
                 RxToast.success("保存成功");
-            }else{
+            } else {
                 RxToast.error("身份证错误");
             }
         });
@@ -102,7 +102,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadlocal();
-        }else{
+        } else {
             faOrdHz.setText(AddFamilyMainActivity.mName);
             faOrdHzsfz.setText(AddFamilyMainActivity.mID);
         }
@@ -262,7 +262,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
         infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
         infoBean.setOrd_xf(addOrdXf.isChecked() ? "是" : "否");
-        infoBean.setOrd_sfwwch(addOrdSfwwch.isChecked()?"是":"否");
+        infoBean.setOrd_sfwwch(addOrdSfwwch.isChecked() ? "是" : "否");
         return infoBean;
     }
 

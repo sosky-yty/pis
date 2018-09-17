@@ -365,7 +365,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_gwmc(ord_gwmc.getText().toString());
         infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.isChecked() ? "是" : "否");
         infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.isChecked() ? "是" : "否");
-        infoBeans.setOrd_sfcydbylbx(s_ord_sfcydbylbx.isChecked()?"是":"否");
+        infoBeans.setOrd_sfcydbylbx(s_ord_sfcydbylbx.isChecked() ? "是" : "否");
         infoBeans.setOrd_whcd(ord_whcd.getText().toString());
         infoBeans.setOrd_sfzd(s_ord_sfzd.isChecked() ? "是" : "否");
         infoBeans.setOrd_szyx(ord_szyx.getText().toString());
@@ -570,7 +570,7 @@ public class addKeyPersonActivity extends BaseActivity {
         ord_qpm.setText(mInfoBean.getOrd_qpm());
         ord_ahqhdw.setText(mInfoBean.getOrd_ahqhdw());
         s_ord_fhsz.setChecked(mInfoBean.getOrd_fhsz().equals("是"));
-        RxLogTool.e(mInfoBean.getOrd_sfcygyxgw()+"123");
+        RxLogTool.e(mInfoBean.getOrd_sfcygyxgw() + "123");
         s_ord_sfcygyxgw.setChecked(mInfoBean.getOrd_sfcygyxgw().equals("是"));
 
         s_ord_sfsn.setChecked(mInfoBean.getOrd_sfsn().equals("是"));

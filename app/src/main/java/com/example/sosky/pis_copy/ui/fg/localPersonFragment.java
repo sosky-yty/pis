@@ -73,9 +73,10 @@ public class localPersonFragment extends BaseFragment {
     /**
      * 刷新
      */
-    public static void refresh(){
+    public static void refresh() {
         loadDatas();
     }
+
     //加载储存在本地的数据
     public static void loadDatas() {
         try {

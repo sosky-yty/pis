@@ -15,7 +15,7 @@ public class UpOnePersonBean {
         this.dataSetBean = dataSetBean;
     }
 
-    public static class DataSetBean{
+    public static class DataSetBean {
         private String ord_xm;
         private String ord_zm;
         private String ord_xb;

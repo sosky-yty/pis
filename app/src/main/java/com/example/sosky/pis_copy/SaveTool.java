@@ -306,15 +306,15 @@ public class SaveTool {
     }
 
 
-    public static UpFamilyInfoBean.InfoBean getOneFamily(String id){
+    public static UpFamilyInfoBean.InfoBean getOneFamily(String id) {
         SPHelper msp = new SPHelper(MyApp.getContext(), "familys");
         Map<String, String> map = getFamilys();
         String json = map.get(id);
         UpFamilyInfoBean.InfoBean infoBean = new Gson().fromJson(json, UpFamilyInfoBean.class).getInfoBeans().get(0);
         return infoBean;
     }
-    
-    
+
+
     /**
      * 获得所有家庭信息
      *

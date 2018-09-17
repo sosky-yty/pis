@@ -14,7 +14,7 @@ public class UpOneJiatingBean {
         this.dataSet = dataSet;
     }
 
-    public static class DataSetBean{
+    public static class DataSetBean {
         private String ord_hz;
         private String ord_hzsfz;
         private String ord_jtrks;

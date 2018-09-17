@@ -25,8 +25,8 @@ import java.util.Map;
  */
 public class addClxxActivity extends BaseActivity {
 
-    private String[] cjdj = {"1","2","3","4"};
-    private String[] sfxsshbt = {"一级【960元】","二级【600】","三级","四级"};
+    private String[] cjdj = {"1", "2", "3", "4"};
+    private String[] sfxsshbt = {"一级【960元】", "二级【600】", "三级", "四级"};
     private String[] cjyy = {"疾病", "遗传", "意外", "地震", "其他"};
     private String[] cjlb = {"视力", "听力", "言语", "肢体", "精神", "多重", "其他"};
     private String[] zclb = {"城市居民灵活就业", "扶持农村贫困残疾人发展生产", "贫困残疾人适配所需的基本辅助器具", "重度残疾人生活补贴"};
@@ -58,7 +58,7 @@ public class addClxxActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
-        }else {
+        } else {
             clOrdXm.setText(AddPersonMainActivity.mName);
             clOrdSfz.setText(AddPersonMainActivity.mID);
         }
@@ -135,11 +135,11 @@ public class addClxxActivity extends BaseActivity {
         });
 
         clOrdCjdj.setOnClickListener(view -> {
-            MyTools.showSelectDialog(cjdj,mContext,clOrdCjdj);
+            MyTools.showSelectDialog(cjdj, mContext, clOrdCjdj);
         });
 
         clOrdSfxsshbt.setOnClickListener(view -> {
-            MyTools.showSelectDialog(sfxsshbt,mContext,clOrdSfxsshbt);
+            MyTools.showSelectDialog(sfxsshbt, mContext, clOrdSfxsshbt);
         });
 
         MyTools.setSwitchLisenter(linear_zclb, clOrdSfxszc);

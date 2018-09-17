@@ -18,19 +18,19 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationViewEx navigation;
     private ViewPager homeViewPager;
     FragmentPagerAdapter adapter;
- 
+
     @Override
     protected int getContentID() {
         return R.layout.activity_main;
     }
 
     @Override
-    protected  void initView(){
+    protected void initView() {
         toolbar = findViewById(R.id.toolbar);
         navigation = findViewById(R.id.navigation);
         homeViewPager = findViewById(R.id.home_viewpager);
 
-        adapter = new HomePagerAdapter(this,fragmentManager);
+        adapter = new HomePagerAdapter(this, fragmentManager);
 
         homeViewPager.setAdapter(adapter);
         homeViewPager.setOffscreenPageLimit(2);
@@ -40,5 +40,7 @@ public class MainActivity extends BaseActivity {
         navigation.enableItemShiftingMode(false);
         navigation.setCurrentItem(0);
         navigation.setupWithViewPager(homeViewPager);
-    };
+    }
+
+    ;
 }

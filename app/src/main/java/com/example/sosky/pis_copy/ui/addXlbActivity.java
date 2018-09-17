@@ -43,7 +43,7 @@ public class addXlbActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
-        }else {
+        } else {
             xlbOrdXm.setText(AddPersonMainActivity.mName);
             xlbOrdSfz.setText(AddPersonMainActivity.mID);
         }
@@ -98,7 +98,7 @@ public class addXlbActivity extends BaseActivity {
         });
 
         xlbOrdSccyxnbrq.setOnClickListener(view -> {
-            MyTools.showDataPicker(mContext,xlbOrdSccyxnbrq);
+            MyTools.showDataPicker(mContext, xlbOrdSccyxnbrq);
         });
     }
 

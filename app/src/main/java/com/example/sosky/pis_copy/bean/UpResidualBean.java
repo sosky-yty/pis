@@ -8,11 +8,15 @@ import java.util.List;
 public class UpResidualBean {
     List<InfoBean> info;
 
-   public List<InfoBean> getInfoBeans() {        return info;    }
+    public List<InfoBean> getInfoBeans() {
+        return info;
+    }
 
-   public void setInfoBeans(List<InfoBean> infoBeans) {        this.info = infoBeans;    }
+    public void setInfoBeans(List<InfoBean> infoBeans) {
+        this.info = infoBeans;
+    }
 
-    public static class InfoBean{
+    public static class InfoBean {
         private String ord2_xm;
         private String ord2_sfz;
         private String ord2_cjzzh;

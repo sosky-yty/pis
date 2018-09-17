@@ -49,9 +49,9 @@ public class MineFragment extends BaseFragment {
 
         btnSync.setOnClickListener(view -> {
             StringBuffer json = new StringBuffer();
-            Map<String,String> PersonsMap  =SaveTool.getPerson();
+            Map<String, String> PersonsMap = SaveTool.getPerson();
             for (Map.Entry<String, String> entry : PersonsMap.entrySet()) {
-                    json.append(entry.getValue());
+                json.append(entry.getValue());
             }
             String xml = MyTools.JSON2xml(json.toString());
             //RxLogTool.e(xml);
@@ -73,12 +73,13 @@ public class MineFragment extends BaseFragment {
 
     /**
      * 初始化控件
+     *
      * @param view 填充view
      */
     @Override
     protected void initView(View view) {
         super.initView(view);
-        FragmentActivity activity =getActivity();
+        FragmentActivity activity = getActivity();
         btnRelogin = activity.findViewById(R.id.btn_relogin);
         btnDownload = activity.findViewById(R.id.btn_download);
         btnSync = activity.findViewById(R.id.btn_sync);

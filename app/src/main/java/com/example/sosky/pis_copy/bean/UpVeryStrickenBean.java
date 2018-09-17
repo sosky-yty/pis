@@ -9,9 +9,13 @@ public class UpVeryStrickenBean {
 
     List<InfoBean> info;
 
-   public List<InfoBean> getInfoBeans() {        return info;    }
+    public List<InfoBean> getInfoBeans() {
+        return info;
+    }
 
-   public void setInfoBeans(List<InfoBean> infoBeans) {        this.info = infoBeans;    }
+    public void setInfoBeans(List<InfoBean> infoBeans) {
+        this.info = infoBeans;
+    }
 
     public static class InfoBean {
         private String ord2_xm;

@@ -7,7 +7,7 @@ public class ApiManger {
     /**
      * 调用api需先登录
      */
-    public static  String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
+    public static String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
 
     /**
      * 请求地址:http://nat.flobit.cn:94/simpleauth
@@ -193,7 +193,7 @@ public class ApiManger {
      */
     public static void login(String username, String password, StringCallback stringCallback) {
         DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
-        
+
         OkGo.<String>post(API_LOGIN)
                 .params("username", username)
                 .params("password", password)
@@ -289,7 +289,7 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
-   /**
+    /**
      * 上传草原生态保护奖励补助资金登记
      *
      * @param data
@@ -300,7 +300,6 @@ public class ApiManger {
                 .params("data", data)
                 .execute(stringCallback);
     }
-
 
 
     /**
@@ -315,9 +314,8 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
- 
-    
-     /**
+
+    /**
      * 上传民政低保信息录入
      *
      * @param data
@@ -455,7 +453,7 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
-      /**
+    /**
      * 下载民政特困信息录入
      *
      * @param data
@@ -467,6 +465,5 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
-  
 
 }

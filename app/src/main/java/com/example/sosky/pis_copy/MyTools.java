@@ -280,8 +280,6 @@ public class MyTools {
     }
 
 
- 
-
     /**
      * 通过HashSet剔除重复元素
      * 删除ArrayList中重复元素,add进去顺序就变了不考虑顺序的话可以使用
@@ -685,9 +683,9 @@ public class MyTools {
      * @return
      */
     public static Boolean verificationID(String ID) {
-        if (null == ID ||ID.isEmpty()) {
+        if (null == ID || ID.isEmpty()) {
             return false;
-        } else if (ID.length() <6) {
+        } else if (ID.length() < 6) {
             return false;
         }
         return true;
@@ -704,12 +702,12 @@ public class MyTools {
         return RxPermissionsTool.
                 with(activity).
                 addPermission(Manifest.permission.READ_EXTERNAL_STORAGE).
-           //     addPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE).
-                addPermission(Manifest.permission.CAMERA).
-                addPermission(Manifest.permission.CALL_PHONE).
-                addPermission(Manifest.permission.READ_PHONE_STATE).
-            //    addPermission(Manifest.permission.RECORD_AUDIO).
-                initPermission();
+                //     addPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE).
+                        addPermission(Manifest.permission.CAMERA).
+                        addPermission(Manifest.permission.CALL_PHONE).
+                        addPermission(Manifest.permission.READ_PHONE_STATE).
+                //    addPermission(Manifest.permission.RECORD_AUDIO).
+                        initPermission();
     }
-    
+
 }
