@@ -10,7 +10,6 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.example.sosky.pis_copy.bean.UpNewAgriculturalBean;
-import com.example.sosky.pis_copy.bean.UpVeryStrickenBean;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
@@ -18,6 +17,9 @@ import com.vondear.rxtools.view.RxToast;
 
 import java.util.Map;
 
+/**
+ * 新农保
+ */
 public class addXlbActivity extends BaseActivity {
     private RxTitle rxTitle;
     private EditText xlbOrdXm;

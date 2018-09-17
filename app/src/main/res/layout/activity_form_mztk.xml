@@ -24,26 +24,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin"
             android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:foreground="@null"
             android:gravity="center"
             >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_margin="@dimen/margin"
-                android:text="注：＊为选填，其他为必填"
-                android:textColor="@color/assist_text_color"/>
-
+ 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -60,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -77,7 +73,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -96,7 +93,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -113,7 +111,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -131,7 +130,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -147,7 +147,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -163,7 +164,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
@@ -181,7 +183,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
                 <TextView
-                    android:layout_width="120dp"
+                 android:layout_width="wrap_content"
+                    android:maxLines="1"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"

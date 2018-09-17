@@ -54,9 +54,9 @@ public class AddPersonMainActivity extends BaseActivity {
     private Button btnSave;
 
 
-    public String mName;
-    public String mID;
-    public String mMode;
+    public static String mName;
+    public static String mID;
+    public static String mMode;
 
 
     @Override

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.vondear.rxtools.view.RxTitle
         android:id="@+id/rx_title"
@@ -22,32 +22,29 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_margin="@dimen/margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:foreground="@null"
             android:gravity="center"
+            android:orientation="vertical"
             >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_margin="@dimen/margin"
-                android:text="注：＊为选填，其他为必填"
-                android:textColor="@color/assist_text_color"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="户主："/>
+
                 <EditText
                     android:id="@+id/ls_ord_hz"
                     android:layout_width="0dp"
@@ -59,12 +56,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="户主身份证："/>
+
                 <EditText
                     android:id="@+id/ls_ord_hzsfz"
                     android:layout_width="0dp"
@@ -76,12 +76,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="救助时间："/>
+
                 <EditText
                     android:id="@+id/ls_ord_jzsj"
                     android:layout_width="0dp"
@@ -93,12 +96,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="救助原因："/>
+
                 <EditText
                     android:id="@+id/ls_ord_jzyy"
                     android:layout_width="0dp"
@@ -110,12 +116,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="救助方式："/>
+
                 <EditText
                     android:id="@+id/ls_ord_jzfs"
                     android:layout_width="0dp"
@@ -127,20 +136,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="备注："/>
+
                 <EditText
                     android:id="@+id/ls_ord_bz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
             </LinearLayout>
-
-
 
 
             <Button

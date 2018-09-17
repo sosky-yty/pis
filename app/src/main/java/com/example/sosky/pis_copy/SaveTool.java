@@ -301,11 +301,11 @@ public class SaveTool {
         SPHelper msp = new SPHelper(MyApp.getContext(), "persons");
         Map<String, String> map = getPerson();
         String json = map.get(id);
-        UpPersonBean.InfoBean onePersonBean = new Gson().fromJson(json, UpPersonBean.InfoBean.class);
- 
+        UpPersonBean.InfoBean onePersonBean = new Gson().fromJson(json, UpPersonBean.class).getInfoBeans().get(0);
         return onePersonBean;
     }
-
+    
+    
     /**
      * 获得所有家庭信息
      *

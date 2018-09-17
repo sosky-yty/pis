@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
     <com.vondear.rxtools.view.RxTitle
         android:id="@+id/rx_title"
@@ -24,30 +24,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_margin="@dimen/margin"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:foreground="@null"
             android:gravity="center"
+            android:orientation="vertical"
             >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_margin="@dimen/margin"
-                android:text="注：＊为选填，其他为必填"
-                android:textColor="@color/assist_text_color"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="姓名："/>
+
                 <EditText
                     android:id="@+id/xlb_ord_xm"
                     android:layout_width="0dp"
@@ -59,12 +56,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="身份证："/>
+
                 <EditText
                     android:id="@+id/xlb_ord_sfz"
                     android:layout_width="0dp"
@@ -76,12 +76,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="首次参与新农保日期："/>
+
                 <EditText
                     android:id="@+id/xlb_ord_sccyxnbrq"
                     android:layout_width="0dp"
@@ -93,12 +96,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="参保情况："/>
+
                 <EditText
                     android:id="@+id/xlb_ord_cbqk"
                     android:layout_width="0dp"
@@ -110,12 +116,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="养老保险金额（/年）："/>
+
                 <EditText
                     android:id="@+id/xlb_ord_ylbxje"
                     android:layout_width="0dp"
@@ -127,12 +136,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="退休时间"/>
+
                 <EditText
                     android:id="@+id/xlb_ord_txsj"
                     android:layout_width="0dp"
@@ -144,12 +156,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="领取待遇（/月）"/>
+
                 <EditText
                     android:id="@+id/xlb_ord_lqdy"
                     android:layout_width="0dp"
@@ -161,12 +176,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="交费年限"/>
+
                 <EditText
                     android:id="@+id/xlb_ord_jfnx"
                     android:layout_width="0dp"
@@ -178,12 +196,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="注销日期"/>
+
                 <EditText
                     android:id="@+id/xlb_ord_zxrq"
                     android:layout_width="0dp"
@@ -195,12 +216,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
+
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="备注"/>
+
                 <EditText
                     android:id="@+id/xlb_ord_bz"
                     android:layout_width="0dp"
