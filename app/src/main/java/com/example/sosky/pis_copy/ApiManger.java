@@ -10,7 +10,7 @@ public class ApiManger {
     public static final String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", "http://nat.flobit.cn:94");
 
     /**
-     * 请求地址:http://nat.flobit.cn:94//simpleauth
+     * 请求地址:http://nat.flobit.cn:94/simpleauth
      * 请求方法:POST/GET
      * 参数:username(用户名),password(密码)
      * 返回结果:JSON字符串
@@ -51,7 +51,7 @@ public class ApiManger {
      * 请求方法:POST/GET
      * 参数:无
      */
-    public static final String API_GET_HERDING_INFO = DOMAIN + "/commonsapi/dljtxx";
+    public static final String API_GET_Family_INFO = DOMAIN + "/commonsapi/dljtxx";
 
     /**
      * ## 上传残联登记信息表
@@ -200,6 +200,7 @@ public class ApiManger {
 
     /**
      * 自动登录
+     *
      * @param stringCallback
      */
     public static void autologin(StringCallback stringCallback) {
@@ -225,15 +226,257 @@ public class ApiManger {
     }
 
     /**
-     * 下载个人信息
+     * 上传家庭信息
+     *
      * @param data
      * @param stringCallback
      */
-    public static void downLoadKeyPerson(String data,StringCallback stringCallback){
-        OkGo.<String>get(API_GET_PERSON_INFO)
-                .params("data",data)
+    public static void upFamily(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_FAMILY_INFO)
+                .params("data", data)
                 .execute(stringCallback);
     }
 
+
+    /**
+     * 上传残联登记信息表
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upCanlian(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_RESIDUAL_UNION_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 上传新农保信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upNongbao(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_LONGBAO_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 上传医保信息
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upYibao(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_YIBAO_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 上传临时救助情况登记表
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upLingshijiuzhu(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_TEMPORARY_ASSISTANCE_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+   /**
+     * 上传草原生态保护奖励补助资金登记
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upCaoyuanshengtai(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_STBHBZ_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+
+    /**
+     * 上传民政特困信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upTekun(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_TKXX_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+ 
     
+     /**
+     * 上传民政低保信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upDibaoxx(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_MZDBXX_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+ 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
+    /**
+     * 上传精准扶贫信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void upJingzhunfuping(String data, StringCallback stringCallback) {
+        OkGo.<String>post(API_UPLOAD_SUPPORTING_POOR_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 下载个人信息
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadKeyPerson(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_PERSON_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 下载家庭信息(暂时返回所有后续调整)
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadFamily(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_Family_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 下载残联登记信息表(暂时返回所有后续调整)
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadCanlian(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_RESIDUAL_UNION_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 下载新农保信息
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadNongbao(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_LONGBAO_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 下载医保信息
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadYibao(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_YIBAO_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 下载临时救助情况登记表
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadLingshijiuzhu(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_TEMPORARY_ASSISTANCE__INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 下载精准扶贫信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadJingzhunfuping(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_SUPPORTING_POOR_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+
+    /**
+     * 下载草原生态保护奖励补助资金登记
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadCaoyuanshengtai(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_STBHBZ_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+    /**
+     * 下载民政低保信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadDibaoxx(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_MZDBXX_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+      /**
+     * 下载民政特困信息录入
+     *
+     * @param data
+     * @param stringCallback
+     */
+    public static void downLoadTekun(String data, StringCallback stringCallback) {
+        OkGo.<String>get(API_GET_TKXX_INFO)
+                .params("data", data)
+                .execute(stringCallback);
+    }
+
+  
+
 }
