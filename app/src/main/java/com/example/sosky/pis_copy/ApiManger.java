@@ -7,7 +7,7 @@ public class ApiManger {
     /**
      * 调用api需先登录
      */
-    public static final String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
+    public static  String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
 
     /**
      * 请求地址:http://nat.flobit.cn:94/simpleauth
@@ -192,6 +192,8 @@ public class ApiManger {
      * @param stringCallback
      */
     public static void login(String username, String password, StringCallback stringCallback) {
+        DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
+        
         OkGo.<String>post(API_LOGIN)
                 .params("username", username)
                 .params("password", password)

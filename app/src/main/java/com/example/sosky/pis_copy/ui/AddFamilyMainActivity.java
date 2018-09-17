@@ -65,7 +65,6 @@ public class AddFamilyMainActivity extends BaseActivity {
             mMode = "local";
             loadImg();
         }
-        loadImg();
     }
 
     @Override
