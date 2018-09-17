@@ -12,7 +12,9 @@ import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseFragment;
+import com.example.sosky.pis_copy.bean.DataSetBean;
 import com.example.sosky.pis_copy.bean.MsgBean;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.example.sosky.pis_copy.ui.LoginActivity;
 import com.google.gson.Gson;
 import com.lzy.okgo.callback.StringCallback;
@@ -116,6 +118,32 @@ public class MineFragment extends BaseFragment {
             public void onSuccess(Response<String> response) {
                 String body = response.body();
                 tvPan.append(body);
+                if (null == body) {
+                    return;
+                }
+//                body = body.replace("<dataset>", "");
+//                body = body.replace("</dataset>", "");
+                body = body.replace("<t1>", "<info>");
+                body = body.replace("</t1>", "</info>");
+
+                RxLogTool.e("TAG", body);
+                String json = MyTools.xml2JSON(body);
+                json = json.replace("\"dataset\" :", "");
+                //fixme 
+                RxLogTool.e("TAG", json);
+
+                try {
+                    Gson gson = new Gson();
+                    DataSetBean dataSetBean = gson.fromJson(json, DataSetBean.class);
+                    String json1 = gson.toJson(dataSetBean.getDataset());
+                    UpPersonBean personBean = gson.fromJson(json1, UpPersonBean.class);
+                    personBean.getInfoBeans().size();
+                    String sfz = personBean.getInfoBeans().get(0).getOrd_sfz();
+                    RxLogTool.e(sfz);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
