@@ -44,7 +44,9 @@ public class localPersonFragment extends BaseFragment {
     @Override
     protected void onFragmentVisiableChange(boolean isVisiable) {
         super.onFragmentVisiableChange(isVisiable);
-
+        if (isVisiable) {
+            loadDatas();
+        }
     }
 
     @Override
