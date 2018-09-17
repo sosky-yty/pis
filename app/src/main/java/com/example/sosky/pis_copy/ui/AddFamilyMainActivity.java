@@ -2,6 +2,8 @@ package com.example.sosky.pis_copy.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -46,8 +48,20 @@ public class AddFamilyMainActivity extends BaseActivity {
     private TextView tvLingshi;
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
+    public String mID;
+    public String mMode;
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if ("local".equals(getIntent().getStringExtra("action"))) {
+            mID = getIntent().getStringExtra("id");
+            mMode = "local";
+        }
+    }
 
     @Override
     protected int getContentID() {
@@ -85,7 +99,9 @@ public class AddFamilyMainActivity extends BaseActivity {
     @Override
     protected void bindListener() {
 
-//        Bundle bundle = getIntent().getBundleExtra("b");
+        Bundle bundle = new Bundle();
+        bundle.putString("id", mID);
+        bundle.putString("action", mMode);
         
         //照片
         rlOrdZp.setOnClickListener(v -> {
