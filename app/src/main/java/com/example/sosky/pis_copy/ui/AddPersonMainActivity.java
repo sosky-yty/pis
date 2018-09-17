@@ -26,6 +26,9 @@ import java.io.IOException;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
+/**
+ * 个人信息
+ */
 public class AddPersonMainActivity extends BaseActivity {
 
     private RxTitle rxTitle;
@@ -109,12 +112,9 @@ public class AddPersonMainActivity extends BaseActivity {
 
         //农保        //fixme
         rlNongbao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addMztkActivity.class);
+            RxActivityTool.skipActivity(mContext, addXlbActivity.class);
 
         });
-
-        //计生
-        //fixme
         
         //特困
         rlTekun.setOnClickListener(v -> {
