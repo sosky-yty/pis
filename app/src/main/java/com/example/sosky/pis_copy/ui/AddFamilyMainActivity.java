@@ -104,7 +104,7 @@ public class AddFamilyMainActivity extends BaseActivity {
         Bundle bundle = new Bundle();
         bundle.putString("id", mID);
         bundle.putString("action", mMode);
-        
+
         //照片
         rlOrdZp.setOnClickListener(v -> {
             whichzp = 1;
@@ -121,28 +121,28 @@ public class AddFamilyMainActivity extends BaseActivity {
 
         //基础家庭信息
         rlJiating.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addKeyFamilyActivity.class);
+            RxActivityTool.skipActivity(mContext, addKeyFamilyActivity.class, bundle);
 
         });
 
 
         //精准扶贫
         rlJingzhun.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addJzfpActivity.class);
+            RxActivityTool.skipActivity(mContext, addJzfpActivity.class, bundle);
         });
         //临时救助
         rlLingshi.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addLsjzActivity.class);
+            RxActivityTool.skipActivity(mContext, addLsjzActivity.class, bundle);
         });
 
         //草原
         rlCaoyuan.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addCybzActivity.class);
+            RxActivityTool.skipActivity(mContext, addCybzActivity.class, bundle);
         });
-        
+
         //低保
         rlDibao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addMzdbActivity.class);
+            RxActivityTool.skipActivity(mContext, addMzdbActivity.class, bundle);
         });
     }
 

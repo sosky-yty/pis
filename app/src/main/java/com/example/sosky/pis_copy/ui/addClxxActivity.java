@@ -91,6 +91,7 @@ public class addClxxActivity extends BaseActivity {
         clOrdYhkh.setText(mInfoBean.getOrd2_yhkh());
         clOrdSfxszc.setChecked(mInfoBean.getOrd2_sfxszc().equals("是"));
 
+
     }
 
     @Override
@@ -107,6 +108,7 @@ public class addClxxActivity extends BaseActivity {
         clOrdZclb = (EditText) findViewById(R.id.cl_ord_zclb);
         clOrdSfxsshbt = (EditText) findViewById(R.id.cl_ord_sfxsshbt);
         clOrdYhkh = (EditText) findViewById(R.id.cl_ord_yhkh);
+        linear_zclb = findViewById(R.id.linear_zclb);
         btnSave = (Button) findViewById(R.id.btn_save);
 
     }

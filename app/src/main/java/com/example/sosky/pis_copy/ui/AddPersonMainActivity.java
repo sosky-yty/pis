@@ -126,17 +126,17 @@ public class AddPersonMainActivity extends BaseActivity {
 
         //基础
         rlJichu.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class);
+            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class,bundle);
         });
         //医保
         rlYibao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addYbxxActivity.class);
+            RxActivityTool.skipActivity(mContext, addYbxxActivity.class,bundle);
 
         });
 
         //农保        
         rlNongbao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addXlbActivity.class);
+            RxActivityTool.skipActivity(mContext, addXlbActivity.class,bundle);
 
         });
 
