@@ -302,6 +302,7 @@ public class SaveTool {
         Map<String, String> map = getPerson();
         String json = map.get(id);
         UpPersonBean.InfoBean onePersonBean = new Gson().fromJson(json, UpPersonBean.InfoBean.class);
+ 
         return onePersonBean;
     }
 

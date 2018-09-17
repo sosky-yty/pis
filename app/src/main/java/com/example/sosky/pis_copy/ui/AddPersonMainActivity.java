@@ -14,7 +14,7 @@ import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
-import com.example.sosky.pis_copy.bean.UpOnePersonBean;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -59,8 +59,6 @@ public class AddPersonMainActivity extends BaseActivity {
     public String mMode;
 
 
-
-
     @Override
     protected int getContentID() {
         return R.layout.activity_person_main;
@@ -92,24 +90,31 @@ public class AddPersonMainActivity extends BaseActivity {
         tvCanlian = findViewById(R.id.tv_canlian);
         btnSave = findViewById(R.id.btn_save);
 
-        mID = getIntent().getStringExtra("id");
-        UpOnePersonBean person = SaveTool.getOnePerson(mID);
-        mName = person.getDataSetBean().getOrd_xm();
-        //todo 本地查看 
+
     }
 
     @Override
     protected void loadDatas() {
 
-        if ("local".equals(getIntent().getStringExtra("action"))) {
-            mID = getIntent().getStringExtra("id");
-            mMode = "local";
-        }else{
-            mID = getIntent().getStringExtra("id");
-            mMode = "new";
+        try {
+            if ("local".equals(getIntent().getStringExtra("action"))) {
+                mID = getIntent().getStringExtra("id");
+                mMode = "local";
+                UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
+                mName = person.getOrd_xm();
+                //todo 本地查看 
+            } else {
+                mID = getIntent().getStringExtra("id");
+                mMode = "new";
+            }
+            editSfz.setText(mID);
+            editName.setText(mName);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
+
     }
+
 
     @Override
     protected void bindListener() {

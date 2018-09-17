@@ -79,9 +79,9 @@ public class localFamilyFragment extends BaseFragment {
 
         try {
             //个人
-            Map<String, String> personMap = SaveTool.getXumu();
+            Map<String, String> familysMap = SaveTool.getFamilys();
 
-            Collection<String> values = personMap.values();
+            Collection<String> values = familysMap.values();
             if (values.size() == 0) {
                 return;
             }
