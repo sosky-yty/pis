@@ -160,13 +160,14 @@ public class addKeyPersonActivity extends BaseActivity {
 
     @Override
     protected void loadDatas() {
-
-
         Bundle bundle = getIntent().getExtras();
         String string = bundle.getString("action");
         if ("local".equals(string)) {
             mID = getIntent().getStringExtra("id");
             loadlocal();
+        } else {
+            ord_xm.setText(AddPersonMainActivity.mName);
+            ord_sfz.setText(AddPersonMainActivity.mID);
         }
 
     }
@@ -319,7 +320,6 @@ public class addKeyPersonActivity extends BaseActivity {
         });
     }
 
-    
 
     @Override
     protected void bindListener() {
@@ -599,6 +599,8 @@ public class addKeyPersonActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            ord_sfz.setText(AddPersonMainActivity.mID);
+            ord_xm.setText(AddPersonMainActivity.mName);
             e.printStackTrace();
         }
 

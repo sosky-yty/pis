@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -48,8 +50,9 @@ public class AddFamilyMainActivity extends BaseActivity {
     private TextView tvLingshi;
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
-    public String mID;
-    public String mMode;
+    public static String mID =" ";
+    public String mMode=" ";
+    public static String mName=" ";
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
 
@@ -150,6 +153,9 @@ public class AddFamilyMainActivity extends BaseActivity {
     private void getEx(Bundle bundle) {
         bundle.putString("id", mID);
         bundle.putString("action", mMode);
+
+        UpFamilyInfoBean.InfoBean infoBean = SaveTool.getOneFamily(mID);
+        mName = infoBean.getOrd_hz();
     }
 
 

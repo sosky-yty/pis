@@ -6,15 +6,11 @@ import java.util.List;
  * 草原补助
  */
 public class UpGrasslandBean {
-    List<InfoBean> infoBeans;
+    List<InfoBean> info;
 
-    public List<InfoBean> getInfoBeans() {
-        return infoBeans;
-    }
+   public List<InfoBean> getInfoBeans() {        return info;    }
 
-    public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
-    }
+   public void setInfoBeans(List<InfoBean> infoBeans) {        this.info = infoBeans;    }
 
     public static class InfoBean{
         private String ord2_hz;

@@ -304,6 +304,15 @@ public class SaveTool {
         UpPersonBean.InfoBean onePersonBean = new Gson().fromJson(json, UpPersonBean.class).getInfoBeans().get(0);
         return onePersonBean;
     }
+
+
+    public static UpFamilyInfoBean.InfoBean getOneFamily(String id){
+        SPHelper msp = new SPHelper(MyApp.getContext(), "familys");
+        Map<String, String> map = getFamilys();
+        String json = map.get(id);
+        UpFamilyInfoBean.InfoBean infoBean = new Gson().fromJson(json, UpFamilyInfoBean.class).getInfoBeans().get(0);
+        return infoBean;
+    }
     
     
     /**

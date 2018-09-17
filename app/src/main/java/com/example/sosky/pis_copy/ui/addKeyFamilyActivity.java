@@ -102,6 +102,9 @@ public class addKeyFamilyActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadlocal();
+        }else{
+            faOrdHz.setText(AddFamilyMainActivity.mName);
+            faOrdHzsfz.setText(AddFamilyMainActivity.mID);
         }
     }
 
@@ -117,6 +120,8 @@ public class addKeyFamilyActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            faOrdHz.setText(AddFamilyMainActivity.mName);
+            faOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }
