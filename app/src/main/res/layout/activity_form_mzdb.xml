@@ -43,7 +43,8 @@
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
                     android:maxLines="1"
-                    android:text="户主："/>
+                    android:text="户主："
+                    android:editable="false"/>
 
                 <EditText
                     android:id="@+id/mzdb_ord_hz"
@@ -69,7 +70,8 @@
                     android:id="@+id/mzdb_ord_hzsfz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout

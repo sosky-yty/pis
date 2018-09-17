@@ -49,7 +49,8 @@
                     android:id="@+id/xlb_ord_xm"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
@@ -69,7 +70,8 @@
                     android:id="@+id/xlb_ord_sfz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
