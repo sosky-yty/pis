@@ -50,7 +50,7 @@ public class addKeyPersonActivity extends BaseActivity {
     String[] byzt = {"已服", "未服"};
 
     //残疾等级
-    String [] cjdj = {"1","2","3","4"};
+    String[] cjdj = {"1", "2", "3", "4"};
 
     //参与集体经济项目
     String[] cyjtjjxm = {"乡村酒店", "大棚蔬菜", "瓦须黑帐篷体验园区", "生态畜牧专业合作"};
@@ -165,7 +165,7 @@ public class addKeyPersonActivity extends BaseActivity {
         Bundle bundle = getIntent().getExtras();
         String string = bundle.getString("action");
         if ("local".equals(string)) {
-            mID= getIntent().getStringExtra("id");
+            mID = getIntent().getStringExtra("id");
             loadlocal();
         }
 
@@ -302,22 +302,24 @@ public class addKeyPersonActivity extends BaseActivity {
 
         button.setOnClickListener(view -> {
             UpPersonBean.InfoBean bean = saveDatas();
-            UpFamilyInfoBean.InfoBean bean_fa =  new UpFamilyInfoBean.InfoBean();
-            if(MyTools.verificationID(bean.getOrd_sfz())){
+            UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
+            if (MyTools.verificationID(bean.getOrd_sfz())) {
                 SaveTool.saveOnePerson(bean);
-                if("户主".equals(bean.getOrd_yhzgx())) {
+                if ("户主".equals(bean.getOrd_yhzgx())) {
                     bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
                     bean_fa.setOrd_hz(bean.getOrd_xm());
                     SaveTool.saveOneFamily(bean_fa);
                 }
                 RxToast.success("保存成功");
                 localPersonFragment.refresh();
-            }else{
+            } else {
                 RxToast.error("身份证错误");
             }
 
         });
     }
+
+    
 
     @Override
     protected void bindListener() {
@@ -334,7 +336,7 @@ public class addKeyPersonActivity extends BaseActivity {
         ord_rssj.setOnClickListener(v -> {
             MyTools.showDataPicker(mContext, ord_rssj);
         });
-        ord_cjdj.setOnClickListener(v->{
+        ord_cjdj.setOnClickListener(v -> {
             MyTools.showSelectDialog(cjdj, mContext, ord_cjdj);
         });
 
@@ -359,35 +361,35 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_szxq(ord_szxq.getText().toString());
         infoBeans.setOrd_xjzd(ord_xjzd.getText().toString());
         infoBeans.setOrd_lxdh(ord_lxdh.getText().toString());
-        infoBeans.setOrd_sfcygyxgw(s_ord_sfcygyxgw.isChecked()?"是":"否");
+        infoBeans.setOrd_sfcygyxgw(s_ord_sfcygyxgw.isChecked() ? "是" : "否");
         infoBeans.setOrd_gwmc(ord_gwmc.getText().toString());
-        infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.isChecked()?"是":"否");
-        infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.isChecked()?"是":"否");
+        infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.isChecked() ? "是" : "否");
+        infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.isChecked() ? "是" : "否");
         infoBeans.setOrd_sfcygyxgw(s_ord_sfcydbylbx.getText().toString());
         infoBeans.setOrd_whcd(ord_whcd.getText().toString());
-        infoBeans.setOrd_sfzd(s_ord_sfzd.isChecked()?"是":"否");
+        infoBeans.setOrd_sfzd(s_ord_sfzd.isChecked() ? "是" : "否");
         infoBeans.setOrd_szyx(ord_szyx.getText().toString());
         infoBeans.setOrd_jyzk(ord_jyzk.getText().toString());
         infoBeans.setOrd_jydw(ord_jydw.getText().toString());
         infoBeans.setOrd_byzt(ord_byzt.getText().toString());
         infoBeans.setOrd_zp(ord_zp.getText().toString());
-        infoBeans.setOrd_sfcyjtjj(s_ord_sfcyjtjj.isChecked()?"是":"否");
+        infoBeans.setOrd_sfcyjtjj(s_ord_sfcyjtjj.isChecked() ? "是" : "否");
         infoBeans.setOrd_cyjtjjdxm(ord_cyjtjjdxm.getText().toString());
-        infoBeans.setOrd_sfwnctk(s_ord_sfwnctk.isChecked()?"是":"否");
-        infoBeans.setOrd_sfwcstk(s_ord_sfwcstk.isChecked()?"是":"否");
-        infoBeans.setOrd_sfwge(s_ord_sfwge.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwnctk(s_ord_sfwnctk.isChecked() ? "是" : "否");
+        infoBeans.setOrd_sfwcstk(s_ord_sfwcstk.isChecked() ? "是" : "否");
+        infoBeans.setOrd_sfwge(s_ord_sfwge.isChecked() ? "是" : "否");
         infoBeans.setOrd_gegyfs(ord_gegyfs.getText().toString());
-        infoBeans.setOrd_sfwlset(s_ord_sfwlset.isChecked()?"是":"否");
-        infoBeans.setOrd_sfwzdry(s_ord_sfwzdry.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwlset(s_ord_sfwlset.isChecked() ? "是" : "否");
+        infoBeans.setOrd_sfwzdry(s_ord_sfwzdry.isChecked() ? "是" : "否");
         infoBeans.setOrd_zdrylx(ord_zdrylx.getText().toString());
-        infoBeans.setOrd_sfwcjr(s_ord_sfwcjr.isChecked()?"是":"否");
+        infoBeans.setOrd_sfwcjr(s_ord_sfwcjr.isChecked() ? "是" : "否");
         infoBeans.setOrd_cjzh(ord_cjzh.getText().toString());
         infoBeans.setOrd_cjdj(ord_cjdj.getText().toString());
-        infoBeans.setOrd_sfyfzqk(s_ord_sfyfzqk.isChecked()?"是":"否");
+        infoBeans.setOrd_sfyfzqk(s_ord_sfyfzqk.isChecked() ? "是" : "否");
         infoBeans.setOrd_fzlx(ord_fzlx.getText().toString());
         infoBeans.setOrd_jzqx(ord_jzqx.getText().toString());
         infoBeans.setOrd_bfqx(ord_bfqx.getText().toString());
-        infoBeans.setOrd_sfsn(s_ord_sfsn.isChecked()?"是":"否");
+        infoBeans.setOrd_sfsn(s_ord_sfsn.isChecked() ? "是" : "否");
         infoBeans.setOrd_szsm(ord_szsm.getText().toString());
         infoBeans.setOrd_rssj(ord_rssj.getText().toString());
         infoBeans.setOrd_jzryzshm(ord_jzryzshm.getText().toString());
@@ -403,7 +405,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_apm(ord_apm.getText().toString());
         infoBeans.setOrd_qpm(ord_qpm.getText().toString());
         infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
-        infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked()?"是":"否");
+        infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked() ? "是" : "否");
 
         return infoBeans;
     }
@@ -510,6 +512,7 @@ public class addKeyPersonActivity extends BaseActivity {
         s_ord_fhsz = findViewById(R.id.add_ord_fhsz);
         linear_jsxx = findViewById(R.id.linear_jsxx);
     }
+
     @Override
     protected void inputDatas() {
         ord_xm.setText(mInfoBean.getOrd_xm());
@@ -582,8 +585,8 @@ public class addKeyPersonActivity extends BaseActivity {
         s_ord_sfcyxnb.setChecked(mInfoBean.getOrd_sfcyxnb().equals("是"));
         s_ord_sfcyxnh.setChecked(mInfoBean.getOrd_sfcyxnh().equals("是"));
         s_ord_sfcydbylbx.setChecked(mInfoBean.getOrd_sfcydbylbx().equals("是"));
-        if (ord_xb.getText().toString().equals("女")){
-            MyTools.setLinearLayoutVisibility(linear_jsxx,true);
+        if (ord_xb.getText().toString().equals("女")) {
+            MyTools.setLinearLayoutVisibility(linear_jsxx, true);
         }
     }
 
