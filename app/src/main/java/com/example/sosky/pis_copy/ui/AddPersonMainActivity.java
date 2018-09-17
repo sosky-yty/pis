@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpOnePersonBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -88,7 +90,8 @@ public class AddPersonMainActivity extends BaseActivity {
         btnSave = findViewById(R.id.btn_save);
 
         mId = getIntent().getStringExtra("id");
-        
+        UpOnePersonBean person = SaveTool.getOnePerson(mId);
+        mName = person.getDataSetBean().getOrd_xm();
         //todo 本地查看
     }
 
@@ -117,7 +120,7 @@ public class AddPersonMainActivity extends BaseActivity {
             RxActivityTool.skipActivity(mContext, addXlbActivity.class);
 
         });
-        
+
         //特困
         rlTekun.setOnClickListener(v -> {
             RxActivityTool.skipActivity(mContext, addMztkActivity.class, bundle);
