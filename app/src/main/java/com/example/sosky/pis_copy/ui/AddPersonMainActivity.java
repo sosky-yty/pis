@@ -23,6 +23,8 @@ import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
 
+import org.w3c.dom.Text;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -54,9 +56,9 @@ public class AddPersonMainActivity extends BaseActivity {
     private Button btnSave;
 
 
-    public static String mName;
-    public static String mID;
-    public static String mMode;
+    public static String mName = "";
+    public static String mID = "";
+    public static String mMode = "";
 
 
     @Override
@@ -174,11 +176,20 @@ public class AddPersonMainActivity extends BaseActivity {
         bundle.putString("id", editSfz.getText().toString());
         bundle.putString("action", mMode);
 
+        String name = editName.getText().toString();
+        String id = editSfz.getText().toString();
+        if (TextUtils.isEmpty(name)&& TextUtils.isEmpty(id)) {
+            RxToast.error("姓名必填,身份证必填");
+            return;
+        }
+        mName = name;
+        mID = id;
     }
 
 
     /**
      * 身份证是否填写
+     *
      * @return
      */
     private boolean isSFZok() {

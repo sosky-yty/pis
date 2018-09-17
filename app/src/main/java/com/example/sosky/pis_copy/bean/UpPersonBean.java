@@ -8,15 +8,11 @@ import java.util.List;
  */
 public class UpPersonBean {
 
-    private List<InfoBean>  infoBeans;
+    private List<InfoBean>  info;
 
-    public List<InfoBean> getInfoBeans() {
-        return infoBeans;
-    }
+   public List<InfoBean> getInfoBeans() {        return info;    }
 
-    public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
-    }
+   public void setInfoBeans(List<InfoBean> infoBeans) {        this.info = infoBeans;    }
 
     public static class InfoBean{
         private String ord_xm;

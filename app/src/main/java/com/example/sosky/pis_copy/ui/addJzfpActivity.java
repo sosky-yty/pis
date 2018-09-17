@@ -38,10 +38,8 @@ public class addJzfpActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if ("local".equals(getIntent().getStringExtra("action"))) {
-            mID = getIntent().getStringExtra("id");
-            loadDatas();
-        }
+        jzOrdHz.setText(AddFamilyMainActivity.mName);
+        jzOrdHzsfz.setText(AddFamilyMainActivity.mID);
     }
 
     @Override

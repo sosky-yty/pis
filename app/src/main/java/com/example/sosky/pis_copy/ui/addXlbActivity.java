@@ -43,6 +43,9 @@ public class addXlbActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
+        }else {
+            xlbOrdXm.setText(AddPersonMainActivity.mName);
+            xlbOrdSfz.setText(AddPersonMainActivity.mID);
         }
     }
 

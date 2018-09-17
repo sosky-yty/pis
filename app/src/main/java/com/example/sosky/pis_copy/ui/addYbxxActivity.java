@@ -35,6 +35,9 @@ public class addYbxxActivity extends BaseActivity {
     protected void loadDatas() {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
+        }else {
+            ybOrdXm.setText(AddPersonMainActivity.mName);
+            ybOrdSfz.setText(AddPersonMainActivity.mID);
         }
         RxLogTool.e("开始加载本地");
         try {

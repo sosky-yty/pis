@@ -44,6 +44,9 @@ public class addMztkActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
+        }else {
+            mztkOrdXm.setText(AddPersonMainActivity.mName);
+            mztkOrdSfz.setText(AddPersonMainActivity.mID);
         }
     }
 

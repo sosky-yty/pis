@@ -37,10 +37,10 @@ public class addLsjzActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if ("local".equals(getIntent().getStringExtra("action"))) {
-            mID = getIntent().getStringExtra("id");
-            loadDatas();
-        }
+
+        lsOrdHz.setText(AddFamilyMainActivity.mName);
+        lsOrdHzsfz.setText(AddFamilyMainActivity.mID);
+
     }
 
     @Override

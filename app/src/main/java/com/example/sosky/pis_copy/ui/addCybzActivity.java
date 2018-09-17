@@ -36,10 +36,8 @@ public class addCybzActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if ("local".equals(getIntent().getStringExtra("action"))) {
-            mID = getIntent().getStringExtra("id");
-            loadDatas();
-        }
+        cyOrdHz.setText(AddFamilyMainActivity.mName);
+        cyOrdHzsfz.setText(AddFamilyMainActivity.mID);
     }
 
     @Override
@@ -90,11 +88,11 @@ public class addCybzActivity extends BaseActivity {
 
     @Override
     protected void inputDatas() {
-        cyOrdHz      .setText(mInfoBean.getOrd2_hz());
-        cyOrdHzsfz   .setText(mInfoBean.getOrd2_hzsfz());
-        cyOrdNf      .setText(mInfoBean.getOrd2_nf());
-        cyOrdJe      .setText(mInfoBean.getOrd2_je());
-        cyOrdBz      .setText(mInfoBean.getOrd2_bz());
+        cyOrdHz.setText(mInfoBean.getOrd2_hz());
+        cyOrdHzsfz.setText(mInfoBean.getOrd2_hzsfz());
+        cyOrdNf.setText(mInfoBean.getOrd2_nf());
+        cyOrdJe.setText(mInfoBean.getOrd2_je());
+        cyOrdBz.setText(mInfoBean.getOrd2_bz());
     }
 
     private UpGrasslandBean.InfoBean saveDatas() {

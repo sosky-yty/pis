@@ -6,15 +6,11 @@ import java.util.List;
  * 新农保上传
  */
 public class UpNewAgriculturalBean {
-    List<InfoBean> infoBeans;
+    List<InfoBean> info;
 
-    public List<InfoBean> getInfoBeans() {
-        return infoBeans;
-    }
+   public List<InfoBean> getInfoBeans() {        return info;    }
 
-    public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
-    }
+   public void setInfoBeans(List<InfoBean> infoBeans) {        this.info = infoBeans;    }
 
     public static class InfoBean{
 

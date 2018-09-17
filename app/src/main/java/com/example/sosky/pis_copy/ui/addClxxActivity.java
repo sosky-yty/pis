@@ -56,6 +56,9 @@ public class addClxxActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
+        }else {
+            clOrdXm.setText(AddPersonMainActivity.mName);
+            clOrdSfz.setText(AddPersonMainActivity.mID);
         }
 
     }

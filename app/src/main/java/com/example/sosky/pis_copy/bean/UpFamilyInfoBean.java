@@ -9,14 +9,14 @@ import java.util.List;
  */
 public class UpFamilyInfoBean {
 
-    private List<InfoBean> infoBeans;
+    private List<InfoBean> info;
 
     public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+        return info;
     }
 
     public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+        this.info = infoBeans;
     }
 
     public static class InfoBean{
