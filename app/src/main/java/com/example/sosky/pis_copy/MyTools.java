@@ -680,14 +680,14 @@ public class MyTools {
     }
 
     /**
-     * 验证id 15位或者１８位
+     * 验证id  身份证 编号
      *
      * @return
      */
     public static Boolean verificationID(String ID) {
-        if (ID.isEmpty()) {
+        if (null == ID ||ID.isEmpty()) {
             return false;
-        } else if (ID.length() != 15 && ID.length() != 18) {
+        } else if (ID.length() <6) {
             return false;
         }
         return true;
