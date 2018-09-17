@@ -11,4 +11,5 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="pis">色柯镇社会管理大数据平台</string>
     <string name="photo_path">色柯APP文件/</string>
+    <string name="address">http://nat.flobit.cn:94</string>
 </resources>

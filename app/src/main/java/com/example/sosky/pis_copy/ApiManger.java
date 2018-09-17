@@ -7,7 +7,7 @@ public class ApiManger {
     /**
      * 调用api需先登录
      */
-    public static final String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", "http://nat.flobit.cn:94");
+    public static final String DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
 
     /**
      * 请求地址:http://nat.flobit.cn:94/simpleauth

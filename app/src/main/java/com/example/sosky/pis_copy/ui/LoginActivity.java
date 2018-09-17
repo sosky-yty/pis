@@ -76,7 +76,7 @@ public class LoginActivity extends BaseActivity {
 
         });
         buttonSet.setOnClickListener(view -> {
-            address.setText("http://nat.flobit.cn:94");
+            address.setText(R.string.address);
             new SPHelper(MyApp.getContext(), "server").put("address", "http://nat.flobit.cn:94");
         });
 
@@ -104,7 +104,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onError(Response<String> response) {
                 super.onError(response);
-                RxToast.error("网络错误");
+                RxToast.error("网络错误或者服务器出错");
             }
         });
     }
