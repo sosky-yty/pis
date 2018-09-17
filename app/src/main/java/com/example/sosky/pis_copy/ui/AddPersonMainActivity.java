@@ -23,8 +23,6 @@ import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
 import java.io.IOException;
 
@@ -105,6 +103,7 @@ public class AddPersonMainActivity extends BaseActivity {
                 UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
                 mName = person.getOrd_xm();
                 //todo 本地查看 
+                loadImg();
             } else {
                 mID = getIntent().getStringExtra("id");
                 mMode = "new";
@@ -114,6 +113,26 @@ public class AddPersonMainActivity extends BaseActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+    }
+
+    /**
+     * 加载照片
+     */
+    private void loadImg() {
+        String[] sufix = {".jpg", ".jpeg", ".png"};
+        for (String s : sufix) {
+            File file = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/" + mID + s);
+            if (RxFileTool.isFileExists(file)) {
+
+                Glide.with(mContext).
+                        load(file).
+                        into(ivZp);
+                break;
+            }
+
+        }
+
 
     }
 
@@ -178,7 +197,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
         String name = editName.getText().toString();
         String id = editSfz.getText().toString();
-        if (TextUtils.isEmpty(name)&& TextUtils.isEmpty(id)) {
+        if (TextUtils.isEmpty(name) && TextUtils.isEmpty(id)) {
             RxToast.error("姓名必填,身份证必填");
             return;
         }
