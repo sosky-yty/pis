@@ -36,8 +36,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin"
+                    android:gravity="center"
                     android:text="姓名:"
                     android:textColor="@color/important_text_color"/>
 
@@ -45,14 +46,18 @@
                     android:id="@+id/edit_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/margin"
+                    android:editable="false"
+
+                    android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:drawablePadding="10dp"
+                    android:background="@null"
+                    android:drawablePadding="12dp"
                     android:gravity="center"
                     android:hint="必填"
-                    android:textColor="@color/assist_text_color"/>
+                    android:lines="1"
+                    android:maxLength="18"
+                    android:textColor="#000"
+                    />
             </LinearLayout>
 
             <View
@@ -68,23 +73,27 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin"
+                    android:gravity="center"
                     android:text="身份证号:"
                     android:textColor="@color/important_text_color"/>
 
-                <EditText
+                <com.zyl.customkeyboardview.CustomKeyboardEditText
                     android:id="@+id/edit_sfz"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="@dimen/margin"
+                    android:layout_margin="@dimen/margin"
                     android:layout_weight="1"
-                    android:drawablePadding="10dp"
+                    android:digits="0123456789xX"
+                    android:drawablePadding="12dp"
                     android:gravity="center"
                     android:hint="必填"
-                    android:textColor="@color/assist_text_color"/>
+                    android:editable="false"
+                    android:lines="1"
+                    android:maxLength="18"
+                    android:textColor="#000"
+                    app:xml="@xml/idcard_keyboard"/>
             </LinearLayout>
 
             <View
@@ -229,11 +238,6 @@
                     android:textColor="@color/assist_text_color"/>
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/line_color"/>
- 
 
             <RelativeLayout
                 android:id="@+id/rl_jisheng"

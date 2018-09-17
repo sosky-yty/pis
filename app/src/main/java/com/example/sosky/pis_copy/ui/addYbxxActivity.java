@@ -63,10 +63,13 @@ public class addYbxxActivity extends BaseActivity {
 
     }
 
-    
 
     @Override
     protected void bindListener() {
+
+        ybOrdSccyybrq.setOnClickListener(v -> {
+            MyTools.showDataPicker(mContext, ybOrdSccyybrq);
+        });
         btnSaveClxx.setOnClickListener(view -> {
             UpMedicalBean.InfoBean bean = saveDatas();
             if (MyTools.verificationID(bean.getOrd2_sfz())) {
@@ -76,7 +79,6 @@ public class addYbxxActivity extends BaseActivity {
                 RxToast.error("身份证错误,无法保存");
             }
         });
-        MyTools.showDataPicker(mContext, ybOrdSccyybrq);
     }
 
     @Override

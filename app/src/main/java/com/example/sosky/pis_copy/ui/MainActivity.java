@@ -2,8 +2,6 @@ package com.example.sosky.pis_copy.ui;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.example.sosky.pis_copy.R;
@@ -20,12 +18,7 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationViewEx navigation;
     private ViewPager homeViewPager;
     FragmentPagerAdapter adapter;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
+ 
     @Override
     protected int getContentID() {
         return R.layout.activity_main;

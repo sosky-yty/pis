@@ -90,7 +90,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -112,7 +112,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -154,7 +154,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -196,7 +196,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -218,7 +218,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -240,7 +240,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -302,7 +302,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -324,7 +324,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -496,7 +496,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -562,7 +562,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -605,7 +605,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -672,7 +672,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -830,7 +830,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -902,7 +902,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableRight="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                         android:editable="false"/>
                 </LinearLayout>
             </LinearLayout>
@@ -1066,7 +1066,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableRight="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                         android:editable="false"/>
                 </LinearLayout>
 
@@ -1258,7 +1258,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableRight="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                         android:editable="false"/>
                 </LinearLayout>
 
@@ -1301,7 +1301,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableRight="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                         android:editable="false"/>
                 </LinearLayout>
 
@@ -1323,7 +1323,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:drawableRight="@drawable/ic_down"
+                        android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                         android:editable="false"/>
                 </LinearLayout>
 
