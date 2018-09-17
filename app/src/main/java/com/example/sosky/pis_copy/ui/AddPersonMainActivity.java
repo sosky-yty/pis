@@ -58,6 +58,8 @@ public class AddPersonMainActivity extends BaseActivity {
     public String mMode;
 
 
+
+
     @Override
     protected int getContentID() {
         return R.layout.activity_person_main;
@@ -122,7 +124,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
         });
 
-        //农保        //fixme
+        //农保        
         rlNongbao.setOnClickListener(v -> {
             RxActivityTool.skipActivity(mContext, addXlbActivity.class);
 

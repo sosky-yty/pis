@@ -310,7 +310,7 @@ public class addKeyPersonActivity extends BaseActivity {
                     if("户主".equals(bean.getOrd_yhzgx())) {
                         bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
                         bean_fa.setOrd_hz(bean.getOrd_xm());
-                        SaveTool.saveOneXumu(bean_fa);
+                        SaveTool.saveOneFamily(bean_fa);
                     }
                     RxToast.success("保存成功");
                 }else{
