@@ -19,6 +19,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxLogTool;
+import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
 
 import java.util.Map;
 
@@ -50,6 +51,25 @@ public class MineFragment extends BaseFragment {
             RxActivityTool.skipActivityAndFinish(getActivity(), LoginActivity.class);
         });
 
+        btnDownload.setOnClickListener(v -> {
+            final RxDialogSureCancel rxDialogSureCancel = new RxDialogSureCancel(getContext());
+            rxDialogSureCancel.getTitleView().setText("重要提示");
+            rxDialogSureCancel.setContent("下载会清空手机当前所有已填写的数据\n可能导致数据丢失\n确定下载?");
+            rxDialogSureCancel.getSureView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    download();
+                    rxDialogSureCancel.cancel();
+                }
+            });
+            rxDialogSureCancel.getCancelView().setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    rxDialogSureCancel.cancel();
+                }
+            });
+            rxDialogSureCancel.show();
+        });
         btnSync.setOnClickListener(view -> {
             StringBuffer json = new StringBuffer();
             String xml = "";
@@ -70,7 +90,7 @@ public class MineFragment extends BaseFragment {
                     if (msgBean.getDataset().getT1().getCode() == 1) {
                         //todo 成功之后
                         tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
-                        
+
                         upMore();
                     } else {
                         //todo 失败逻辑
@@ -90,10 +110,23 @@ public class MineFragment extends BaseFragment {
     }
 
     /**
+     * 从服务器下载所有数据
+     */
+    private void download() {
+        ApiManger.downLoadKeyPerson(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append(body);
+            }
+        });
+    }
+
+    /**
      * 上传更多接口数据 todo
      */
     private void upMore() {
-        
+
     }
 
     /**

@@ -347,9 +347,8 @@ public class ApiManger {
      * @param data
      * @param stringCallback
      */
-    public static void downLoadKeyPerson(String data, StringCallback stringCallback) {
+    public static void downLoadKeyPerson( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_PERSON_INFO)
-                .params("data", data)
                 .execute(stringCallback);
     }
 
