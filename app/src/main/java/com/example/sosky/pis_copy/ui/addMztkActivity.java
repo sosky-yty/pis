@@ -62,6 +62,8 @@ public class addMztkActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            mztkOrdXm.setText(AddPersonMainActivity.mName);
+            mztkOrdSfz.setText(AddPersonMainActivity.mID);
             e.printStackTrace();
         }
     }

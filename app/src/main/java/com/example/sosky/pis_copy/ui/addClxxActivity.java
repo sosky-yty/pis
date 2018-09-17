@@ -75,6 +75,8 @@ public class addClxxActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            clOrdXm.setText(AddPersonMainActivity.mName);
+            clOrdSfz.setText(AddPersonMainActivity.mID);
             e.printStackTrace();
         }
     }

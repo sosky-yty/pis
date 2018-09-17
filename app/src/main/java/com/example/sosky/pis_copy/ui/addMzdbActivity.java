@@ -62,6 +62,8 @@ public class addMzdbActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            mzdbOrdHz.setText(AddFamilyMainActivity.mName);
+            mzdbOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }

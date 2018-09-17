@@ -52,6 +52,8 @@ public class addCybzActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            cyOrdHz.setText(AddFamilyMainActivity.mName);
+            cyOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }

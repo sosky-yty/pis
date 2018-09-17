@@ -55,6 +55,8 @@ public class addLsjzActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            lsOrdHz.setText(AddFamilyMainActivity.mName);
+            lsOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }

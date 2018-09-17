@@ -49,6 +49,8 @@ public class addYbxxActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            ybOrdXm.setText(AddPersonMainActivity.mName);
+            ybOrdSfz.setText(AddPersonMainActivity.mID);
             e.printStackTrace();
         }
     }

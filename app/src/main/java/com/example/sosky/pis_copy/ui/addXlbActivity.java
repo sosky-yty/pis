@@ -61,6 +61,8 @@ public class addXlbActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            xlbOrdXm.setText(AddPersonMainActivity.mName);
+            xlbOrdSfz.setText(AddPersonMainActivity.mID);
             e.printStackTrace();
         }
     }

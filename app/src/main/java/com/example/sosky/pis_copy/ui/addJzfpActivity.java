@@ -54,6 +54,8 @@ public class addJzfpActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            jzOrdHz.setText(AddFamilyMainActivity.mName);
+            jzOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }

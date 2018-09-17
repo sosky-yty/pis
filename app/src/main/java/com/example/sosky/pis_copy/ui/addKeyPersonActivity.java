@@ -599,6 +599,8 @@ public class addKeyPersonActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            ord_sfz.setText(AddPersonMainActivity.mID);
+            ord_xm.setText(AddPersonMainActivity.mName);
             e.printStackTrace();
         }
 
