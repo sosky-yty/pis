@@ -112,12 +112,9 @@ public class AddPersonMainActivity extends BaseActivity {
 
         //农保        //fixme
         rlNongbao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addMztkActivity.class);
+            RxActivityTool.skipActivity(mContext, addXlbActivity.class);
 
         });
-
-        //计生
-        //fixme
         
         //特困
         rlTekun.setOnClickListener(v -> {
