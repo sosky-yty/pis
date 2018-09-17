@@ -162,14 +162,17 @@ public class addKeyPersonActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if ("local".equals(getIntent().getStringExtra("action"))) {
+    protected void loadDatas() {
+
+
+        Bundle bundle = getIntent().getExtras();
+        String string = bundle.getString("action");
+        if ("local".equals(string)) {
             mID= getIntent().getStringExtra("id");
             loadlocal();
         }
-    }
 
+    }
 
     /**
      * 绑定view
@@ -593,10 +596,7 @@ public class addKeyPersonActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             //个人
-            Map<String, String> personMap = SaveTool.getPerson();
-            String json = personMap.get(mID);
-            UpPersonBean upPersonBean = new Gson().fromJson(json, UpPersonBean.class);
-            mInfoBean = upPersonBean.getInfoBeans().get(0);
+            mInfoBean = SaveTool.getOnePerson(mID);
             if (mInfoBean != null) {
                 inputDatas();
             }

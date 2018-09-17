@@ -120,35 +120,45 @@ public class AddPersonMainActivity extends BaseActivity {
     protected void bindListener() {
 
         Bundle bundle = new Bundle();
-        bundle.putString("id", editSfz.getText().toString());
-        bundle.putString("action", mMode);
+
         rlOrdZp.setOnClickListener(v -> showImgDialog());
 
         //基础
         rlJichu.setOnClickListener(v -> {
+            getEx(bundle);
             RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class,bundle);
         });
         //医保
         rlYibao.setOnClickListener(v -> {
+            getEx(bundle);
+
             RxActivityTool.skipActivity(mContext, addYbxxActivity.class,bundle);
 
         });
 
         //农保        
         rlNongbao.setOnClickListener(v -> {
+            getEx(bundle);
             RxActivityTool.skipActivity(mContext, addXlbActivity.class,bundle);
 
         });
 
         //特困
         rlTekun.setOnClickListener(v -> {
+            getEx(bundle);
             RxActivityTool.skipActivity(mContext, addMztkActivity.class, bundle);
         });
         //残联
         rlCanlian.setOnClickListener(v -> {
+            getEx(bundle);
             RxActivityTool.skipActivity(mContext, addClxxActivity.class, bundle);
         });
 
+    }
+
+    private void getEx(Bundle bundle) {
+        bundle.putString("id", editSfz.getText().toString());
+        bundle.putString("action", mMode);
     }
 
 
