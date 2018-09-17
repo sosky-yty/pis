@@ -8,7 +8,7 @@ android {
     }
 
     defaultConfig { 
-        applicationId "cn.edu.cdtu.jsj.pis_copy"
+        applicationId "cn.edu.cdtu.jsj.pis"
         minSdkVersion 21 
         targetSdkVersion 24
         versionCode 1

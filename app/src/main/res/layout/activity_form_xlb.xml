@@ -91,7 +91,9 @@
                     android:id="@+id/xlb_ord_sccyxnbrq"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/ic_down"
+                    android:editable="false"/>
             </LinearLayout>
 
             <LinearLayout
