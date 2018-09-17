@@ -58,9 +58,7 @@ public class MineFragment extends BaseFragment {
                 String xml1 = MyTools.JSON2xml(entry.getValue());
                 String substring = xml1.substring(xml1.indexOf("\n"));
                 xml = xml + substring;
-                //  xml.replace("<?xml version='1.0'?>", "");
             }
-            RxLogTool.e(xml);
             ApiManger.upKeyPerson(xml, new StringCallback() {
                 @Override
                 public void onSuccess(Response<String> response) {
@@ -70,7 +68,7 @@ public class MineFragment extends BaseFragment {
                     if (msgBean.getDataset().getT1().getCode() == 1) {
                         //todo 成功之后
                         tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
-                        
+
                         upMore();
                     } else {
                         //todo 失败逻辑
@@ -93,7 +91,24 @@ public class MineFragment extends BaseFragment {
      * 上传更多接口数据 todo
      */
     private void upMore() {
-        
+        tvPan.append("正在上传家庭信息\n");
+        upFamily();
+        tvPan.append("正在上传草原生态信息\n");
+        upGrassland();
+        tvPan.append("正在上传低保信息\n");
+        uplowinsuranceBean();
+        tvPan.append("正在上传医保信息\n");
+        upMedical();
+        tvPan.append("正在上传新农保信息\n");
+        upNewAgricultural();
+        tvPan.append("正在上传精准扶贫信息\n");
+        upPoverty();
+        tvPan.append("正在上传残联信息\n");
+        upResidual();
+        tvPan.append("正在上传临时补助信息\n");
+        upSeekHelp();
+        tvPan.append("正在上特困信息\n");
+        upVeryStriken();
     }
 
     /**
@@ -110,5 +125,304 @@ public class MineFragment extends BaseFragment {
         btnSync = activity.findViewById(R.id.btn_sync);
         tvPan = activity.findViewById(R.id.tv_pan);
     }
+
+    private void upFamily() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> familys = SaveTool.getFamilys();
+        for (Map.Entry<String, String> entry : familys.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upFamily(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upGrassland() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> grassland = SaveTool.getGrassland();
+        for (Map.Entry<String, String> entry : grassland.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upCaoyuanshengtai(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void uplowinsuranceBean() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> lowInsurances = SaveTool.getLowInsurance();
+        for (Map.Entry<String, String> entry : lowInsurances.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upDibaoxx(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+
+    private void upMedical() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> medical = SaveTool.getMedical();
+        for (Map.Entry<String, String> entry : medical.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upYibao(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upNewAgricultural() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> newAgricultural = SaveTool.getNewAgricultural();
+        for (Map.Entry<String, String> entry : newAgricultural.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upNongbao(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upPoverty() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> poverty = SaveTool.getPoverty();
+        for (Map.Entry<String, String> entry : poverty.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upJingzhunfuping(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upResidual() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> residual = SaveTool.getResidual();
+        for (Map.Entry<String, String> entry : residual.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upCanlian(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upSeekHelp() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> seekHelp = SaveTool.getSeekHelp();
+        for (Map.Entry<String, String> entry : seekHelp.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upLingshijiuzhu(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
+    private void upVeryStriken() {
+        StringBuffer json = new StringBuffer();
+        String xml = "";
+        Map<String, String> veryStricken = SaveTool.getVeryStricken();
+        for (Map.Entry<String, String> entry : veryStricken.entrySet()) {
+            String xml1 = MyTools.JSON2xml(entry.getValue());
+            String substring = xml1.substring(xml1.indexOf("\n"));
+            xml = xml + substring;
+        }
+        ApiManger.upTekun(xml, new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String json1 = MyTools.xml2JSON(response.body());
+                MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                if (msgBean.getDataset().getT1().getCode() == 1) {
+                    //todo 成功之后
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                } else {
+                    //todo 失败逻辑
+                    tvPan.setTextColor(Color.RED);
+                }
+                RxLogTool.e(response.body());
+            }
+
+            @Override
+            public void onError(Response<String> response) {
+                super.onError(response);
+
+            }
+        });
+    }
+
 
 }
