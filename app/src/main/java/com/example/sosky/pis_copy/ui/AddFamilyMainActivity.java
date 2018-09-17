@@ -50,9 +50,9 @@ public class AddFamilyMainActivity extends BaseActivity {
     private TextView tvLingshi;
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
-    public static String mID =" ";
-    public String mMode=" ";
-    public static String mName=" ";
+    public static String mID = " ";
+    public String mMode = " ";
+    public static String mName = " ";
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
 
@@ -63,7 +63,9 @@ public class AddFamilyMainActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             mMode = "local";
+            loadImg();
         }
+        loadImg();
     }
 
     @Override
@@ -287,4 +289,28 @@ public class AddFamilyMainActivity extends BaseActivity {
         return ".png";
     }
 
+
+    /**
+     * 加载照片
+     */
+    private void loadImg() {
+
+        String[] types = {"全家福照片/", "旧住房照片/", "新住房照片/"};
+        String[] sufix = {".jpg", ".jpeg", ".png"};
+        ImageView[] imgs = {ivZp, ivJzfzp, ivXzfzp};
+        for (int i = 0; i < types.length; i++) {
+            //选择文件夹
+            String type = types[i];
+            for (String s : sufix) {
+                //文件后缀
+                File file = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + type + mID + s);
+                if (RxFileTool.isFileExists(file)) {
+                    Glide.with(mContext).
+                            load(file).
+                            into(imgs[i]);
+                    break;
+                }
+            }
+        }
+    }
 }

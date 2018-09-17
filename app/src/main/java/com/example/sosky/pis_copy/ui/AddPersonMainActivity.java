@@ -133,7 +133,6 @@ public class AddPersonMainActivity extends BaseActivity {
 
         }
 
-
     }
 
 

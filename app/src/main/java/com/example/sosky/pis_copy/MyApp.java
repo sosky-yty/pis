@@ -51,9 +51,9 @@ public class MyApp extends Application{
 
         //设置全局响应时间,读取,写入,连接
         builder.cookieJar(new CookieJarImpl(new SPCookieStore(this)));
-        builder.readTimeout(6000, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(6000,TimeUnit.MILLISECONDS);
-        builder.connectTimeout(6000,TimeUnit.MILLISECONDS);
+        builder.readTimeout(60000, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(60000,TimeUnit.MILLISECONDS);
+        builder.connectTimeout(60000,TimeUnit.MILLISECONDS);
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("okgo");
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
