@@ -327,18 +327,6 @@ public class ApiManger {
                 .execute(stringCallback);
     }
 
- 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 
     /**
      * 上传精准扶贫信息录入
