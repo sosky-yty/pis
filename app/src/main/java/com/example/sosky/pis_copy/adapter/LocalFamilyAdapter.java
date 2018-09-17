@@ -32,16 +32,10 @@ public class LocalFamilyAdapter extends BaseQuickAdapter<UpFamilyInfoBean.InfoBe
         helper.setText(R.id.tv_num_it, hzsfz);
 
         helper.getView(R.id.it_family).setOnClickListener(view -> {
-
             Intent i = new Intent(mContext, AddFamilyMainActivity.class);
             i.putExtra("id", hzsfz);
             i.putExtra("action", "local");
             mContext.startActivity(i);
-
-        });
-        helper.setOnClickListener(R.id.tv_del, v -> {
-            remove(helper.getLayoutPosition());
-            SaveTool.clearFamily(hzsfz);
         });
     }
 
