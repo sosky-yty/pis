@@ -7,6 +7,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
+import com.example.sosky.pis_copy.ui.AddFamilyMainActivity;
 import com.example.sosky.pis_copy.ui.addKeyFamilyActivity;
 
 import java.util.List;
@@ -31,7 +32,7 @@ public class LocalFamilyAdapter extends BaseQuickAdapter<UpFamilyInfoBean.InfoBe
 
         helper.getView(R.id.it_family).setOnClickListener(view -> {
 
-            Intent i = new Intent(mContext, addKeyFamilyActivity.class);
+            Intent i = new Intent(mContext, AddFamilyMainActivity.class);
             i.putExtra("id", item.getOrd_hzsfz());
             i.putExtra("action", "local");
             mContext.startActivity(i);

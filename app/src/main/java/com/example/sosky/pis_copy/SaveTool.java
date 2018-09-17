@@ -298,11 +298,11 @@ public class SaveTool {
      *
      * @return
      */
-    public static UpOnePersonBean getOnePerson(String id) {
+    public static UpPersonBean getOnePerson(String id) {
         SPHelper msp = new SPHelper(MyApp.getContext(), "persons");
         Map<String, String> map = getPerson();
         String json = map.get(id);
-        UpOnePersonBean onePersonBean = new Gson().fromJson(json, UpOnePersonBean.class);
+        UpPersonBean onePersonBean = new Gson().fromJson(json, UpPersonBean.class);
         return onePersonBean;
     }
 

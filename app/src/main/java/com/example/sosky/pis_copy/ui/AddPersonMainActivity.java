@@ -13,7 +13,12 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpOnePersonBean;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
+import com.example.sosky.pis_copy.bean.UpVeryStrickenBean;
+import com.google.gson.Gson;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -24,6 +29,7 @@ import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
@@ -99,9 +105,22 @@ public class AddPersonMainActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             mMode = "local";
+            inputDatas();
         }else{
             mID = getIntent().getStringExtra("id");
             mMode = "new";
+        }
+
+    }
+
+    protected void inputDatas(){
+        try {
+            UpPersonBean onePerson = SaveTool.getOnePerson(mID);
+            editSfz.setText(mID);
+            editName.setText(onePerson.getInfoBeans().get(0).getOrd_xm());
+            }
+         catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

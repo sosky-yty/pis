@@ -10,7 +10,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;

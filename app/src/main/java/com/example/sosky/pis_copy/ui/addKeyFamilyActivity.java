@@ -88,7 +88,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         btnSaveClxx.setOnClickListener(v->{
             UpFamilyInfoBean.InfoBean bean = saveDatas();
             if(MyTools.verificationID(bean.getOrd_hzsfz())){
-                SaveTool.saveOneXumu(bean);
+                SaveTool.saveOneFamily(bean);
                 RxToast.success("保存成功");
             }else{
                 RxToast.error("身份证错误");
@@ -109,7 +109,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             //个人
-            Map<String, String> xumuMap = SaveTool.getXumu();
+            Map<String, String> xumuMap = SaveTool.getFamilys();
             String json = xumuMap.get(mID);
             UpFamilyInfoBean upPersonBean = new Gson().fromJson(json, UpFamilyInfoBean.class);
             mInfoBean = upPersonBean.getInfoBeans().get(0);
