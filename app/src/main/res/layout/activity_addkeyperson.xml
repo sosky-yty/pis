@@ -105,7 +105,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="证件类别"/>
+                    android:text="证件类别:"/>
 
                 <EditText
                     android:id="@+id/add_ord_zjlb"
@@ -127,7 +127,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="身份证"/>
+                    android:text="身份证:"/>
 
                 <EditText
                     android:id="@+id/add_ord_sfz"
@@ -147,7 +147,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="出生日期"/>
+                    android:text="出生日期:"/>
 
                 <EditText
                     android:id="@+id/add_ord_csrq"
@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="年龄"/>
+                    android:text="年龄:"/>
 
                 <EditText
                     android:id="@+id/add_ord_nl"
@@ -189,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="民族"/>
+                    android:text="民族:"/>
 
                 <EditText
                     android:id="@+id/add_ord_mz"
@@ -211,7 +211,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="政治面貌"/>
+                    android:text="政治面貌:"/>
 
                 <EditText
                     android:id="@+id/add_ord_zzmm"
@@ -233,7 +233,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="与户主关系"/>
+                    android:text="与户主关系:"/>
 
                 <EditText
                     android:id="@+id/add_ord_yhzgx"
@@ -255,7 +255,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="户主"/>
+                    android:text="户主:"/>
 
                 <EditText
                     android:id="@+id/add_ord_hz"
@@ -275,7 +275,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="户主身份证"/>
+                    android:text="户主身份证:"/>
 
                 <EditText
                     android:id="@+id/add_ord_hzsfz"
@@ -295,7 +295,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="婚姻状况"/>
+                    android:text="婚姻状况:"/>
 
                 <EditText
                     android:id="@+id/add_ord_hyzk"
@@ -317,7 +317,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="所在辖区"/>
+                    android:text="所在辖区:"/>
 
                 <EditText
                     android:id="@+id/add_ord_szxq"
@@ -339,7 +339,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="现居住地"/>
+                    android:text="现居住地:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xjzd"
@@ -359,7 +359,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="联系电话"/>
+                    android:text="联系电话:"/>
 
                 <EditText
                     android:id="@+id/add_ord_lxdh"
@@ -379,7 +379,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否参加公益性岗位"/>
+                    android:text="是否参加公益性岗位:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfcygyxgw"
@@ -403,7 +403,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="岗位名称"/>
+                    android:text="岗位名称:"/>
 
                 <EditText
                     android:id="@+id/add_ord_gwmc"
@@ -423,7 +423,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否参于新农包"/>
+                    android:text="是否参于新农包:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfcyxnb"
@@ -445,7 +445,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否参于新农合"/>
+                    android:text="是否参于新农合:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfcyxnh"
@@ -467,7 +467,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否参于大病医疗保险"/>
+                    android:text="是否参于大病医疗保险:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfcydbylbx"
@@ -489,7 +489,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="文化程度"/>
+                    android:text="文化程度:"/>
 
                 <EditText
                     android:id="@+id/add_ord_whcd"
@@ -511,7 +511,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否在读"/>
+                    android:text="是否在读:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfzd"
@@ -535,7 +535,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="所在院校"/>
+                    android:text="所在院校:"/>
 
                 <EditText
                     android:id="@+id/add_ord_szyx"
@@ -555,7 +555,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="就业状况"/>
+                    android:text="就业状况:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jyzk"
@@ -578,7 +578,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="就业单位"/>
+                    android:text="就业单位:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jydw"
@@ -598,7 +598,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="兵役状态"/>
+                    android:text="兵役状态:"/>
 
                 <EditText
                     android:id="@+id/add_ord_byzt"
@@ -610,6 +610,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
