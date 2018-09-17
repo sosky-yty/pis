@@ -6,6 +6,7 @@ import com.example.sosky.pis_copy.bean.UpGrasslandBean;
 import com.example.sosky.pis_copy.bean.UpLowInsuranceBean;
 import com.example.sosky.pis_copy.bean.UpMedicalBean;
 import com.example.sosky.pis_copy.bean.UpNewAgriculturalBean;
+import com.example.sosky.pis_copy.bean.UpOnePersonBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpPovertyBean;
@@ -292,6 +293,20 @@ public class SaveTool {
     }
 
     /**
+     * 根据身份证查个人信息
+     * todo 剩下的方法
+     *
+     * @return
+     */
+    public static UpOnePersonBean getOnePerson(String id) {
+        SPHelper msp = new SPHelper(MyApp.getContext(), "persons");
+        Map<String, String> map = getPerson();
+        String json = map.get(id);
+        UpOnePersonBean onePersonBean = new Gson().fromJson(json, UpOnePersonBean.class);
+        return onePersonBean;
+    }
+
+    /**
      * 获得所有家庭信息
      *
      * @return
@@ -306,7 +321,7 @@ public class SaveTool {
     }
 
     /**
-     * 获得草原补助信息
+     * 获得所有草原补助信息
      *
      * @return
      */
@@ -320,7 +335,7 @@ public class SaveTool {
     }
 
     /**
-     * 低保信息
+     * 获得所有低保信息
      *
      * @return
      */
@@ -334,7 +349,7 @@ public class SaveTool {
     }
 
     /**
-     * 医保信息
+     * 获得所有医保信息
      *
      * @return
      */
@@ -348,7 +363,7 @@ public class SaveTool {
     }
 
     /**
-     * 新农保
+     * 获得所有新农保
      *
      * @return
      */
@@ -362,7 +377,7 @@ public class SaveTool {
     }
 
     /**
-     * 特困信息
+     * 获得所有特困信息
      *
      * @return
      */
@@ -376,7 +391,7 @@ public class SaveTool {
     }
 
     /**
-     * 临时救助
+     * 获得所有临时救助
      *
      * @return
      */
@@ -390,7 +405,7 @@ public class SaveTool {
     }
 
     /**
-     * 残联信息
+     * 获得所有残联信息
      *
      * @return
      */
@@ -404,7 +419,7 @@ public class SaveTool {
     }
 
     /**
-     * 救助扶贫
+     * 获得所有救助扶贫
      *
      * @return
      */
