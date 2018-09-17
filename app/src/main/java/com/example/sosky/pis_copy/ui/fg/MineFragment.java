@@ -1,5 +1,6 @@
 package com.example.sosky.pis_copy.ui.fg;
 
+import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +12,9 @@ import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseFragment;
+import com.example.sosky.pis_copy.bean.MsgBean;
 import com.example.sosky.pis_copy.ui.LoginActivity;
+import com.google.gson.Gson;
 import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
@@ -49,16 +52,31 @@ public class MineFragment extends BaseFragment {
 
         btnSync.setOnClickListener(view -> {
             StringBuffer json = new StringBuffer();
+            String xml = "";
             Map<String, String> PersonsMap = SaveTool.getPerson();
             for (Map.Entry<String, String> entry : PersonsMap.entrySet()) {
-                json.append(entry.getValue());
+                String xml1 = MyTools.JSON2xml(entry.getValue());
+                String substring = xml1.substring(xml1.indexOf("\n"));
+                xml = xml + substring;
+                //  xml.replace("<?xml version='1.0'?>", "");
             }
-            String xml = MyTools.JSON2xml(json.toString());
-            //RxLogTool.e(xml);
+            RxLogTool.e(xml);
             ApiManger.upKeyPerson(xml, new StringCallback() {
                 @Override
                 public void onSuccess(Response<String> response) {
-                    RxLogTool.e(response.code());
+                    String json1 = MyTools.xml2JSON(response.body());
+                    MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                    tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                    if (msgBean.getDataset().getT1().getCode() == 1) {
+                        //todo 成功之后
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+                        
+                        upMore();
+                    } else {
+                        //todo 失败逻辑
+                        tvPan.setTextColor(Color.RED);
+
+                    }
                     RxLogTool.e(response.body());
                 }
 
@@ -69,6 +87,13 @@ public class MineFragment extends BaseFragment {
                 }
             });
         });
+    }
+
+    /**
+     * 上传更多接口数据 todo
+     */
+    private void upMore() {
+        
     }
 
     /**
