@@ -116,6 +116,17 @@ public class SaveTool {
     }
 
     /**
+     * 根据id删除草原补助
+     *
+     * @param id
+     */
+    public static void clearGrassland(String id) {
+        SPHelper spHelper = new SPHelper(MyApp.getContext(), "cybz");
+        spHelper.remove(id);
+    }
+
+
+    /**
      * 保存一个 个人信息
      * todo bean抽象类 存取抽象方法
      * 通过身份证标识　进行存取

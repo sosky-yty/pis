@@ -9,6 +9,7 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.example.sosky.pis_copy.ui.AddPersonMainActivity;
+import com.vondear.rxtools.view.RxToast;
 
 import java.util.List;
 
@@ -41,8 +42,30 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
 
         helper.getView(R.id.tv_del_people).setOnClickListener(v -> {
             SaveTool.clearPerson(sfz);
-            if ("户主".equals(item.getOrd_yhzgx())) {
-                SaveTool.clearFamily(sfz);
+            try {
+                if ("户主".equals(item.getOrd_yhzgx())) {
+                    SaveTool.clearFamily(sfz);
+                    SaveTool.clearLowInsurance(sfz);
+                    SaveTool.clearMedical(sfz);
+                    SaveTool.clearNewAgricultural(sfz);
+                    SaveTool.clearPerson(sfz);
+                    SaveTool.clearResidual(sfz);
+                    SaveTool.clearSeekHelp(sfz);
+                    SaveTool.clearVeryStricken(sfz);
+                    SaveTool.clearPoverty(sfz);
+                }else {
+                    SaveTool.clearLowInsurance(sfz);
+                    SaveTool.clearMedical(sfz);
+                    SaveTool.clearNewAgricultural(sfz);
+                    SaveTool.clearPerson(sfz);
+                    SaveTool.clearResidual(sfz);
+                    SaveTool.clearSeekHelp(sfz);
+                    SaveTool.clearVeryStricken(sfz);
+                    SaveTool.clearPoverty(sfz);
+                }
+            } catch (Exception e) {
+                RxToast.error("删除错误");
+                e.printStackTrace();
             }
             remove(helper.getLayoutPosition());
         });

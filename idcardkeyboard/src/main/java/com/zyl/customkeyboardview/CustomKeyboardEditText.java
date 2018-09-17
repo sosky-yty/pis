@@ -241,7 +241,7 @@ public class CustomKeyboardEditText extends EditText implements KeyboardView.OnK
     /**
      * 隐藏自定义键盘
      */
-    private void hideKeyboard() {
+    public void hideKeyboard() {
         if (null != mKeyboardWindow) {
             if (mKeyboardWindow.isShowing()) {
                 mKeyboardWindow.dismiss();

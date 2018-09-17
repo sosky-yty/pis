@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ import com.vondear.rxtools.RxPhotoTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
+import com.zyl.customkeyboardview.CustomKeyboardEditText;
 
 import java.io.File;
 import java.io.IOException;
@@ -35,7 +37,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
     private RxTitle rxTitle;
     private EditText editName;
-    private EditText editSfz;
+    private CustomKeyboardEditText editSfz;
     private RelativeLayout rlOrdZp;
     private ImageView ivZp;
     private TextView tvZp;
@@ -52,6 +54,7 @@ public class AddPersonMainActivity extends BaseActivity {
     private RelativeLayout rlCanlian;
     private TextView tvCanlian;
     private Button btnSave;
+    private LinearLayout linear_Id;
 
 
     public static String mName = "";
@@ -89,7 +92,7 @@ public class AddPersonMainActivity extends BaseActivity {
         rlCanlian = findViewById(R.id.rl_canlian);
         tvCanlian = findViewById(R.id.tv_canlian);
         btnSave = findViewById(R.id.btn_save);
-
+        linear_Id = findViewById(R.id.linear_id);
 
     }
 
@@ -102,6 +105,9 @@ public class AddPersonMainActivity extends BaseActivity {
                 mMode = "local";
                 UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
                 mName = person.getOrd_xm();
+                editSfz.hideKeyboard();
+                linear_Id.setFocusableInTouchMode(false);
+
                 //todo 本地查看 
                 loadImg();
             } else {
