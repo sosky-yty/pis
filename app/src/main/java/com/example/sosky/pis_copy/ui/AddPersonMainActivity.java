@@ -3,7 +3,6 @@ package com.example.sosky.pis_copy.ui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -99,10 +98,9 @@ public class AddPersonMainActivity extends BaseActivity {
         //todo 本地查看 
     }
 
-
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void loadDatas() {
+
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             mMode = "local";
@@ -110,7 +108,7 @@ public class AddPersonMainActivity extends BaseActivity {
             mID = getIntent().getStringExtra("id");
             mMode = "new";
         }
-
+        
     }
 
     @Override
