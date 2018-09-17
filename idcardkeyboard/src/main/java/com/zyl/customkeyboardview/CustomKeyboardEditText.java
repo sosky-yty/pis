@@ -38,6 +38,16 @@ public class CustomKeyboardEditText extends EditText implements KeyboardView.OnK
     private PopupWindow mKeyboardWindow;
     private View mDecorView;
 
+    public static boolean isFlag() {
+        return flag;
+    }
+
+    public static void setFlag(boolean flag) {
+        CustomKeyboardEditText.flag = flag;
+    }
+
+    private static boolean flag = true;
+
     public CustomKeyboardEditText(Context context) {
         this(context, null);
     }
@@ -184,8 +194,10 @@ public class CustomKeyboardEditText extends EditText implements KeyboardView.OnK
         if (!focused) {
             hideKeyboard();
         } else {
-            hideSysInput();
-            showKeyboard();
+            if (flag) {
+                hideSysInput();
+                showKeyboard();
+            }
         }
         super.onFocusChanged(focused, direction, previouslyFocusedRect);
     }
@@ -264,6 +276,8 @@ public class CustomKeyboardEditText extends EditText implements KeyboardView.OnK
         requestFocus();
         requestFocusFromTouch();
         hideSysInput();
-        showKeyboard();
+        if (flag) {
+            showKeyboard();
+        }
     }
 }

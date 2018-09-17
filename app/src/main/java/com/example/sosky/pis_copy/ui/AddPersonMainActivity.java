@@ -54,7 +54,6 @@ public class AddPersonMainActivity extends BaseActivity {
     private RelativeLayout rlCanlian;
     private TextView tvCanlian;
     private Button btnSave;
-    private LinearLayout linear_Id;
 
 
     public static String mName = "";
@@ -92,7 +91,6 @@ public class AddPersonMainActivity extends BaseActivity {
         rlCanlian = findViewById(R.id.rl_canlian);
         tvCanlian = findViewById(R.id.tv_canlian);
         btnSave = findViewById(R.id.btn_save);
-        linear_Id = findViewById(R.id.linear_id);
 
     }
 
@@ -106,12 +104,12 @@ public class AddPersonMainActivity extends BaseActivity {
                 UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
                 mName = person.getOrd_xm();
                 editSfz.hideKeyboard();
-                linear_Id.setFocusableInTouchMode(false);
-
+                CustomKeyboardEditText.setFlag(false);
                 //todo 本地查看 
                 loadImg();
             } else {
                 mID = getIntent().getStringExtra("id");
+                CustomKeyboardEditText.setFlag(true);
                 mMode = "new";
             }
             editSfz.setText(mID);
@@ -130,7 +128,6 @@ public class AddPersonMainActivity extends BaseActivity {
         for (String s : sufix) {
             File file = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/" + mID + s);
             if (RxFileTool.isFileExists(file)) {
-
                 Glide.with(mContext).
                         load(file).
                         into(ivZp);

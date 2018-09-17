@@ -17,6 +17,7 @@ import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.example.sosky.pis_copy.ui.AddPersonMainActivity;
 import com.google.gson.Gson;
 import com.vondear.rxtools.RxLogTool;
+import com.zyl.customkeyboardview.CustomKeyboardEditText;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -64,7 +65,7 @@ public class localPersonFragment extends BaseFragment {
         loadDatas();
 
         btnAdd.setOnClickListener(view1 -> {
-//            Intent i = new Intent(mContext, addKeyPersonActivity.class);
+            CustomKeyboardEditText.setFlag(true);
             Intent i = new Intent(mContext, AddPersonMainActivity.class);
             i.putExtra("action", "new");
             mContext.startActivity(i);
@@ -97,7 +98,6 @@ public class localPersonFragment extends BaseFragment {
                 beans.getInfoBeans().add(bean.getInfoBeans().get(0));
                 RxLogTool.d(value);
             }
-
             List<UpPersonBean.InfoBean> info = beans.getInfoBeans();
             mKeyPersonAdapter = new LocalPersonAdapter(info, mContext);
             recyclerView.setAdapter(mKeyPersonAdapter);

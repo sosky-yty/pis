@@ -94,35 +94,6 @@
                     android:textColor="#000"
                     app:xml="@xml/idcard_keyboard"/>
             </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linear_static"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="@dimen/margin"
-                    android:gravity="center"
-                    android:text="身份证号:"
-                    android:textColor="@color/important_text_color"/>
-                <EditText
-                    android:id="@+id/static_edit_sfz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin"
-                    android:layout_weight="1"
-                    android:digits="0123456789xX"
-                    android:drawablePadding="12dp"
-                    android:gravity="center"
-                    android:hint="必填"
-                    android:editable="false"
-                    android:lines="1"
-                    android:maxLength="18"
-                    android:textColor="#000" />
-            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
