@@ -10,9 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
-import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
-import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -221,16 +219,19 @@ public class AddFamilyMainActivity extends BaseActivity {
         switch (whichzp) {
             case 1:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/");
                 imageView = ivZp;
                 textView = tvZp;
                 break;
             case 2:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "旧住房照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "旧住房照片/");
                 imageView = ivJzfzp;
                 textView = tvJzfzp;
                 break;
             case 3:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "新住房照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "新住房照片/");
                 imageView = ivXzfzp;
                 textView = tvXzfzp;
                 break;

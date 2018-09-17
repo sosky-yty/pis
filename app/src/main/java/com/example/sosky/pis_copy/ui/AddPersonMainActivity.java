@@ -126,31 +126,45 @@ public class AddPersonMainActivity extends BaseActivity {
         //基础
         rlJichu.setOnClickListener(v -> {
             getEx(bundle);
-            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class,bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class, bundle);
         });
         //医保
         rlYibao.setOnClickListener(v -> {
             getEx(bundle);
-
-            RxActivityTool.skipActivity(mContext, addYbxxActivity.class,bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, addYbxxActivity.class, bundle);
 
         });
 
         //农保        
         rlNongbao.setOnClickListener(v -> {
             getEx(bundle);
-            RxActivityTool.skipActivity(mContext, addXlbActivity.class,bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, addXlbActivity.class, bundle);
 
         });
 
         //特困
         rlTekun.setOnClickListener(v -> {
             getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
             RxActivityTool.skipActivity(mContext, addMztkActivity.class, bundle);
         });
         //残联
         rlCanlian.setOnClickListener(v -> {
             getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
             RxActivityTool.skipActivity(mContext, addClxxActivity.class, bundle);
         });
 
@@ -159,9 +173,14 @@ public class AddPersonMainActivity extends BaseActivity {
     private void getEx(Bundle bundle) {
         bundle.putString("id", editSfz.getText().toString());
         bundle.putString("action", mMode);
+
     }
 
 
+    /**
+     * 身份证是否填写
+     * @return
+     */
     private boolean isSFZok() {
         String string = editSfz.getText().toString();
         if (TextUtils.isEmpty(string) || string.length() < 8) {
@@ -241,6 +260,7 @@ public class AddPersonMainActivity extends BaseActivity {
         RxFileTool.deleteFile(tofile);
 
         try {
+            RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/");
             RxFileTool.copyFile(file, tofile);
         } catch (IOException e) {
             e.printStackTrace();

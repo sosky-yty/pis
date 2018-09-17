@@ -31,12 +31,13 @@
         android:text="man"/>
 
     <TextView
-        android:id="@+id/tv_area_it"
+        android:id="@+id/tv_del_people"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         android:gravity="center|right"
         android:text="删除"
+        android:textColor="@color/md_red_700"
         android:textSize="10sp"/>
 
 </LinearLayout>

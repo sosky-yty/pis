@@ -3,7 +3,6 @@ package com.example.sosky.pis_copy.ui;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -18,12 +17,10 @@ import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
-import com.google.gson.Gson;
+import com.example.sosky.pis_copy.ui.fg.localPersonFragment;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
-
-import java.util.Map;
 
 public class addKeyPersonActivity extends BaseActivity {
 
@@ -303,24 +300,22 @@ public class addKeyPersonActivity extends BaseActivity {
             }
         });
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                UpPersonBean.InfoBean bean = saveDatas();
-                UpFamilyInfoBean.InfoBean bean_fa =  new UpFamilyInfoBean.InfoBean();
-                if(MyTools.verificationID(bean.getOrd_sfz())){
-                    SaveTool.saveOnePerson(bean);
-                    if("户主".equals(bean.getOrd_yhzgx())) {
-                        bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
-                        bean_fa.setOrd_hz(bean.getOrd_xm());
-                        SaveTool.saveOneFamily(bean_fa);
-                    }
-                    RxToast.success("保存成功");
-                }else{
-                    RxToast.error("身份证错误");
+        button.setOnClickListener(view -> {
+            UpPersonBean.InfoBean bean = saveDatas();
+            UpFamilyInfoBean.InfoBean bean_fa =  new UpFamilyInfoBean.InfoBean();
+            if(MyTools.verificationID(bean.getOrd_sfz())){
+                SaveTool.saveOnePerson(bean);
+                if("户主".equals(bean.getOrd_yhzgx())) {
+                    bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
+                    bean_fa.setOrd_hz(bean.getOrd_xm());
+                    SaveTool.saveOneFamily(bean_fa);
                 }
-
+                RxToast.success("保存成功");
+                localPersonFragment.refresh();
+            }else{
+                RxToast.error("身份证错误");
             }
+
         });
     }
 

@@ -1,6 +1,7 @@
 package com.example.sosky.pis_copy.ui.fg;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -23,11 +24,12 @@ import java.util.List;
 import java.util.Map;
 
 public class localPersonFragment extends BaseFragment {
-    private RecyclerView recyclerView;
+    private static RecyclerView recyclerView;
     List<UpPersonBean.InfoBean> datas = new ArrayList<>();
     private Button btnAdd;
 
-    private LocalPersonAdapter mKeyPersonAdapter;
+    private static Context mContext;
+    private static LocalPersonAdapter mKeyPersonAdapter;
 
     @Override
     protected int getContentID() {
@@ -52,6 +54,7 @@ public class localPersonFragment extends BaseFragment {
         recyclerView = root.findViewById(R.id.recycler_local);
         btnAdd = root.findViewById(R.id.btn_add_person);
 
+        mContext = getActivity();
         mKeyPersonAdapter = new LocalPersonAdapter(datas, getActivity());
         mKeyPersonAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
@@ -67,29 +70,35 @@ public class localPersonFragment extends BaseFragment {
 
     }
 
+    /**
+     * 刷新
+     */
+    public static void refresh(){
+        loadDatas();
+    }
     //加载储存在本地的数据
-    private void loadDatas() {
-        try{
-        Map<String, String> personMap = SaveTool.getPerson();
+    public static void loadDatas() {
+        try {
+            Map<String, String> personMap = SaveTool.getPerson();
 
-        Collection<String> values = personMap.values();
-        if (values.size() == 0) {
-            RxLogTool.e("无数据");
-            return;
-        }
-        UpPersonBean beans = new UpPersonBean();
-        beans.setInfoBeans(new ArrayList<>());
+            Collection<String> values = personMap.values();
+            if (values.size() == 0) {
+                RxLogTool.e("无数据");
+                return;
+            }
+            UpPersonBean beans = new UpPersonBean();
+            beans.setInfoBeans(new ArrayList<>());
 
-        for (String value : values) {
-            UpPersonBean bean = new Gson().fromJson(value, UpPersonBean.class);
-            beans.getInfoBeans().add(bean.getInfoBeans().get(0));
-            RxLogTool.d(value);
-        }
+            for (String value : values) {
+                UpPersonBean bean = new Gson().fromJson(value, UpPersonBean.class);
+                beans.getInfoBeans().add(bean.getInfoBeans().get(0));
+                RxLogTool.d(value);
+            }
 
-        List<UpPersonBean.InfoBean> info = beans.getInfoBeans();
-        mKeyPersonAdapter = new LocalPersonAdapter(info, getActivity());
-        recyclerView.setAdapter(mKeyPersonAdapter);
-        }catch (Exception e){
+            List<UpPersonBean.InfoBean> info = beans.getInfoBeans();
+            mKeyPersonAdapter = new LocalPersonAdapter(info, mContext);
+            recyclerView.setAdapter(mKeyPersonAdapter);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
