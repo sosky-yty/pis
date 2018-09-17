@@ -96,6 +96,10 @@ public class addXlbActivity extends BaseActivity {
                 RxToast.error("身份证错误,无法保存");
             }
         });
+
+        xlbOrdSccyxnbrq.setOnClickListener(view -> {
+            MyTools.showDataPicker(mContext,xlbOrdSccyxnbrq);
+        });
     }
 
     @Override
