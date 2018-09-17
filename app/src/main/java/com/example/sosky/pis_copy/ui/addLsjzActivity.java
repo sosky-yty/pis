@@ -30,17 +30,14 @@ public class addLsjzActivity extends BaseActivity {
     private EditText lsOrdJzfs;
     private EditText lsOrdBz;
     private Button btnSave;
-    private String mID;
     private UpSeekHelpBean.InfoBean mInfoBean = new UpSeekHelpBean.InfoBean();
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         lsOrdHz.setText(AddFamilyMainActivity.mName);
         lsOrdHzsfz.setText(AddFamilyMainActivity.mID);
-
     }
 
     @Override
@@ -48,7 +45,7 @@ public class addLsjzActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             Map<String, String> seekHelpMap = SaveTool.getSeekHelp();
-            String json = seekHelpMap.get(mID);
+            String json = seekHelpMap.get(AddFamilyMainActivity.mID);
             UpSeekHelpBean seekHelpBean = new Gson().fromJson(json, UpSeekHelpBean.class);
             mInfoBean = seekHelpBean.getInfoBeans().get(0);
             if (mInfoBean != null) {

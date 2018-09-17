@@ -202,6 +202,8 @@ public class AddPersonMainActivity extends BaseActivity {
         }
         mName = name;
         mID = id;
+        //点击后转为本地查看模式
+        mMode = "local";
     }
 
 

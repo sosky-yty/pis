@@ -30,7 +30,6 @@ public class addCybzActivity extends BaseActivity {
     private EditText cyOrdBz;
     private Button btnSave;
 
-    private String mID;
     private UpGrasslandBean.InfoBean mInfoBean = new UpGrasslandBean.InfoBean();
 
     @Override
@@ -45,7 +44,7 @@ public class addCybzActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             Map<String, String> grasslandMap = SaveTool.getGrassland();
-            String json = grasslandMap.get(mID);
+            String json = grasslandMap.get(AddFamilyMainActivity.mID);
             UpGrasslandBean upGrasslandBean = new Gson().fromJson(json, UpGrasslandBean.class);
             mInfoBean = upGrasslandBean.getInfoBeans().get(0);
             if (mInfoBean != null) {

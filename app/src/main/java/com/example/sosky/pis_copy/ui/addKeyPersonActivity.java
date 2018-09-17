@@ -204,7 +204,7 @@ public class addKeyPersonActivity extends BaseActivity {
         ord_mz.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyTools.showSelectDialog(minzu, mContext, ord_xb);
+                MyTools.showSelectDialog(minzu, mContext, ord_mz);
             }
         });
 
@@ -365,7 +365,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_gwmc(ord_gwmc.getText().toString());
         infoBeans.setOrd_sfcyxnb(s_ord_sfcyxnb.isChecked() ? "是" : "否");
         infoBeans.setOrd_sfcyxnh(s_ord_sfcyxnh.isChecked() ? "是" : "否");
-        infoBeans.setOrd_sfcygyxgw(s_ord_sfcydbylbx.getText().toString());
+        infoBeans.setOrd_sfcydbylbx(s_ord_sfcydbylbx.isChecked()?"是":"否");
         infoBeans.setOrd_whcd(ord_whcd.getText().toString());
         infoBeans.setOrd_sfzd(s_ord_sfzd.isChecked() ? "是" : "否");
         infoBeans.setOrd_szyx(ord_szyx.getText().toString());
@@ -394,7 +394,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_rssj(ord_rssj.getText().toString());
         infoBeans.setOrd_jzryzshm(ord_jzryzshm.getText().toString());
         infoBeans.setOrd_lhlszrr(ord_lhlszrr.getText().toString());
-        infoBeans.setOrd_lhlszrr(ord_lhlszrrdw.getText().toString());
+        infoBeans.setOrd_lhlszrrdw(ord_lhlszrrdw.getText().toString());
         infoBeans.setOrd_lhlszrrlxdh(ord_lhlszrrlxdh.getText().toString());
         infoBeans.setOrd_sskf(ord_sskf.getText().toString());
         infoBeans.setOrd_jlfz(ord_jlfz.getText().toString());
@@ -569,9 +569,10 @@ public class addKeyPersonActivity extends BaseActivity {
         ord_apm.setText(mInfoBean.getOrd_apm());
         ord_qpm.setText(mInfoBean.getOrd_qpm());
         ord_ahqhdw.setText(mInfoBean.getOrd_ahqhdw());
-        RxLogTool.e(mInfoBean.getOrd_fhsz());
         s_ord_fhsz.setChecked(mInfoBean.getOrd_fhsz().equals("是"));
+        RxLogTool.e(mInfoBean.getOrd_sfcygyxgw()+"123");
         s_ord_sfcygyxgw.setChecked(mInfoBean.getOrd_sfcygyxgw().equals("是"));
+
         s_ord_sfsn.setChecked(mInfoBean.getOrd_sfsn().equals("是"));
         s_ord_sfyfzqk.setChecked(mInfoBean.getOrd_sfyfzqk().equals("是"));
         s_ord_sfwcjr.setChecked(mInfoBean.getOrd_sfwcjr().equals("是"));

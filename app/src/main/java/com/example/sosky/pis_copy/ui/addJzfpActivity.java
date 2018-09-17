@@ -32,7 +32,6 @@ public class addJzfpActivity extends BaseActivity {
     private EditText jzOrdDysj;
     private EditText jzOrdBz;
     private Button btnSave;
-    private String mID;
     private UpPovertyBean.InfoBean mInfoBean = new UpPovertyBean.InfoBean();
 
     @Override
@@ -47,7 +46,7 @@ public class addJzfpActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             Map<String, String> povertyMap = SaveTool.getPoverty();
-            String json = povertyMap.get(mID);
+            String json = povertyMap.get(AddFamilyMainActivity.mID);
             UpPovertyBean upPovertyBean = new Gson().fromJson(json, UpPovertyBean.class);
             mInfoBean = upPovertyBean.getInfoBeans().get(0);
             if (mInfoBean != null) {

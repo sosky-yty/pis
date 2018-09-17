@@ -51,7 +51,7 @@ public class AddFamilyMainActivity extends BaseActivity {
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
     public static String mID = " ";
-    public String mMode = " ";
+    public static String mMode = " ";
     public static String mName = " ";
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
@@ -158,6 +158,8 @@ public class AddFamilyMainActivity extends BaseActivity {
 
         UpFamilyInfoBean.InfoBean infoBean = SaveTool.getOneFamily(mID);
         mName = infoBean.getOrd_hz();
+        //点击后设置为本地读取模式
+        mMode = "local";
     }
 
 

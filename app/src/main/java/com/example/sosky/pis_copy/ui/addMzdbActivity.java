@@ -37,17 +37,14 @@ public class addMzdbActivity extends BaseActivity {
     private EditText mzdbOrdXsje;
     private EditText mzdbOrdBz;
     private Button btnSaveClxx;
-    private String mID;
     private UpLowInsuranceBean.InfoBean mInfoBean = new UpLowInsuranceBean.InfoBean();
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mzdbOrdHz.setText(AddFamilyMainActivity.mName);
         mzdbOrdHzsfz.setText(AddFamilyMainActivity.mID);
-
     }
 
     @Override
@@ -55,7 +52,7 @@ public class addMzdbActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             Map<String, String> lowInsuranceMap = SaveTool.getLowInsurance();
-            String json = lowInsuranceMap.get(mID);
+            String json = lowInsuranceMap.get(AddFamilyMainActivity.mID);
             UpLowInsuranceBean lowInsuranceBean = new Gson().fromJson(json, UpLowInsuranceBean.class);
             mInfoBean = lowInsuranceBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
