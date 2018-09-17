@@ -124,7 +124,7 @@ public class MineFragment extends BaseFragment {
      * 上传更多接口数据 todo
      */
     private void upMore() {
- 
+
         tvPan.append("正在上传家庭信息\n");
         upFamily();
         tvPan.append("正在上传草原生态信息\n");
