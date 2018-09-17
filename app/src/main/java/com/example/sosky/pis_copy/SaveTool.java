@@ -2,13 +2,12 @@ package com.example.sosky.pis_copy;
 
 import android.util.ArrayMap;
 
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpGrasslandBean;
 import com.example.sosky.pis_copy.bean.UpLowInsuranceBean;
 import com.example.sosky.pis_copy.bean.UpMedicalBean;
 import com.example.sosky.pis_copy.bean.UpNewAgriculturalBean;
-import com.example.sosky.pis_copy.bean.UpOnePersonBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
-import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpPovertyBean;
 import com.example.sosky.pis_copy.bean.UpResidualBean;
 import com.example.sosky.pis_copy.bean.UpSeekHelpBean;
@@ -298,11 +297,11 @@ public class SaveTool {
      *
      * @return
      */
-    public static UpOnePersonBean getOnePerson(String id) {
+    public static UpPersonBean.InfoBean getOnePerson(String id) {
         SPHelper msp = new SPHelper(MyApp.getContext(), "persons");
         Map<String, String> map = getPerson();
         String json = map.get(id);
-        UpOnePersonBean onePersonBean = new Gson().fromJson(json, UpOnePersonBean.class);
+        UpPersonBean.InfoBean onePersonBean = new Gson().fromJson(json, UpPersonBean.InfoBean.class);
         return onePersonBean;
     }
 
