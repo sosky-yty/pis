@@ -19,6 +19,9 @@ import com.vondear.rxtools.view.RxToast;
 
 import java.util.Map;
 
+/**
+ * 民政特困
+ */
 public class addMztkActivity extends BaseActivity {
     private RxTitle rxTitle;
     private EditText mztkOrdXm;
@@ -32,8 +35,8 @@ public class addMztkActivity extends BaseActivity {
     private EditText mztkOrdBz;
     private Button btnSaveClxx;
     private String mID;
-    private UpVeryStrickenBean.InfoBean  mInfoBean = new UpVeryStrickenBean.InfoBean();
-    private String []gyfs = {"集中供养","分散供养"};
+    private UpVeryStrickenBean.InfoBean mInfoBean = new UpVeryStrickenBean.InfoBean();
+    private String[] gyfs = {"集中供养", "分散供养"};
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,7 +51,7 @@ public class addMztkActivity extends BaseActivity {
     protected void loadDatas() {
         RxLogTool.e("开始加载本地");
         try {
-            Map<String, String>  veryStrickenMap = SaveTool.getVeryStricken();
+            Map<String, String> veryStrickenMap = SaveTool.getVeryStricken();
             String json = veryStrickenMap.get(mID);
             UpVeryStrickenBean veryStrickenBean = new Gson().fromJson(json, UpVeryStrickenBean.class);
             mInfoBean = veryStrickenBean.getInfoBeans().get(0);
@@ -79,8 +82,8 @@ public class addMztkActivity extends BaseActivity {
 
     @Override
     protected void bindListener() {
-        mztkOrdGyfs.setOnClickListener(v->{
-            MyTools.showSelectDialog(gyfs,mContext,mztkOrdGyfs);
+        mztkOrdGyfs.setOnClickListener(v -> {
+            MyTools.showSelectDialog(gyfs, mContext, mztkOrdGyfs);
         });
         btnSaveClxx.setOnClickListener(view -> {
             UpVeryStrickenBean.InfoBean bean = saveDatas();
@@ -95,13 +98,31 @@ public class addMztkActivity extends BaseActivity {
 
     @Override
     protected void inputDatas() {
+        mztkOrdXm.setText(mInfoBean.getOrd2_xm());
+        mztkOrdSfz.setText(mInfoBean.getOrd2_sfz());
+        mztkOrdNctkxsnx.setText(mInfoBean.getOrd2_nctkxsnx());
+        mztkOrdCstkxsnx.setText(mInfoBean.getOrd2_cstkxsnx());
+        mztkOrdXsje.setText(mInfoBean.getOrd2_xsje());
+        mztkOrdGyfs.setText(mInfoBean.getOrd2_gyfs());
+        mztkOrdBz.setText(mInfoBean.getOrd2_bz());
 
+        zktkOrdXf.setChecked(mInfoBean.getOrd2_sfxsnctk().equals("是"));
+        mztkOrdXf.setChecked(mInfoBean.getOrd2_sfxscstk().equals("是"));
 
     }
 
-    private UpVeryStrickenBean.InfoBean saveDatas(){
+    private UpVeryStrickenBean.InfoBean saveDatas() {
         UpVeryStrickenBean.InfoBean infoBean = new UpVeryStrickenBean.InfoBean();
+        infoBean.setOrd2_xm(mztkOrdXm.getText().toString());
+        infoBean.setOrd2_sfz(mztkOrdSfz.getText().toString());
+        infoBean.setOrd2_nctkxsnx(mztkOrdNctkxsnx.getText().toString());
+        infoBean.setOrd2_cstkxsnx(mztkOrdCstkxsnx.getText().toString());
+        infoBean.setOrd2_xsje(mztkOrdXsje.getText().toString());
+        infoBean.setOrd2_gyfs(mztkOrdGyfs.getText().toString());
+        infoBean.setOrd2_bz(mztkOrdBz.getText().toString());
 
+        infoBean.setOrd2_sfxsnctk(zktkOrdXf.isChecked() ? "是" : "否");
+        infoBean.setOrd2_sfxscstk(mztkOrdXf.isChecked() ? "是" : "否");
         return infoBean;
     }
 
