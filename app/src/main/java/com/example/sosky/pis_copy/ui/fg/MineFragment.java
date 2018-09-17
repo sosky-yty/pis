@@ -54,7 +54,7 @@ public class MineFragment extends BaseFragment {
                 json.append(entry.getValue());
             }
             String xml = MyTools.JSON2xml(json.toString());
-            //RxLogTool.e(xml);
+            RxLogTool.e(xml);
             ApiManger.upKeyPerson(xml, new StringCallback() {
                 @Override
                 public void onSuccess(Response<String> response) {

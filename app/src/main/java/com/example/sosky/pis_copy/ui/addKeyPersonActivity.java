@@ -3,6 +3,8 @@ package com.example.sosky.pis_copy.ui;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -306,7 +308,7 @@ public class addKeyPersonActivity extends BaseActivity {
             UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
             if (MyTools.verificationID(bean.getOrd_sfz())) {
                 SaveTool.saveOnePerson(bean);
-                if ("户主".equals(bean.getOrd_yhzgx())) {
+                if ("户主".equals(bean.getOrd_yhzgx())&& TextUtils.isEmpty(bean.getOrd_yhzgx())&& TextUtils.isEmpty(bean.getOrd_hzsfz())) {
                     bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
                     bean_fa.setOrd_hz(bean.getOrd_xm());
                     SaveTool.saveOneFamily(bean_fa);
@@ -406,7 +408,6 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_qpm(ord_qpm.getText().toString());
         infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
         infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked() ? "是" : "否");
-
         return infoBeans;
     }
 
