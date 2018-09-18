@@ -137,6 +137,9 @@ public class SaveTool {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "persons");
         UpPersonBean mbean = new UpPersonBean();
 
+        if (infoBean==null){
+            return;
+        }
         mbean.setInfoBeans(new ArrayList<UpPersonBean.InfoBean>());
         mbean.getInfoBeans().add(infoBean);
         String json = gson.toJson(mbean);
@@ -152,7 +155,9 @@ public class SaveTool {
     public static void saveOneFamily(UpFamilyInfoBean.InfoBean infoBean) {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "familys");
         UpFamilyInfoBean upXumuInfoBean = new UpFamilyInfoBean();
-
+        if (infoBean==null){
+            return;
+        }
         upXumuInfoBean.setInfoBeans(new ArrayList<UpFamilyInfoBean.InfoBean>());
         upXumuInfoBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upXumuInfoBean);
@@ -168,7 +173,9 @@ public class SaveTool {
     public static void saveOneResidual(UpResidualBean.InfoBean infoBean) {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "clxx");
         UpResidualBean upResidualBean = new UpResidualBean();
-
+        if (infoBean==null){
+            return;
+        }
         upResidualBean.setInfoBeans(new ArrayList<UpResidualBean.InfoBean>());
         upResidualBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upResidualBean);
@@ -185,7 +192,9 @@ public class SaveTool {
     public static void saveOnePoverty(UpPovertyBean.InfoBean infoBean) {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "jzfp");
         UpPovertyBean upPovertyBean = new UpPovertyBean();
-
+        if (infoBean==null){
+            return;
+        }
         upPovertyBean.setInfoBeans(new ArrayList<UpPovertyBean.InfoBean>());
         upPovertyBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upPovertyBean);
@@ -201,7 +210,9 @@ public class SaveTool {
     public static void saveOneSeekHelp(UpSeekHelpBean.InfoBean infoBean) {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "lsjz");
         UpSeekHelpBean upSeekHelpBean = new UpSeekHelpBean();
-
+        if (infoBean==null){
+            return;
+        }
         upSeekHelpBean.setInfoBeans(new ArrayList<UpSeekHelpBean.InfoBean>());
         upSeekHelpBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upSeekHelpBean);
@@ -217,7 +228,9 @@ public class SaveTool {
     public static void saveOneVeryStricken(UpVeryStrickenBean.InfoBean infoBean) {
         SPHelper mSPHelper = new SPHelper(MyApp.getContext(), "tkxx");
         UpVeryStrickenBean upVeryStrickenBean = new UpVeryStrickenBean();
-
+        if (infoBean==null){
+            return;
+        }
         upVeryStrickenBean.setInfoBeans(new ArrayList<UpVeryStrickenBean.InfoBean>());
         upVeryStrickenBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upVeryStrickenBean);
@@ -233,7 +246,9 @@ public class SaveTool {
     public static void saveOneNewAgricultuaral(UpNewAgriculturalBean.InfoBean infoBean) {
         SPHelper spHelper = new SPHelper(MyApp.getContext(), "xnb");
         UpNewAgriculturalBean upNewAgriculturalBean = new UpNewAgriculturalBean();
-
+        if (infoBean==null){
+            return;
+        }
         upNewAgriculturalBean.setInfoBeans(new ArrayList<UpNewAgriculturalBean.InfoBean>());
         upNewAgriculturalBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upNewAgriculturalBean);
@@ -249,7 +264,9 @@ public class SaveTool {
     public static void saveOneMedical(UpMedicalBean.InfoBean infoBean) {
         SPHelper spHelper = new SPHelper(MyApp.getContext(), "ybxx");
         UpMedicalBean upMedicalBean = new UpMedicalBean();
-
+        if (infoBean==null){
+            return;
+        }
         upMedicalBean.setInfoBeans(new ArrayList<UpMedicalBean.InfoBean>());
         upMedicalBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upMedicalBean);
@@ -263,7 +280,9 @@ public class SaveTool {
     public static void saveOneLowInsurance(UpLowInsuranceBean.InfoBean infoBean) {
         SPHelper spHelper = new SPHelper(MyApp.getContext(), "dbxx");
         UpLowInsuranceBean upLowInsuranceBean = new UpLowInsuranceBean();
-
+        if (infoBean==null){
+            return;
+        }
         upLowInsuranceBean.setInfoBeans(new ArrayList<UpLowInsuranceBean.InfoBean>());
         upLowInsuranceBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upLowInsuranceBean);
@@ -279,7 +298,9 @@ public class SaveTool {
     public static void saveOneGrassland(UpGrasslandBean.InfoBean infoBean) {
         SPHelper spHelper = new SPHelper(MyApp.getContext(), "cybz");
         UpGrasslandBean upGrasslandBean = new UpGrasslandBean();
-
+        if (infoBean==null){
+            return;
+        }
         upGrasslandBean.setInfoBeans(new ArrayList<UpGrasslandBean.InfoBean>());
         upGrasslandBean.getInfoBeans().add(infoBean);
         String json = gson.toJson(upGrasslandBean);

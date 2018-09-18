@@ -343,8 +343,7 @@ public class ApiManger {
 
     /**
      * 下载个人信息
-     *
-     * @param data
+     * 
      * @param stringCallback
      */
     public static void downLoadKeyPerson( StringCallback stringCallback) {
@@ -355,12 +354,12 @@ public class ApiManger {
     /**
      * 下载家庭信息(暂时返回所有后续调整)
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadFamily(String data, StringCallback stringCallback) {
+    public static void downLoadFamily( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_Family_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
@@ -368,12 +367,12 @@ public class ApiManger {
     /**
      * 下载残联登记信息表(暂时返回所有后续调整)
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadCanlian(String data, StringCallback stringCallback) {
+    public static void downLoadCanlian( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_RESIDUAL_UNION_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
@@ -381,36 +380,36 @@ public class ApiManger {
     /**
      * 下载新农保信息
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadNongbao(String data, StringCallback stringCallback) {
+    public static void downLoadNongbao( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_LONGBAO_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
     /**
      * 下载医保信息
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadYibao(String data, StringCallback stringCallback) {
+    public static void downLoadYibao( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_YIBAO_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
     /**
      * 下载临时救助情况登记表
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadLingshijiuzhu(String data, StringCallback stringCallback) {
+    public static void downLoadLingshijiuzhu( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_TEMPORARY_ASSISTANCE__INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
@@ -418,12 +417,12 @@ public class ApiManger {
     /**
      * 下载精准扶贫信息录入
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadJingzhunfuping(String data, StringCallback stringCallback) {
+    public static void downLoadJingzhunfuping( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_SUPPORTING_POOR_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
@@ -431,36 +430,36 @@ public class ApiManger {
     /**
      * 下载草原生态保护奖励补助资金登记
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadCaoyuanshengtai(String data, StringCallback stringCallback) {
+    public static void downLoadCaoyuanshengtai( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_STBHBZ_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
     /**
      * 下载民政低保信息录入
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadDibaoxx(String data, StringCallback stringCallback) {
+    public static void downLoadDibaoxx( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_MZDBXX_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
     /**
      * 下载民政特困信息录入
      *
-     * @param data
+     
      * @param stringCallback
      */
-    public static void downLoadTekun(String data, StringCallback stringCallback) {
+    public static void downLoadTekun( StringCallback stringCallback) {
         OkGo.<String>get(API_GET_TKXX_INFO)
-                .params("data", data)
+                
                 .execute(stringCallback);
     }
 
