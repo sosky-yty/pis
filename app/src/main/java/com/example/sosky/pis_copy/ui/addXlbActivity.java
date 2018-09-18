@@ -134,6 +134,7 @@ public class addXlbActivity extends BaseActivity {
         infoBean.setOrd2_jfnx(xlbOrdJfnx.getText().toString());
         infoBean.setOrd2_zxrq(xlbOrdZxrq.getText().toString());
         infoBean.setOrd2_bz(xlbOrdBz.getText().toString());
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 }

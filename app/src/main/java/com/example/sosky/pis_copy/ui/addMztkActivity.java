@@ -128,6 +128,7 @@ public class addMztkActivity extends BaseActivity {
 
         infoBean.setOrd2_sfxsnctk(zktkOrdXf.isChecked() ? "是" : "否");
         infoBean.setOrd2_sfxscstk(mztkOrdXf.isChecked() ? "是" : "否");
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 

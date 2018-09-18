@@ -103,6 +103,7 @@ public class addCybzActivity extends BaseActivity {
         infoBean.setOrd2_nf(cyOrdNf.getText().toString());
         infoBean.setOrd2_je(cyOrdJe.getText().toString());
         infoBean.setOrd2_bz(cyOrdBz.getText().toString());
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 

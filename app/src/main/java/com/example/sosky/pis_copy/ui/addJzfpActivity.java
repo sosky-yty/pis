@@ -115,6 +115,7 @@ public class addJzfpActivity extends BaseActivity {
         infoBean.setOrd2_zcgzdyxm(jzOrdZcgzdyxm.getText().toString());
         infoBean.setOrd2_dysj(jzOrdDysj.getText().toString());
         infoBean.setOrd2_bz(jzOrdBz.getText().toString());
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 

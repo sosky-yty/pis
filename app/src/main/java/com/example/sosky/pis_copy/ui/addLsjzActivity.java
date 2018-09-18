@@ -113,7 +113,7 @@ public class addLsjzActivity extends BaseActivity {
         infoBean.setOrd2_jzyy(lsOrdJzyy.getText().toString());
         infoBean.setOrd2_jzfs(lsOrdJzfs.getText().toString());
         infoBean.setOrd2_bz(lsOrdBz.getText().toString());
-
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 }

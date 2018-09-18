@@ -103,6 +103,7 @@ public class addYbxxActivity extends BaseActivity {
         infoBean.setOrd2_sccyybrq(ybOrdSccyybrq.getText().toString());
         infoBean.setOrd2_ryfl(ybOrdRyfl.getText().toString());
         infoBean.setOrd2_zjdc(ybOrdZjdc.getText().toString());
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 

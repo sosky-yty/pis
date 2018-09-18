@@ -407,6 +407,7 @@ public class AddPersonActivity extends BaseActivity {
         infoBeans.setOrd_qpm(ord_qpm.getText().toString());
         infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
         infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked() ? 1 : 0);
+        infoBeans.setOrd_flag("1");
         return infoBeans;
     }
 

@@ -126,6 +126,7 @@ public class addMzdbActivity extends BaseActivity {
         infoBean.setOrd2_xsje(mzdbOrdXsje.getText().toString());
         infoBean.setOrd2_bz(mzdbOrdBz.getText().toString());
         infoBean.setOrd2_sfxsdb(mzdbOrdSfxsdb.isChecked() ? "是" : "否");
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 }

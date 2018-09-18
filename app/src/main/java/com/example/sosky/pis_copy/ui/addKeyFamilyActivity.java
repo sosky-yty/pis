@@ -263,6 +263,7 @@ public class addKeyFamilyActivity extends BaseActivity {
         infoBean.setOrd_sfjsgfw(addOrdSfjsgfw.isChecked() ? "是" : "否");
         infoBean.setOrd_xf(addOrdXf.isChecked() ? "是" : "否");
         infoBean.setOrd_sfwwch(addOrdSfwwch.isChecked() ? "是" : "否");
+        infoBean.setOrd_flag("1");
         return infoBean;
     }
 

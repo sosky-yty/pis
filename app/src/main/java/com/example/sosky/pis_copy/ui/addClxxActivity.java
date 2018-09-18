@@ -172,7 +172,7 @@ public class addClxxActivity extends BaseActivity {
         infoBean.setOrd2_zclb(clOrdZclb.getText().toString());
         infoBean.setOrd2_sfxsshbt(clOrdSfxsshbt.getText().toString());
         infoBean.setOrd2_yhkh(clOrdYhkh.getText().toString());
-
+        infoBean.setOrd2_flag("1");
         infoBean.setOrd2_sfxszc(clOrdSfxszc.isChecked() ? "是" : "否");
 
         return infoBean;
