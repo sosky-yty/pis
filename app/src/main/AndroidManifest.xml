@@ -33,7 +33,7 @@
             android:name=".ui.addKeyFamilyActivity"
             android:windowSoftInputMode="stateHidden|stateUnchanged"/>
         <activity
-            android:name=".ui.addKeyPersonActivity"
+            android:name=".ui.AddPersonActivity"
             android:windowSoftInputMode="stateHidden|stateUnchanged"/>
         <activity
             android:name=".ui.AddPersonMainActivity"

@@ -3,7 +3,6 @@ package com.example.sosky.pis_copy.ui;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,7 +23,7 @@ import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 
-public class addKeyPersonActivity extends BaseActivity {
+public class AddPersonActivity extends BaseActivity {
 
 
     String[] minzu = {"汉族", "蒙古族", "回族", "藏族", "维吾尔族", "苗族", "彝族", "壮族", "布依族", "朝鲜族", "满族", "侗族", "瑶族", "白族", "土家族",
@@ -597,6 +596,7 @@ public class addKeyPersonActivity extends BaseActivity {
         try {
             //个人
             mInfoBean = SaveTool.getOnePerson(mID);
+            ord_xm.setText(AddPersonMainActivity.mName);
             if (mInfoBean != null) {
                 inputDatas();
             }

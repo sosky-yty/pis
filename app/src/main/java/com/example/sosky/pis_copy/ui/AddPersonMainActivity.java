@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -107,17 +106,17 @@ public class AddPersonMainActivity extends BaseActivity {
                 CustomKeyboardEditText.setFlag(false);
                 //todo 本地查看 
                 loadImg();
+                editSfz.setText(mID);
+                editName.setText(mName);
             } else {
                 mID = getIntent().getStringExtra("id");
                 CustomKeyboardEditText.setFlag(true);
                 mMode = "new";
             }
-            editSfz.setText(mID);
-            editName.setText(mName);
+          
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     /**
@@ -133,9 +132,7 @@ public class AddPersonMainActivity extends BaseActivity {
                         into(ivZp);
                 break;
             }
-
         }
-
     }
 
 
@@ -152,7 +149,7 @@ public class AddPersonMainActivity extends BaseActivity {
             if (!isSFZok()) {
                 return;
             }
-            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class, bundle);
+            RxActivityTool.skipActivity(mContext, AddPersonActivity.class, bundle);
         });
         //医保
         rlYibao.setOnClickListener(v -> {
