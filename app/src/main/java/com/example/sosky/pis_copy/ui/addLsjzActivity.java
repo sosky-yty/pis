@@ -83,6 +83,10 @@ public class addLsjzActivity extends BaseActivity {
                 RxToast.error("身份证错误,无法保存");
             }
         });
+
+        lsOrdJzsj.setOnClickListener(view -> {
+            MyTools.showDataPicker(mContext,lsOrdJzsj);
+        });
     }
 
     @Override
