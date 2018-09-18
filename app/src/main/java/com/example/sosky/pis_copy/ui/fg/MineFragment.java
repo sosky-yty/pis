@@ -31,6 +31,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxLogTool;
+import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogSure;
 import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
 
@@ -88,7 +89,7 @@ public class MineFragment extends BaseFragment {
         btnSync.setOnClickListener(view -> {
             RxDialogSure dialogSure = new RxDialogSure(mContext);
             dialogSure.setTitle("提示信息");
-            dialogSure.setContent("请点击确定开始上传,请不要多次上传");
+            dialogSure.setContent("上传前请先确认登录.请点击确定开始上传,请不要多次点击");
             dialogSure.setSureListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -102,6 +103,13 @@ public class MineFragment extends BaseFragment {
                     ApiManger.upKeyPerson(xml, new StringCallback() {
                         @Override
                         public void onSuccess(Response<String> response) {
+                          
+                            if (response.body() == null||response.body().contains("登录")) {
+                                RxToast.error("错误:请先登录");
+                                RxActivityTool.skipActivityAndFinish(getActivity(), LoginActivity.class);
+                                return;
+                            }
+
                             String json1 = MyTools.xml2JSON(response.body());
                             MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
                             tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
@@ -403,19 +411,32 @@ public class MineFragment extends BaseFragment {
             return "";
         }
         //验证
+
+        if (body.contains("登录")) {
+//            String text = "错误:请先登录\n";
+//            tvPan.append(text, 0, text.length() - 1 );
+            RxToast.error("错误:请先登录");
+            RxActivityTool.skipActivityAndFinish(getActivity(), LoginActivity.class);
+            return "";
+        }
         if (body.contains("下载失败")) {
             tvPan.append("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
             return "";
         }
-        body = body.replace("<t1>", "<info>");
-        body = body.replace("</t1>", "</info>");
+        try {
+            body = body.replace("<t1>", "<info>");
+            body = body.replace("</t1>", "</info>");
 
-        RxLogTool.e("TAG", body);
-        String json = MyTools.xml2JSON(body);
-        json = json.replace("\"dataset\" :", "");
-        json = json.substring(json.indexOf("{") + 1, json.lastIndexOf("}"));
-        RxLogTool.e("TAG", json);
-        return json;
+            RxLogTool.e("TAG", body);
+            String json = MyTools.xml2JSON(body);
+            json = json.replace("\"dataset\" :", "");
+            json = json.substring(json.indexOf("{") + 1, json.lastIndexOf("}"));
+            RxLogTool.e("TAG", json);
+            return json;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 
     /**
