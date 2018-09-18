@@ -14,6 +14,7 @@ import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseFragment;
 import com.example.sosky.pis_copy.bean.MsgBean;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.example.sosky.pis_copy.ui.LoginActivity;
 import com.google.gson.Gson;
@@ -23,6 +24,7 @@ import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
 
+import java.util.List;
 import java.util.Map;
 
 public class MineFragment extends BaseFragment {
@@ -112,6 +114,36 @@ public class MineFragment extends BaseFragment {
      * 从服务器下载所有数据
      */
     private void download() {
+        dlperson();
+        dlfamily();
+    }
+
+    private void dlfamily() {
+        ApiManger.downLoadFamily(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("家庭信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpFamilyInfoBean personBean = gson.fromJson(json, UpFamilyInfoBean.class);
+                    List<UpFamilyInfoBean.InfoBean> infoBeans = personBean.getInfoBeans();
+                    for (UpFamilyInfoBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneFamily(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlperson() {
         ApiManger.downLoadKeyPerson(new StringCallback() {
             @Override
             public void onSuccess(Response<String> response) {
@@ -125,9 +157,10 @@ public class MineFragment extends BaseFragment {
                 try {
                     Gson gson = new Gson();
                     UpPersonBean personBean = gson.fromJson(json, UpPersonBean.class);
-                    RxLogTool.e("TAG", personBean.getInfoBeans().size());
-                    String sfz = personBean.getInfoBeans().get(0).getOrd_sfz();
-                    RxLogTool.e(sfz);
+                    List<UpPersonBean.InfoBean> infoBeans = personBean.getInfoBeans();
+                    for (UpPersonBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOnePerson(bean);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
