@@ -31,6 +31,7 @@ import com.lzy.okgo.callback.StringCallback;
 import com.lzy.okgo.model.Response;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxLogTool;
+import com.vondear.rxtools.view.dialog.RxDialogSure;
 import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
 
 import java.util.List;
@@ -85,38 +86,47 @@ public class MineFragment extends BaseFragment {
         });
 
         btnSync.setOnClickListener(view -> {
-            String xml = "";
-            Map<String, String> PersonsMap = SaveTool.getPerson();
-            for (Map.Entry<String, String> entry : PersonsMap.entrySet()) {
-                String xml1 = MyTools.JSON2xml(entry.getValue());
-                String substring = xml1.substring(xml1.indexOf("\n"));
-                xml = xml + substring;
-            }
-            ApiManger.upKeyPerson(xml, new StringCallback() {
+            RxDialogSure dialogSure = new RxDialogSure(mContext);
+            dialogSure.setTitle("提示信息");
+            dialogSure.setContent("请点击确定开始上传,请不要多次上传");
+            dialogSure.setSureListener(new View.OnClickListener() {
                 @Override
-                public void onSuccess(Response<String> response) {
-                    String json1 = MyTools.xml2JSON(response.body());
-                    MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
-                    tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
-                    if (msgBean.getDataset().getT1().getCode() == 1) {
-                        //todo 成功之后
-                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
-
-                        upMore();
-                    } else {
-                        //todo 失败逻辑
-                        tvPan.setTextColor(Color.RED);
-
+                public void onClick(View view) {
+                    String xml = "";
+                    Map<String, String> PersonsMap = SaveTool.getPerson();
+                    for (Map.Entry<String, String> entry : PersonsMap.entrySet()) {
+                        String xml1 = MyTools.JSON2xml(entry.getValue());
+                        String substring = xml1.substring(xml1.indexOf("\n"));
+                        xml = xml + substring;
                     }
-                    RxLogTool.e(response.body());
-                }
+                    ApiManger.upKeyPerson(xml, new StringCallback() {
+                        @Override
+                        public void onSuccess(Response<String> response) {
+                            String json1 = MyTools.xml2JSON(response.body());
+                            MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
+                            tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
+                            if (msgBean.getDataset().getT1().getCode() == 1) {
+                                //todo 成功之后
+                                tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
 
-                @Override
-                public void onError(Response<String> response) {
-                    super.onError(response);
+                                upMore();
+                            } else {
+                                //todo 失败逻辑
+                                tvPan.setTextColor(Color.RED);
+                            }
+                            RxLogTool.e(response.body());
+                        }
 
+                        @Override
+                        public void onError(Response<String> response) {
+                            super.onError(response);
+
+                        }
+                    });
                 }
             });
+
+
         });
     }
 
