@@ -92,7 +92,7 @@ public class UpPersonBean {
         private String ord_apm;
         private String ord_qpm;
         private String ord_ahqhdw;
-        private String ord_fhsz;
+        private int ord_fhsz;
 
 
         public String getOrd_xm() {
@@ -575,11 +575,11 @@ public class UpPersonBean {
             this.ord_ahqhdw = ord_ahqhdw;
         }
 
-        public String getOrd_fhsz() {
+        public int getOrd_fhsz() {
             return ord_fhsz;
         }
 
-        public void setOrd_fhsz(String ord_fhsz) {
+        public void setOrd_fhsz(int ord_fhsz) {
             this.ord_fhsz = ord_fhsz;
         }
 
