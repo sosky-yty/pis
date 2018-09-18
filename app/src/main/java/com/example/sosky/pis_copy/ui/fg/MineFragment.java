@@ -3,6 +3,7 @@ package com.example.sosky.pis_copy.ui.fg;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -141,9 +142,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("特困信息下载完成,正在解析");
+                tvPan.append("特困信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -166,9 +167,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("残联信息下载完成,正在解析");
+                tvPan.append("残联信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -191,9 +192,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("临时救助信息下载完成,正在解析");
+                tvPan.append("临时救助信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -216,9 +217,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("精准信息下载完成,正在解析");
+                tvPan.append("精准信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -241,9 +242,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("新农保信息下载完成,正在解析");
+                tvPan.append("新农保信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -266,9 +267,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("医保信息下载完成,正在解析");
+                tvPan.append("医保信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -291,9 +292,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("低保信息下载完成,正在解析");
+                tvPan.append("低保信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -316,9 +317,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("草原生态保护奖励补助资金登记信息下载完成,正在解析");
+                tvPan.append("草原生态保护奖励补助资金登记信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -341,9 +342,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("家庭信息下载完成,正在解析");
+                tvPan.append("家庭信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -366,9 +367,9 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("个人信息下载完成,正在解析");
+                tvPan.append("个人信息下载完成,正在解析\n");
                 String json = transString(body);
-                if (null == json) {
+                if (null == json || TextUtils.isEmpty(json)) {
                     return;
                 }
 
@@ -390,6 +391,11 @@ public class MineFragment extends BaseFragment {
     @Nullable
     private String transString(String body) {
         if (null == body) {
+            return "";
+        }
+        //验证
+        if (body.contains("下载失败")) {
+            tvPan.append("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
             return "";
         }
         body = body.replace("<t1>", "<info>");
