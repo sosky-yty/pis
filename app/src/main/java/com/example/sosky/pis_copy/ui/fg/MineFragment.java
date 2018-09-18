@@ -224,8 +224,8 @@ public class MineFragment extends BaseFragment {
 
                 try {
                     Gson gson = new Gson();
-                    UpPovertyBean personBean = gson.fromJson(json, UpPovertyBean.class);
-                    List<UpPovertyBean.InfoBean> infoBeans = UpPovertyBean.getInfoBeans();
+                    UpPovertyBean povertyBean = gson.fromJson(json, UpPovertyBean.class);
+                    List<UpPovertyBean.InfoBean> infoBeans = povertyBean.getInfoBeans();
                     for (UpPovertyBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOnePoverty(bean);
                     }
