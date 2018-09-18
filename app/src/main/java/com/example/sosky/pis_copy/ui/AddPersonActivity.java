@@ -307,7 +307,7 @@ public class AddPersonActivity extends BaseActivity {
             UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
             if (MyTools.verificationID(bean.getOrd_sfz())) {
                 SaveTool.saveOnePerson(bean);
-                if ("户主".equals(bean.getOrd_yhzgx()) && TextUtils.isEmpty(bean.getOrd_yhzgx()) && TextUtils.isEmpty(bean.getOrd_hzsfz())) {
+                if ("户主".equals(bean.getOrd_yhzgx()) && !TextUtils.isEmpty(bean.getOrd_yhzgx())) {
                     bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
                     bean_fa.setOrd_hz(bean.getOrd_xm());
                     SaveTool.saveOneFamily(bean_fa);
