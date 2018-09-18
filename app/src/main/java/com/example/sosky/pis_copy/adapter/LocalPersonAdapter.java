@@ -53,6 +53,7 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
                     SaveTool.clearSeekHelp(sfz);
                     SaveTool.clearVeryStricken(sfz);
                     SaveTool.clearPoverty(sfz);
+                    SaveTool.clearGrassland(sfz);
                 }else {
                     SaveTool.clearLowInsurance(sfz);
                     SaveTool.clearMedical(sfz);
@@ -62,6 +63,7 @@ public class LocalPersonAdapter extends BaseQuickAdapter<UpPersonBean.InfoBean, 
                     SaveTool.clearSeekHelp(sfz);
                     SaveTool.clearVeryStricken(sfz);
                     SaveTool.clearPoverty(sfz);
+                    SaveTool.clearGrassland(sfz);
                 }
             } catch (Exception e) {
                 RxToast.error("删除错误");

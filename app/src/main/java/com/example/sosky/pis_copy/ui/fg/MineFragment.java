@@ -72,6 +72,7 @@ public class MineFragment extends BaseFragment {
             });
             rxDialogSureCancel.show();
         });
+
         btnSync.setOnClickListener(view -> {
             String xml = "";
             Map<String, String> PersonsMap = SaveTool.getPerson();
