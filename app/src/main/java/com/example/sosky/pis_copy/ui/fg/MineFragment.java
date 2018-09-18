@@ -131,6 +131,7 @@ public class MineFragment extends BaseFragment {
 
                         }
                     });
+                    dialogSure.dismiss();
                 }
             });
             dialogSure.show();
