@@ -15,7 +15,15 @@ import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseFragment;
 import com.example.sosky.pis_copy.bean.MsgBean;
 import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
+import com.example.sosky.pis_copy.bean.UpGrasslandBean;
+import com.example.sosky.pis_copy.bean.UpLowInsuranceBean;
+import com.example.sosky.pis_copy.bean.UpMedicalBean;
+import com.example.sosky.pis_copy.bean.UpNewAgriculturalBean;
 import com.example.sosky.pis_copy.bean.UpPersonBean;
+import com.example.sosky.pis_copy.bean.UpPovertyBean;
+import com.example.sosky.pis_copy.bean.UpResidualBean;
+import com.example.sosky.pis_copy.bean.UpSeekHelpBean;
+import com.example.sosky.pis_copy.bean.UpVeryStrickenBean;
 import com.example.sosky.pis_copy.ui.LoginActivity;
 import com.google.gson.Gson;
 import com.lzy.okgo.callback.StringCallback;
@@ -117,6 +125,215 @@ public class MineFragment extends BaseFragment {
     private void download() {
         dlperson();
         dlfamily();
+        dlgrassland();
+        dllowinsurance();
+        dlmedical();
+        dlnewAgricultural();
+        dlpoverty();
+        dlresidual();
+        dlseekhelp();
+        dlverystriken();
+
+    }
+
+    private void dlverystriken() {
+        ApiManger.downLoadTekun(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("特困信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpVeryStrickenBean veryStrickenBean = gson.fromJson(json, UpVeryStrickenBean.class);
+                    List<UpVeryStrickenBean.InfoBean> infoBeans = veryStrickenBean.getInfoBeans();
+                    for (UpVeryStrickenBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneVeryStricken(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlresidual() {
+        ApiManger.downLoadCanlian(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("残联信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpResidualBean residualBean = gson.fromJson(json, UpResidualBean.class);
+                    List<UpResidualBean.InfoBean> infoBeans = residualBean.getInfoBeans();
+                    for (UpResidualBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneResidual(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlseekhelp() {
+        ApiManger.downLoadLingshijiuzhu(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("临时救助信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpSeekHelpBean seekHelpBean = gson.fromJson(json, UpSeekHelpBean.class);
+                    List<UpSeekHelpBean.InfoBean> infoBeans = seekHelpBean.getInfoBeans();
+                    for (UpSeekHelpBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneSeekHelp(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlpoverty() {
+        ApiManger.downLoadJingzhunfuping(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("精准信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpPovertyBean personBean = gson.fromJson(json, UpPovertyBean.class);
+                    List<UpPovertyBean.InfoBean> infoBeans = UpPovertyBean.getInfoBeans();
+                    for (UpPovertyBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOnePoverty(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlnewAgricultural() {
+        ApiManger.downLoadNongbao(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("新农保信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpNewAgriculturalBean newAgriculturalBean = gson.fromJson(json, UpNewAgriculturalBean.class);
+                    List<UpNewAgriculturalBean.InfoBean> infoBeans = newAgriculturalBean.getInfoBeans();
+                    for (UpNewAgriculturalBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneNewAgricultuaral(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlmedical() {
+        ApiManger.downLoadYibao(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("医保信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpMedicalBean medicalBean = gson.fromJson(json, UpMedicalBean.class);
+                    List<UpMedicalBean.InfoBean> infoBeans = medicalBean.getInfoBeans();
+                    for (UpMedicalBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneMedical(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dllowinsurance() {
+        ApiManger.downLoadDibaoxx(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("低保信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpLowInsuranceBean lowInsuranceBean = gson.fromJson(json, UpLowInsuranceBean.class);
+                    List<UpLowInsuranceBean.InfoBean> infoBeans = lowInsuranceBean.getInfoBeans();
+                    for (UpLowInsuranceBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneLowInsurance(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void dlgrassland() {
+        ApiManger.downLoadCaoyuanshengtai(new StringCallback() {
+            @Override
+            public void onSuccess(Response<String> response) {
+                String body = response.body();
+                tvPan.append("草原生态保护奖励补助资金登记信息下载完成,正在解析");
+                String json = transString(body);
+                if (null == json) {
+                    return;
+                }
+
+                try {
+                    Gson gson = new Gson();
+                    UpGrasslandBean grasslandBean = gson.fromJson(json, UpGrasslandBean.class);
+                    List<UpGrasslandBean.InfoBean> infoBeans = grasslandBean.getInfoBeans();
+                    for (UpGrasslandBean.InfoBean bean : infoBeans) {
+                        SaveTool.saveOneGrassland(bean);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     private void dlfamily() {
@@ -132,8 +349,8 @@ public class MineFragment extends BaseFragment {
 
                 try {
                     Gson gson = new Gson();
-                    UpFamilyInfoBean personBean = gson.fromJson(json, UpFamilyInfoBean.class);
-                    List<UpFamilyInfoBean.InfoBean> infoBeans = personBean.getInfoBeans();
+                    UpFamilyInfoBean familyInfoBean = gson.fromJson(json, UpFamilyInfoBean.class);
+                    List<UpFamilyInfoBean.InfoBean> infoBeans = familyInfoBean.getInfoBeans();
                     for (UpFamilyInfoBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneFamily(bean);
                     }
