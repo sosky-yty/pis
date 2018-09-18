@@ -29,7 +29,7 @@ public class SPHelper {
         } else {
             editor.putString(key, object.toString());
         }
-        editor.apply();
+        editor.commit();
     }
 
     public Object getSharedpreference(String key, Object dafaultObject) {
