@@ -308,7 +308,7 @@ public class addKeyPersonActivity extends BaseActivity {
             UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
             if (MyTools.verificationID(bean.getOrd_sfz())) {
                 SaveTool.saveOnePerson(bean);
-                if ("户主".equals(bean.getOrd_yhzgx())&& TextUtils.isEmpty(bean.getOrd_yhzgx())&& TextUtils.isEmpty(bean.getOrd_hzsfz())) {
+                if ("户主".equals(bean.getOrd_yhzgx()) && TextUtils.isEmpty(bean.getOrd_yhzgx()) && TextUtils.isEmpty(bean.getOrd_hzsfz())) {
                     bean_fa.setOrd_hzsfz(bean.getOrd_sfz());
                     bean_fa.setOrd_hz(bean.getOrd_xm());
                     SaveTool.saveOneFamily(bean_fa);
@@ -407,7 +407,7 @@ public class addKeyPersonActivity extends BaseActivity {
         infoBeans.setOrd_apm(ord_apm.getText().toString());
         infoBeans.setOrd_qpm(ord_qpm.getText().toString());
         infoBeans.setOrd_ahqhdw(ord_ahqhdw.getText().toString());
-        infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked() ? "是" : "否");
+        infoBeans.setOrd_fhsz(s_ord_fhsz.isChecked() ? 1 : 0);
         return infoBeans;
     }
 
@@ -570,7 +570,7 @@ public class addKeyPersonActivity extends BaseActivity {
         ord_apm.setText(mInfoBean.getOrd_apm());
         ord_qpm.setText(mInfoBean.getOrd_qpm());
         ord_ahqhdw.setText(mInfoBean.getOrd_ahqhdw());
-        s_ord_fhsz.setChecked(mInfoBean.getOrd_fhsz().equals("是"));
+        s_ord_fhsz.setChecked(mInfoBean.getOrd_fhsz() == 1);
         RxLogTool.e(mInfoBean.getOrd_sfcygyxgw() + "123");
         s_ord_sfcygyxgw.setChecked(mInfoBean.getOrd_sfcygyxgw().equals("是"));
 
