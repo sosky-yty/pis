@@ -69,15 +69,16 @@ public class LoginActivity extends BaseActivity {
         address.setText(ApiManger.DOMAIN);
 
         buttonSave.setOnClickListener(view -> {
-
+            //保存
             String string = address.getText().toString();
             new SPHelper(MyApp.getContext(), "server").put("address", string);
             RxToast.normal("成功");
 
         });
         buttonSet.setOnClickListener(view -> {
+            //默认
             address.setText(R.string.address);
-            new SPHelper(MyApp.getContext(), "server").put("address", "http://nat.flobit.cn:94");
+            new SPHelper(MyApp.getContext(), "server").put("address", getResources().getString(R.string.address));
         });
 
         buttonOffline.setOnClickListener(view -> toMain());
@@ -98,6 +99,8 @@ public class LoginActivity extends BaseActivity {
                     RxToast.success("登录成功");
                     savepass(u, p);
                     toMain();
+                } else if (response.body().contains("failed")) {
+                    RxToast.success("账号或密码不正确");
                 }
             }
 

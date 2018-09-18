@@ -206,6 +206,9 @@ public class ApiManger {
      * @param stringCallback
      */
     public static void autologin(StringCallback stringCallback) {
+
+        DOMAIN = (String) new SPHelper(MyApp.getContext(), "server").getSharedpreference("address", MyApp.getContext().getString(R.string.address));
+
         String username, password;
         username = MyApp.SPR.getString("username", "");
         password = MyApp.SPR.getString("password", "");
