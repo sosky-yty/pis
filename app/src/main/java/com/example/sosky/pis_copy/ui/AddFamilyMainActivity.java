@@ -9,6 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
@@ -55,6 +57,12 @@ public class AddFamilyMainActivity extends BaseActivity {
     public static String mName = " ";
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
+
+    RequestOptions options = new RequestOptions()
+            .placeholder(R.mipmap.ic_launcher)    //加载成功之前占位图
+            .error(R.mipmap.ic_launcher)    //加载错误之后的错误图
+            .skipMemoryCache(true)    //跳过内存缓存
+            .diskCacheStrategy(DiskCacheStrategy.NONE);  //跳过磁盘缓存
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -257,9 +265,11 @@ public class AddFamilyMainActivity extends BaseActivity {
             e.printStackTrace();
         }
 
+
         //加载到界面
         Glide.with(mContext).
                 load(tofile).
+                apply(options).
                 into(imageView);
 
         String tofileName = tofile.getName();
@@ -307,6 +317,7 @@ public class AddFamilyMainActivity extends BaseActivity {
                 if (RxFileTool.isFileExists(file)) {
                     Glide.with(mContext).
                             load(file).
+                            apply(options).
                             into(imgs[i]);
                     break;
                 }
