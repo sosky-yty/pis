@@ -5,21 +5,21 @@ import android.text.InputFilter;
 import java.util.List;
 
 /**
- *  家庭信息　
+ * 家庭信息
  */
 public class UpFamilyInfoBean {
 
-    private List<InfoBean> infoBeans;
+    private List<InfoBean> info;
 
     public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+        return info;
     }
 
     public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+        this.info = infoBeans;
     }
 
-    public static class InfoBean{
+    public static class InfoBean {
 
         private String ord_hz;
         private String ord_hzsfz;
@@ -62,6 +62,7 @@ public class UpFamilyInfoBean {
 
         private String ord_flag;
         private String ord_yl;
+
         public String getOrd_hz() {
             return ord_hz;
         }

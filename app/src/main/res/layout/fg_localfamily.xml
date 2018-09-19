@@ -16,7 +16,8 @@
         android:background="@color/theme_color"
         android:text="新 增"
         android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:visibility="gone"/>
 
     <include layout="@layout/item_family_head"/>
 

@@ -25,6 +25,8 @@ import java.util.Map;
  */
 public class addClxxActivity extends BaseActivity {
 
+    private String[] cjdj = {"1", "2", "3", "4"};
+    private String[] sfxsshbt = {"一级【960元】", "二级【600】", "三级", "四级"};
     private String[] cjyy = {"疾病", "遗传", "意外", "地震", "其他"};
     private String[] cjlb = {"视力", "听力", "言语", "肢体", "精神", "多重", "其他"};
     private String[] zclb = {"城市居民灵活就业", "扶持农村贫困残疾人发展生产", "贫困残疾人适配所需的基本辅助器具", "重度残疾人生活补贴"};
@@ -56,6 +58,9 @@ public class addClxxActivity extends BaseActivity {
         if ("local".equals(getIntent().getStringExtra("action"))) {
             mID = getIntent().getStringExtra("id");
             loadDatas();
+        } else {
+            clOrdXm.setText(AddPersonMainActivity.mName);
+            clOrdSfz.setText(AddPersonMainActivity.mID);
         }
 
     }
@@ -72,6 +77,8 @@ public class addClxxActivity extends BaseActivity {
                 inputDatas();
             }
         } catch (Exception e) {
+            clOrdXm.setText(AddPersonMainActivity.mName);
+            clOrdSfz.setText(AddPersonMainActivity.mID);
             e.printStackTrace();
         }
     }
@@ -91,6 +98,7 @@ public class addClxxActivity extends BaseActivity {
         clOrdYhkh.setText(mInfoBean.getOrd2_yhkh());
         clOrdSfxszc.setChecked(mInfoBean.getOrd2_sfxszc().equals("是"));
 
+
     }
 
     @Override
@@ -107,6 +115,7 @@ public class addClxxActivity extends BaseActivity {
         clOrdZclb = (EditText) findViewById(R.id.cl_ord_zclb);
         clOrdSfxsshbt = (EditText) findViewById(R.id.cl_ord_sfxsshbt);
         clOrdYhkh = (EditText) findViewById(R.id.cl_ord_yhkh);
+        linear_zclb = findViewById(R.id.linear_zclb);
         btnSave = (Button) findViewById(R.id.btn_save);
 
     }
@@ -123,6 +132,14 @@ public class addClxxActivity extends BaseActivity {
 
         clOrdCjyy.setOnClickListener(view -> {
             MyTools.showSelectDialog(cjyy, mContext, clOrdCjyy);
+        });
+
+        clOrdCjdj.setOnClickListener(view -> {
+            MyTools.showSelectDialog(cjdj, mContext, clOrdCjdj);
+        });
+
+        clOrdSfxsshbt.setOnClickListener(view -> {
+            MyTools.showSelectDialog(sfxsshbt, mContext, clOrdSfxsshbt);
         });
 
         MyTools.setSwitchLisenter(linear_zclb, clOrdSfxszc);
@@ -155,7 +172,7 @@ public class addClxxActivity extends BaseActivity {
         infoBean.setOrd2_zclb(clOrdZclb.getText().toString());
         infoBean.setOrd2_sfxsshbt(clOrdSfxsshbt.getText().toString());
         infoBean.setOrd2_yhkh(clOrdYhkh.getText().toString());
-
+        infoBean.setOrd2_flag("1");
         infoBean.setOrd2_sfxszc(clOrdSfxszc.isChecked() ? "是" : "否");
 
         return infoBean;

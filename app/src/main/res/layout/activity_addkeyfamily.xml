@@ -22,6 +22,7 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_margin="@dimen/margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:focusable="true"
@@ -46,10 +47,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="户主："/>
 
                 <EditText
@@ -57,7 +59,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -67,17 +69,18 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="户主身份证："/>
+                    android:maxLines="1"
+                    android:text="技能特长：" />
 
                 <EditText
-                    android:id="@+id/fa_ord_hzsfz"
+                    android:id="@+id/fa_ord_jntc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -86,10 +89,32 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
+                    android:text="户主身份证："/>
+
+                <EditText
+                    android:id="@+id/fa_ord_hzsfz"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:editable="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="家庭人口数："/>
 
                 <EditText
@@ -105,10 +130,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="男子人数："/>
 
                 <EditText
@@ -124,10 +150,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="是否为无畜户："/>
 
                 <Switch
@@ -145,33 +172,15 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="劳动力数："/>
 
                 <EditText
                     android:id="@+id/fa_ord_ldls"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp">
-
-                <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:lineSpacingExtra="3dp"
-                    android:text="技能特长："/>
-
-                <EditText
-                    android:id="@+id/fa_ord_jntc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"/>
@@ -184,10 +193,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="造成无畜户的原因："/>
 
                 <EditText
@@ -203,10 +214,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="各类牲畜存栏合计："/>
 
                 <EditText
@@ -222,10 +234,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="牦牛合计："/>
 
                 <EditText
@@ -241,10 +254,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="牦牛仔畜合计："/>
 
                 <EditText
@@ -260,10 +274,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="牦牛能繁母畜合计："/>
 
                 <EditText
@@ -279,10 +294,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="绵羊合计："/>
 
                 <EditText
@@ -298,10 +314,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="山羊合计："/>
 
                 <EditText
@@ -317,10 +334,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="马合计："/>
 
                 <EditText
@@ -336,10 +354,11 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="备注："/>
 
                 <EditText
@@ -365,11 +384,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否建档立卡贫困户"/>
+                    android:maxLines="1"
+                    android:text="是否建档立卡贫困户:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfjdlkpkh"
@@ -386,11 +406,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="脱贫年限"/>
+                    android:maxLines="1"
+                    android:text="脱贫年限:"/>
 
                 <EditText
                     android:id="@+id/add_ord_tpnx"
@@ -405,11 +426,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="易地扶贫搬迁意愿"/>
+                    android:maxLines="1"
+                    android:text="易地扶贫搬迁意愿:"/>
 
                 <EditText
                     android:id="@+id/add_ord_ydfpbqyy"
@@ -424,11 +446,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="贫困户属性（五个一批类型）"/>
+                    android:maxLines="1"
+                    android:text="贫困户属性（五个一批类型）:"/>
 
                 <EditText
                     android:id="@+id/add_ord_pkhsx"
@@ -443,18 +466,19 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="家庭状况"/>
+                    android:maxLines="1"
+                    android:text="家庭状况:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jtzk"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -464,11 +488,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否建暖棚"/>
+                    android:maxLines="1"
+                    android:text="是否建暖棚:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfjnp"
@@ -485,11 +510,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否享受低保"/>
+                    android:maxLines="1"
+                    android:text="是否享受低保:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfxsdb"
@@ -506,11 +532,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否享受临时救助"/>
+                    android:maxLines="1"
+                    android:text="是否享受临时救助:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfxslsjz"
@@ -527,11 +554,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="是否建设过房屋"/>
+                    android:maxLines="1"
+                    android:text="是否建设过房屋:"/>
 
                 <Switch
                     android:id="@+id/add_ord_sfjsgfw"
@@ -549,11 +577,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="建房户类型"/>
+                    android:maxLines="1"
+                    android:text="建房户类型:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jfhlx"
@@ -568,11 +597,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="旧住房面积"/>
+                    android:maxLines="1"
+                    android:text="旧住房面积:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jzfmj"
@@ -582,23 +612,25 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="旧住房图片"/>
+                    android:maxLines="1"
+                    android:text="旧住房图片:"/>
 
                 <EditText
                     android:id="@+id/add_ord_jzftp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -608,11 +640,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="新住房面积"/>
+                    android:maxLines="1"
+                    android:text="新住房面积:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xzfmj"
@@ -622,23 +655,25 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="新住房图片"/>
+                    android:maxLines="1"
+                    android:text="新住房图片:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xzftp"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -648,11 +683,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="拆旧复垦"/>
+                    android:maxLines="1"
+                    android:text="拆旧复垦:"/>
 
                 <EditText
                     android:id="@+id/add_ord_cjfk"
@@ -667,11 +703,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="修复"/>
+                    android:maxLines="1"
+                    android:text="修复:"/>
 
                 <Switch
                     android:id="@+id/add_ord_xf"
@@ -688,11 +725,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="新居建设类型"/>
+                    android:maxLines="1"
+                    android:text="新居建设类型:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xjjslx"
@@ -707,11 +745,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="地质灾害搬迁原因"/>
+                    android:maxLines="1"
+                    android:text="地质灾害搬迁原因:"/>
 
                 <EditText
                     android:id="@+id/add_ord_dzzhbqyy"
@@ -726,18 +765,19 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="享受的政策"/>
+                    android:maxLines="1"
+                    android:text="享受的政策:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xsdzc"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -747,11 +787,12 @@
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
-                    android:text="享受的标准"/>
+                    android:maxLines="1"
+                    android:text="享受的标准:"/>
 
                 <EditText
                     android:id="@+id/add_ord_xsdbz"
@@ -761,15 +802,17 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
 
                 <TextView
-                    android:layout_width="120dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lineSpacingExtra="3dp"
+                    android:maxLines="1"
                     android:text="全家福"/>
 
                 <EditText
@@ -777,7 +820,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:drawableRight="@drawable/ic_down"
+                    android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
 

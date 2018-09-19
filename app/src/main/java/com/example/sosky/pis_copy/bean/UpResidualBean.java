@@ -6,17 +6,17 @@ import java.util.List;
  * 残联信息
  */
 public class UpResidualBean {
-    List<InfoBean> infoBeans;
+    List<InfoBean> info;
 
     public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+        return info;
     }
 
     public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+        this.info = infoBeans;
     }
 
-    public static class InfoBean{
+    public static class InfoBean {
         private String ord2_xm;
         private String ord2_sfz;
         private String ord2_cjzzh;

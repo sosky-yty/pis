@@ -3,7 +3,7 @@ package com.example.sosky.pis_copy.bean;
 /**
  * 单个家庭信息
  */
-public class UpOneXumuBean {
+public class UpOneJiatingBean {
     private DataSetBean dataSet;
 
     public DataSetBean getDataSet() {
@@ -14,7 +14,7 @@ public class UpOneXumuBean {
         this.dataSet = dataSet;
     }
 
-    public static class DataSetBean{
+    public static class DataSetBean {
         private String ord_hz;
         private String ord_hzsfz;
         private String ord_jtrks;

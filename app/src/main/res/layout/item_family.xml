@@ -28,15 +28,17 @@
         android:layout_margin="@dimen/margin"
         android:layout_weight="1"
         android:gravity="center_vertical"
-        android:text="man"/>
+        android:text="6162312123"/>
 
     <TextView
-        android:id="@+id/tv_jtzk_it"
+        android:id="@+id/tv_del"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin"
         android:gravity="center|right"
-        android:text="xx区"
-        android:textSize="10sp"/>
+        android:text="删除"
+        android:textColor="@color/md_red_700"
+        android:textSize="10sp"
+        android:visibility="gone"/>
 
 </LinearLayout>

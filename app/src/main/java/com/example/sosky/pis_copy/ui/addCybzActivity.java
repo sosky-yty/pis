@@ -30,16 +30,13 @@ public class addCybzActivity extends BaseActivity {
     private EditText cyOrdBz;
     private Button btnSave;
 
-    private String mID;
     private UpGrasslandBean.InfoBean mInfoBean = new UpGrasslandBean.InfoBean();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if ("local".equals(getIntent().getStringExtra("action"))) {
-            mID = getIntent().getStringExtra("id");
-            loadDatas();
-        }
+        cyOrdHz.setText(AddFamilyMainActivity.mName);
+        cyOrdHzsfz.setText(AddFamilyMainActivity.mID);
     }
 
     @Override
@@ -47,13 +44,15 @@ public class addCybzActivity extends BaseActivity {
         RxLogTool.e("开始加载本地");
         try {
             Map<String, String> grasslandMap = SaveTool.getGrassland();
-            String json = grasslandMap.get(mID);
+            String json = grasslandMap.get(AddFamilyMainActivity.mID);
             UpGrasslandBean upGrasslandBean = new Gson().fromJson(json, UpGrasslandBean.class);
             mInfoBean = upGrasslandBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
             }
         } catch (Exception e) {
+            cyOrdHz.setText(AddFamilyMainActivity.mName);
+            cyOrdHzsfz.setText(AddFamilyMainActivity.mID);
             e.printStackTrace();
         }
     }
@@ -90,11 +89,11 @@ public class addCybzActivity extends BaseActivity {
 
     @Override
     protected void inputDatas() {
-        cyOrdHz      .setText(mInfoBean.getOrd2_hz());
-        cyOrdHzsfz   .setText(mInfoBean.getOrd2_hzsfz());
-        cyOrdNf      .setText(mInfoBean.getOrd2_nf());
-        cyOrdJe      .setText(mInfoBean.getOrd2_je());
-        cyOrdBz      .setText(mInfoBean.getOrd2_bz());
+        cyOrdHz.setText(mInfoBean.getOrd2_hz());
+        cyOrdHzsfz.setText(mInfoBean.getOrd2_hzsfz());
+        cyOrdNf.setText(mInfoBean.getOrd2_nf());
+        cyOrdJe.setText(mInfoBean.getOrd2_je());
+        cyOrdBz.setText(mInfoBean.getOrd2_bz());
     }
 
     private UpGrasslandBean.InfoBean saveDatas() {
@@ -104,6 +103,7 @@ public class addCybzActivity extends BaseActivity {
         infoBean.setOrd2_nf(cyOrdNf.getText().toString());
         infoBean.setOrd2_je(cyOrdJe.getText().toString());
         infoBean.setOrd2_bz(cyOrdBz.getText().toString());
+        infoBean.setOrd2_flag("1");
         return infoBean;
     }
 

@@ -2,8 +2,6 @@ package com.example.sosky.pis_copy.ui;
 
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
 import com.example.sosky.pis_copy.R;
@@ -22,22 +20,17 @@ public class MainActivity extends BaseActivity {
     FragmentPagerAdapter adapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     protected int getContentID() {
         return R.layout.activity_main;
     }
 
     @Override
-    protected  void initView(){
+    protected void initView() {
         toolbar = findViewById(R.id.toolbar);
         navigation = findViewById(R.id.navigation);
         homeViewPager = findViewById(R.id.home_viewpager);
 
-        adapter = new HomePagerAdapter(this,fragmentManager);
+        adapter = new HomePagerAdapter(this, fragmentManager);
 
         homeViewPager.setAdapter(adapter);
         homeViewPager.setOffscreenPageLimit(2);
@@ -47,5 +40,7 @@ public class MainActivity extends BaseActivity {
         navigation.enableItemShiftingMode(false);
         navigation.setCurrentItem(0);
         navigation.setupWithViewPager(homeViewPager);
-    };
+    }
+
+    ;
 }

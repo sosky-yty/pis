@@ -43,7 +43,7 @@
             android:minHeight="320dp"
             android:padding="@dimen/margin"
             android:scrollbars="vertical"
-            android:text="@string/mode"
+            android:text=""
             android:textColor="@color/assist_text_color"/>
     </LinearLayout>
 

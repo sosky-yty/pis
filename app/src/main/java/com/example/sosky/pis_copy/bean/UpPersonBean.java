@@ -3,22 +3,21 @@ package com.example.sosky.pis_copy.bean;
 import java.util.List;
 
 /**
- *个人信息
- *
+ * 个人信息
  */
 public class UpPersonBean {
 
-    private List<InfoBean>  infoBeans;
+    private List<InfoBean> info;
 
     public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+        return info;
     }
 
     public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+        this.info = infoBeans;
     }
 
-    public static class InfoBean{
+    public static class InfoBean {
         private String ord_xm;
         private String ord_zm;
         private String ord_xb;
@@ -63,10 +62,10 @@ public class UpPersonBean {
 
         /**
          * 修改标志
-        private String ord_flag;
-        预留字段
-        private String ord_yl;
-        */
+         * private String ord_flag;
+         * 预留字段
+         * private String ord_yl;
+         */
         private String ord_sfwcjr;
         private String ord_cjzh;
         private String ord_cjdj;
@@ -93,7 +92,7 @@ public class UpPersonBean {
         private String ord_apm;
         private String ord_qpm;
         private String ord_ahqhdw;
-        private String ord_fhsz;
+        private int ord_fhsz;
 
 
         public String getOrd_xm() {
@@ -576,11 +575,11 @@ public class UpPersonBean {
             this.ord_ahqhdw = ord_ahqhdw;
         }
 
-        public String getOrd_fhsz() {
+        public int getOrd_fhsz() {
             return ord_fhsz;
         }
 
-        public void setOrd_fhsz(String ord_fhsz) {
+        public void setOrd_fhsz(int ord_fhsz) {
             this.ord_fhsz = ord_fhsz;
         }
 

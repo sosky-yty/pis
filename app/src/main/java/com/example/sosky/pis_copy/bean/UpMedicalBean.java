@@ -72,13 +72,13 @@ public class UpMedicalBean {
         }
     }
 
-    List<InfoBean> infoBeans;
+    List<InfoBean> info;
 
     public List<InfoBean> getInfoBeans() {
-        return infoBeans;
+        return info;
     }
 
     public void setInfoBeans(List<InfoBean> infoBeans) {
-        this.infoBeans = infoBeans;
+        this.info = infoBeans;
     }
 }

@@ -2,13 +2,17 @@ package com.example.sosky.pis_copy.ui;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpFamilyInfoBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -46,8 +50,22 @@ public class AddFamilyMainActivity extends BaseActivity {
     private TextView tvLingshi;
     private RelativeLayout rlJingzhun;
     private TextView tvJingzhun;
+    public static String mID = " ";
+    public static String mMode = " ";
+    public static String mName = " ";
 
     int whichzp = 1; // 1 全家福,2 旧房 ,3 新房
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if ("local".equals(getIntent().getStringExtra("action"))) {
+            mID = getIntent().getStringExtra("id");
+            mMode = "local";
+            loadImg();
+        }
+    }
 
     @Override
     protected int getContentID() {
@@ -85,8 +103,8 @@ public class AddFamilyMainActivity extends BaseActivity {
     @Override
     protected void bindListener() {
 
-//        Bundle bundle = getIntent().getBundleExtra("b");
-        
+        Bundle bundle = new Bundle();
+
         //照片
         rlOrdZp.setOnClickListener(v -> {
             whichzp = 1;
@@ -103,29 +121,44 @@ public class AddFamilyMainActivity extends BaseActivity {
 
         //基础家庭信息
         rlJiating.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addKeyFamilyActivity.class);
+            getEx(bundle);
+            RxActivityTool.skipActivity(mContext, addKeyFamilyActivity.class, bundle);
 
         });
 
 
         //精准扶贫
         rlJingzhun.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addJzfpActivity.class);
+            getEx(bundle);
+            RxActivityTool.skipActivity(mContext, addJzfpActivity.class, bundle);
         });
         //临时救助
         rlLingshi.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addLsjzActivity.class);
+            getEx(bundle);
+            RxActivityTool.skipActivity(mContext, addLsjzActivity.class, bundle);
         });
 
         //草原
         rlCaoyuan.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addCybzActivity.class);
+            getEx(bundle);
+            RxActivityTool.skipActivity(mContext, addCybzActivity.class, bundle);
         });
-        
+
         //低保
         rlDibao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addMzdbActivity.class);
+            getEx(bundle);
+            RxActivityTool.skipActivity(mContext, addMzdbActivity.class, bundle);
         });
+    }
+
+    private void getEx(Bundle bundle) {
+        bundle.putString("id", mID);
+        bundle.putString("action", mMode);
+
+        UpFamilyInfoBean.InfoBean infoBean = SaveTool.getOneFamily(mID);
+        mName = infoBean.getOrd_hz();
+        //点击后设置为本地读取模式
+        mMode = "local";
     }
 
 
@@ -155,9 +188,7 @@ public class AddFamilyMainActivity extends BaseActivity {
             case RxPhotoTool.GET_IMAGE_FROM_PHONE:
                 //选择相册之后的处理
                 if (resultCode == RESULT_OK) {
-
                     roadImageView(data.getData());
-
                 }
 
                 break;
@@ -186,7 +217,7 @@ public class AddFamilyMainActivity extends BaseActivity {
      */
     private void roadImageView(Uri uri) {
 
-        String idcard = getIntent().getStringExtra("idcard");
+        String idcard = getIntent().getStringExtra("id");
         File file = (new File(RxPhotoTool.getImageAbsolutePath(mContext, uri)));
 
         File tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/" + idcard + getexname(file));
@@ -196,16 +227,19 @@ public class AddFamilyMainActivity extends BaseActivity {
         switch (whichzp) {
             case 1:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "全家福照片/");
                 imageView = ivZp;
                 textView = tvZp;
                 break;
             case 2:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "旧住房照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "旧住房照片/");
                 imageView = ivJzfzp;
                 textView = tvJzfzp;
                 break;
             case 3:
                 tofile = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "新住房照片/" + idcard + getexname(file));
+                RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "新住房照片/");
                 imageView = ivXzfzp;
                 textView = tvXzfzp;
                 break;
@@ -255,4 +289,28 @@ public class AddFamilyMainActivity extends BaseActivity {
         return ".png";
     }
 
+
+    /**
+     * 加载照片
+     */
+    private void loadImg() {
+
+        String[] types = {"全家福照片/", "旧住房照片/", "新住房照片/"};
+        String[] sufix = {".jpg", ".jpeg", ".png"};
+        ImageView[] imgs = {ivZp, ivJzfzp, ivXzfzp};
+        for (int i = 0; i < types.length; i++) {
+            //选择文件夹
+            String type = types[i];
+            for (String s : sufix) {
+                //文件后缀
+                File file = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + type + mID + s);
+                if (RxFileTool.isFileExists(file)) {
+                    Glide.with(mContext).
+                            load(file).
+                            into(imgs[i]);
+                    break;
+                }
+            }
+        }
+    }
 }

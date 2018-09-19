@@ -12,7 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sosky.pis_copy.R;
+import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
+import com.example.sosky.pis_copy.bean.UpPersonBean;
 import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxFileTool;
 import com.vondear.rxtools.RxLogTool;
@@ -20,17 +22,21 @@ import com.vondear.rxtools.RxPhotoTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
+import com.zyl.customkeyboardview.CustomKeyboardEditText;
 
 import java.io.File;
 import java.io.IOException;
 
 import static com.vondear.rxtools.view.dialog.RxDialogChooseImage.LayoutType.TITLE;
 
+/**
+ * 个人信息
+ */
 public class AddPersonMainActivity extends BaseActivity {
 
     private RxTitle rxTitle;
     private EditText editName;
-    private EditText editSfz;
+    private CustomKeyboardEditText editSfz;
     private RelativeLayout rlOrdZp;
     private ImageView ivZp;
     private TextView tvZp;
@@ -49,8 +55,9 @@ public class AddPersonMainActivity extends BaseActivity {
     private Button btnSave;
 
 
-    public String mName;
-    public String mId;
+    public static String mName = "";
+    public static String mID = "";
+    public static String mMode = "";
 
 
     @Override
@@ -84,50 +91,127 @@ public class AddPersonMainActivity extends BaseActivity {
         tvCanlian = findViewById(R.id.tv_canlian);
         btnSave = findViewById(R.id.btn_save);
 
-        mId = getIntent().getStringExtra("id");
+    }
+
+    @Override
+    protected void loadDatas() {
+
+        try {
+            if ("local".equals(getIntent().getStringExtra("action"))) {
+                mID = getIntent().getStringExtra("id");
+                mMode = "local";
+                UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
+                mName = person.getOrd_xm();
+                editSfz.hideKeyboard();
+                CustomKeyboardEditText.setFlag(false);
+                //todo 本地查看 
+                loadImg();
+                editSfz.setText(mID);
+                editName.setText(mName);
+            } else {
+                mID = getIntent().getStringExtra("id");
+                CustomKeyboardEditText.setFlag(true);
+                mMode = "new";
+            }
+          
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 加载照片
+     */
+    private void loadImg() {
+        String[] sufix = {".jpg", ".jpeg", ".png"};
+        for (String s : sufix) {
+            File file = new File(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/" + mID + s);
+            if (RxFileTool.isFileExists(file)) {
+                Glide.with(mContext).
+                        load(file).
+                        into(ivZp);
+                break;
+            }
+        }
     }
 
 
     @Override
     protected void bindListener() {
 
-        //fixme  xxxx
         Bundle bundle = new Bundle();
-        bundle.putString("id", editSfz.getText().toString());
-        bundle.putString("action", "local");
+
         rlOrdZp.setOnClickListener(v -> showImgDialog());
 
         //基础
         rlJichu.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addKeyPersonActivity.class);
+            getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, AddPersonActivity.class, bundle);
         });
         //医保
         rlYibao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addYbxxActivity.class);
+            getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, addYbxxActivity.class, bundle);
 
         });
 
-        //农保        //fixme
+        //农保        
         rlNongbao.setOnClickListener(v -> {
-            RxActivityTool.skipActivity(mContext, addXlbActivity.class);
+            getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
+            RxActivityTool.skipActivity(mContext, addXlbActivity.class, bundle);
 
         });
 
-        //计生
-        //fixme
-        
         //特困
         rlTekun.setOnClickListener(v -> {
+            getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
             RxActivityTool.skipActivity(mContext, addMztkActivity.class, bundle);
         });
         //残联
         rlCanlian.setOnClickListener(v -> {
+            getEx(bundle);
+            if (!isSFZok()) {
+                return;
+            }
             RxActivityTool.skipActivity(mContext, addClxxActivity.class, bundle);
         });
 
     }
 
+    private void getEx(Bundle bundle) {
+        bundle.putString("id", editSfz.getText().toString());
+        bundle.putString("action", mMode);
 
+        String name = editName.getText().toString();
+        String id = editSfz.getText().toString();
+        if (TextUtils.isEmpty(name) && TextUtils.isEmpty(id)) {
+            RxToast.error("姓名必填,身份证必填");
+            return;
+        }
+        mName = name;
+        mID = id;
+        //点击后转为本地查看模式
+        mMode = "local";
+    }
+
+
+    /**
+     * 身份证是否填写
+     *
+     * @return
+     */
     private boolean isSFZok() {
         String string = editSfz.getText().toString();
         if (TextUtils.isEmpty(string) || string.length() < 8) {
@@ -207,6 +291,7 @@ public class AddPersonMainActivity extends BaseActivity {
         RxFileTool.deleteFile(tofile);
 
         try {
+            RxFileTool.createOrExistsDir(RxFileTool.getSDCardPath() + getString(R.string.photo_path) + "个人照片/");
             RxFileTool.copyFile(file, tofile);
         } catch (IOException e) {
             e.printStackTrace();

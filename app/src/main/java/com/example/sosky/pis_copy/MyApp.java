@@ -19,7 +19,7 @@ import java.util.logging.Level;
 
 import okhttp3.OkHttpClient;
 
-public class MyApp extends Application{
+public class MyApp extends Application {
 
     private static Context context;
 
@@ -35,25 +35,25 @@ public class MyApp extends Application{
 
         context = getApplicationContext();
 
-        SPE = getSharedPreferences("pis_copy",MODE_PRIVATE).edit();
-        SPR = getSharedPreferences("pis_copy",MODE_PRIVATE);
+        SPE = getSharedPreferences("pis_copy", MODE_PRIVATE).edit();
+        SPR = getSharedPreferences("pis_copy", MODE_PRIVATE);
 
         NSP = PreferenceManager.getDefaultSharedPreferences(this);
 
         initOKGO();
 
         RxTool.init(this);
-        RxCrashTool.init(getFilesDir()+"/crashs");
+        RxCrashTool.init(getFilesDir() + "/crashs");
     }
 
-    private void initOKGO(){
+    private void initOKGO() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
         //设置全局响应时间,读取,写入,连接
         builder.cookieJar(new CookieJarImpl(new SPCookieStore(this)));
-        builder.readTimeout(6000, TimeUnit.MILLISECONDS);
-        builder.writeTimeout(6000,TimeUnit.MILLISECONDS);
-        builder.connectTimeout(6000,TimeUnit.MILLISECONDS);
+        builder.readTimeout(60000, TimeUnit.MILLISECONDS);
+        builder.writeTimeout(60000, TimeUnit.MILLISECONDS);
+        builder.connectTimeout(60000, TimeUnit.MILLISECONDS);
 
         HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor("okgo");
         loggingInterceptor.setPrintLevel(HttpLoggingInterceptor.Level.BODY);
@@ -73,29 +73,29 @@ public class MyApp extends Application{
                 .setRetryCount(3);
     }
 
-    public static void removeCookie(){
+    public static void removeCookie() {
         CookieStore cookieStore = OkGo.getInstance().getCookieJar().getCookieStore();
 
         cookieStore.removeAllCookie();
     }
 
-    public static Context getContext(){
+    public static Context getContext() {
         return context;
     }
 
-    public static void savePassword(String um ,String pw){
-        SPE.putString("username",um).apply();
-        SPE.putString("password",pw).apply();
-        SPE.putBoolean("isLogin",true).apply();
+    public static void savePassword(String um, String pw) {
+        SPE.putString("username", um).apply();
+        SPE.putString("password", pw).apply();
+        SPE.putBoolean("isLogin", true).apply();
     }
 
-    public static boolean isLogin(){
-        return SPR.getBoolean("isLogin",false);
+    public static boolean isLogin() {
+        return SPR.getBoolean("isLogin", false);
     }
 
-    public static void removePassword(){
-        SPE.putString("username","").apply();
-        SPE.putString("password","").apply();
-        SPE.putBoolean("isLogin",false).apply();
+    public static void removePassword() {
+        SPE.putString("username", "").apply();
+        SPE.putString("password", "").apply();
+        SPE.putBoolean("isLogin", false).apply();
     }
 }

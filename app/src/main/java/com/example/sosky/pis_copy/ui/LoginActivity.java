@@ -1,5 +1,9 @@
 package com.example.sosky.pis_copy.ui;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.AppCompatButton;
@@ -19,6 +23,7 @@ import com.vondear.rxtools.RxActivityTool;
 import com.vondear.rxtools.RxDeviceTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
+import com.vondear.rxtools.view.dialog.RxDialogSure;
 import com.vondear.rxtools.view.dialog.RxDialogSureCancel;
 
 import java.util.List;
@@ -70,14 +75,29 @@ public class LoginActivity extends BaseActivity {
 
         buttonSave.setOnClickListener(view -> {
 
-            String string = address.getText().toString();
-            new SPHelper(MyApp.getContext(), "server").put("address", string);
-            RxToast.normal("成功");
+            RxDialogSure rxDialogSure = new RxDialogSure(this);
+            rxDialogSure.setTitle("提示信息");
+            rxDialogSure.setContent("将会重启APP以更新服务器地址信息,请点击确认");
+            rxDialogSure.setSureListener(v -> {
+                //保存
+                String string = address.getText().toString();
+                new SPHelper(MyApp.getContext(), "server").put("address", string);
+                RxToast.normal("成功");
+
+                Intent intent = getPackageManager().getLaunchIntentForPackage(getApplication().getPackageName());
+                PendingIntent restartIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+                AlarmManager mgr = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+                mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 1000, restartIntent); // 1秒钟后重启应用
+                System.exit(0);
+            });
+            rxDialogSure.show();
+
 
         });
         buttonSet.setOnClickListener(view -> {
-            address.setText("http://nat.flobit.cn:94");
-            new SPHelper(MyApp.getContext(), "server").put("address", "http://nat.flobit.cn:94");
+            //默认
+            address.setText(R.string.address);
+            new SPHelper(MyApp.getContext(), "server").put("address", getResources().getString(R.string.address));
         });
 
         buttonOffline.setOnClickListener(view -> toMain());
@@ -98,13 +118,15 @@ public class LoginActivity extends BaseActivity {
                     RxToast.success("登录成功");
                     savepass(u, p);
                     toMain();
+                } else if (response.body().contains("failed")) {
+                    RxToast.success("账号或密码不正确");
                 }
             }
 
             @Override
             public void onError(Response<String> response) {
                 super.onError(response);
-                RxToast.error("网络错误");
+                RxToast.error("网络错误或者服务器出错");
             }
         });
     }
