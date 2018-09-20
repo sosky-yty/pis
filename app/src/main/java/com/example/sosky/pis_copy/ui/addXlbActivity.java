@@ -59,6 +59,7 @@ public class addXlbActivity extends BaseActivity {
             mInfoBean = newAgriculturalBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                xlbOrdXm.setText(AddPersonMainActivity.mName);
             }
         } catch (Exception e) {
             xlbOrdXm.setText(AddPersonMainActivity.mName);

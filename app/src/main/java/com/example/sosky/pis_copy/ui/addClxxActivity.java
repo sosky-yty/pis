@@ -76,6 +76,7 @@ public class addClxxActivity extends BaseActivity {
             if (mInfoBean != null) {
                 inputDatas();
             }
+            clOrdXm.setText(AddPersonMainActivity.mName);
         } catch (Exception e) {
             clOrdXm.setText(AddPersonMainActivity.mName);
             clOrdSfz.setText(AddPersonMainActivity.mID);

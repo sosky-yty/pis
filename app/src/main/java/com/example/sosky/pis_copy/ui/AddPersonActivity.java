@@ -313,6 +313,7 @@ public class AddPersonActivity extends BaseActivity {
                     SaveTool.saveOneFamily(bean_fa);
                 }
                 RxToast.success("保存成功");
+
                 localPersonFragment.refresh();
             } else {
                 RxToast.error("身份证错误");
@@ -600,6 +601,7 @@ public class AddPersonActivity extends BaseActivity {
             ord_xm.setText(AddPersonMainActivity.mName);
             if (mInfoBean != null) {
                 inputDatas();
+                ord_xm.setText(AddPersonMainActivity.mName);
             }
         } catch (Exception e) {
             ord_sfz.setText(AddPersonMainActivity.mID);

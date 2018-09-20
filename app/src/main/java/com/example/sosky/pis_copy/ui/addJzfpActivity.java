@@ -51,6 +51,7 @@ public class addJzfpActivity extends BaseActivity {
             mInfoBean = upPovertyBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                jzOrdHz.setText(AddFamilyMainActivity.mName);
             }
         } catch (Exception e) {
             jzOrdHz.setText(AddFamilyMainActivity.mName);

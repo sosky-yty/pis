@@ -60,6 +60,7 @@ public class addMztkActivity extends BaseActivity {
             mInfoBean = veryStrickenBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                mztkOrdXm.setText(AddPersonMainActivity.mName);
             }
         } catch (Exception e) {
             mztkOrdXm.setText(AddPersonMainActivity.mName);

@@ -49,6 +49,7 @@ public class addCybzActivity extends BaseActivity {
             mInfoBean = upGrasslandBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                cyOrdHz.setText(AddFamilyMainActivity.mName);
             }
         } catch (Exception e) {
             cyOrdHz.setText(AddFamilyMainActivity.mName);

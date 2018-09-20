@@ -57,6 +57,7 @@ public class addMzdbActivity extends BaseActivity {
             mInfoBean = lowInsuranceBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                mzdbOrdHz.setText(AddFamilyMainActivity.mName);
             }
         } catch (Exception e) {
             mzdbOrdHz.setText(AddFamilyMainActivity.mName);

@@ -47,6 +47,7 @@ public class addYbxxActivity extends BaseActivity {
             mInfoBean = upMedicalBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                ybOrdXm.setText(AddPersonMainActivity.mName);
             }
         } catch (Exception e) {
             ybOrdXm.setText(AddPersonMainActivity.mName);

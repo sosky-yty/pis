@@ -50,6 +50,7 @@ public class addLsjzActivity extends BaseActivity {
             mInfoBean = seekHelpBean.getInfoBeans().get(0);
             if (mInfoBean != null) {
                 inputDatas();
+                lsOrdHz.setText(AddFamilyMainActivity.mName);
             }
         } catch (Exception e) {
             lsOrdHz.setText(AddFamilyMainActivity.mName);
