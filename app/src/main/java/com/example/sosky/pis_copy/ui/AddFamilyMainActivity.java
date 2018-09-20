@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.bumptech.glide.request.target.Target;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
@@ -61,6 +62,7 @@ public class AddFamilyMainActivity extends BaseActivity {
     RequestOptions options = new RequestOptions()
             .placeholder(R.mipmap.ic_launcher)    //加载成功之前占位图
             .error(R.mipmap.ic_launcher)    //加载错误之后的错误图
+            .override(Target.SIZE_ORIGINAL)
             .skipMemoryCache(true)    //跳过内存缓存
             .diskCacheStrategy(DiskCacheStrategy.NONE);  //跳过磁盘缓存
 
