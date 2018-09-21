@@ -73,6 +73,8 @@ public class MineFragment extends BaseFragment {
             rxDialogSureCancel.getSureView().setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    //清楚本地信息
+                    SaveTool.delAll();
                     download();
                     rxDialogSureCancel.cancel();
                 }
@@ -142,17 +144,9 @@ public class MineFragment extends BaseFragment {
      * 从服务器下载所有数据
      */
     private void download() {
+        //清空状态栏
+        tvPan.setText(" ");
         dlperson();
-        dlfamily();
-        dlgrassland();
-        dllowinsurance();
-        dlmedical();
-        dlnewAgricultural();
-        dlpoverty();
-        dlresidual();
-        dlseekhelp();
-        dlverystriken();
-
     }
 
     private void dlverystriken() {
@@ -395,10 +389,36 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpPersonBean personBean = gson.fromJson(json, UpPersonBean.class);
                     List<UpPersonBean.InfoBean> infoBeans = personBean.getInfoBeans();
+                    //无法调试查看异常情况,保全两种方法　todo
+                    if(infoBeans.size()== 0){
+                        RxDialogSure sure  = new RxDialogSure(mContext);
+                        sure.setTitle("提示信息");
+                        sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
+                        sure.setSureListener(view -> {
+                            sure.dismiss();
+                        });
+                    }else{
+                        dlfamily();
+                        dlgrassland();
+                        dllowinsurance();
+                        dlmedical();
+                        dlnewAgricultural();
+                        dlpoverty();
+                        dlresidual();
+                        dlseekhelp();
+                        dlverystriken();
+                    }
                     for (UpPersonBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOnePerson(bean);
                     }
+
                 } catch (Exception e) {
+                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    sure.setTitle("提示信息");
+                    sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
+                    sure.setSureListener(view -> {
+                        sure.dismiss();
+                    });
                     e.printStackTrace();
                 }
 
@@ -429,8 +449,6 @@ public class MineFragment extends BaseFragment {
             return "";
         }
         try {
-            //清楚本地信息
-            SaveTool.delAll();
             body = body.replace("<t1>", "<info>");
             body = body.replace("</t1>", "</info>");
 
