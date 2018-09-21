@@ -393,10 +393,12 @@ public class MineFragment extends BaseFragment {
                     if(infoBeans.size()== 0){
                         RxDialogSure sure  = new RxDialogSure(mContext);
                         sure.setTitle("提示信息");
-                        sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
+                        sure.setContent("解析失败，请联系数据管理员开通下载通道或者审核数据\n");
+                        tvPan.setTextColor(Color.RED);
                         sure.setSureListener(view -> {
                             sure.dismiss();
                         });
+                        sure.show();
                     }else{
                         dlfamily();
                         dlgrassland();
@@ -415,10 +417,12 @@ public class MineFragment extends BaseFragment {
                 } catch (Exception e) {
                     RxDialogSure sure  = new RxDialogSure(mContext);
                     sure.setTitle("提示信息");
-                    sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
+                    sure.setContent("解析失败，请联系数据管理员开通下载通道或者审核数据\n");
                     sure.setSureListener(view -> {
                         sure.dismiss();
                     });
+                    tvPan.setTextColor(Color.RED);
+                    sure.show();
                     e.printStackTrace();
                 }
 
