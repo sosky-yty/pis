@@ -473,5 +473,29 @@ public class SaveTool {
         return map;
     }
 
-
+    /**
+     * 清空所有本地文件
+     */
+    public static void  delAll(){
+        SPHelper jzfp = new SPHelper(MyApp.getContext(),"jzfp");
+        jzfp.clear();
+        SPHelper clxx = new SPHelper(MyApp.getContext(),"clxx");
+        clxx.clear();
+        SPHelper lsjz = new SPHelper(MyApp.getContext(),"lsjz");
+        lsjz.clear();
+        SPHelper tkxx = new SPHelper(MyApp.getContext(),"tkxx");
+        tkxx.clear();
+        SPHelper xnb = new SPHelper(MyApp.getContext(),"xnb");
+        xnb.clear();
+        SPHelper ybxx = new SPHelper(MyApp.getContext(),"ybxx");
+        ybxx.clear();
+        SPHelper dbxx = new SPHelper(MyApp.getContext(),"dbxx");
+        dbxx.clear();
+        SPHelper cybz = new SPHelper(MyApp.getContext(),"cybz");
+        cybz.clear();
+        SPHelper familys = new SPHelper(MyApp.getContext(),"familys");
+        familys.clear();
+        SPHelper persons = new SPHelper(MyApp.getContext(),"persons");
+        persons.clear();
+    }
 }

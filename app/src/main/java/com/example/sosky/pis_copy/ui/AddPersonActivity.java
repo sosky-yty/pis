@@ -23,6 +23,8 @@ import com.vondear.rxtools.RxLogTool;
 import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 
+import org.w3c.dom.Text;
+
 public class AddPersonActivity extends BaseActivity {
 
 
@@ -37,9 +39,9 @@ public class AddPersonActivity extends BaseActivity {
     //政治面貌
     String[] zzmm = {"群众", "党员", "团员", "预备党员"};
     //与户主关系
-    String[] yhzgx = {"户主", "子女", "妻女", "子孙"};
+    String[] yhzgx = {"户主", "配偶", "子女", "父母", "祖父母", "外祖父母", "兄弟", "姊妹", "旁系亲属", "其他关系"};
     //婚姻状况
-    String[] hyzk = {"未婚", "已婚", "离异"};
+    String[] hyzk = {"未婚", "已婚", "离异", "再婚", "丧偶"};
     //所在辖区
     String[] szxq = {"光明社区", "吉祥社区", "团结社区", "安康社区", "解放一村", "解放二村", "约若二村", "姑咱一村", "姑咱二村", "幸福一村", "幸福二村"};
 
@@ -49,14 +51,13 @@ public class AddPersonActivity extends BaseActivity {
     String[] jyzk = {"待业", "就业", "失业"};
     //兵役状态
     String[] byzt = {"已服", "未服"};
-
     //残疾等级
     String[] cjdj = {"1", "2", "3", "4"};
 
     //参与集体经济项目
     String[] cyjtjjxm = {"乡村酒店", "大棚蔬菜", "瓦须黑帐篷体验园区", "生态畜牧专业合作"};
 
-    String[] zdrylx = {"教职人员", "矫正人员", "帮扶人员", "刑满释放人员", "反分裂分子", "时轮金刚法会回流人员"};
+    String[] zdrylx = {"教职人员", "矫正人员", "帮扶人员", "刑满释放人员", "分裂分子", "时轮金刚法会回流人员"};
 
     String[] yf = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
@@ -303,6 +304,15 @@ public class AddPersonActivity extends BaseActivity {
         });
 
         button.setOnClickListener(view -> {
+            if (    !TextUtils.isEmpty(ord_xm.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_zjlb.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_sfz.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_yhzgx.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_hz.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_hzsfz.getText().toString()) &&
+                    !TextUtils.isEmpty(ord_xb.getText().toString())) {
+                    RxToast.error("请确认必填字段已填写！");
+            }
             UpPersonBean.InfoBean bean = saveDatas();
             UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
             if (MyTools.verificationID(bean.getOrd_sfz())) {

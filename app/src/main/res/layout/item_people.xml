@@ -38,6 +38,6 @@
         android:gravity="center|right"
         android:text="删除"
         android:textColor="@color/md_red_700"
-        android:textSize="10sp"/>
+        android:textSize="14sp"/>
 
 </LinearLayout>

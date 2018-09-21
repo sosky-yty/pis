@@ -414,17 +414,23 @@ public class MineFragment extends BaseFragment {
         //验证
 
         if (body.contains("登录")) {
-//            String text = "错误:请先登录\n";
-//            tvPan.append(text, 0, text.length() - 1 );
             RxToast.error("错误:请先登录");
             RxActivityTool.skipActivityAndFinish(getActivity(), LoginActivity.class);
             return "";
         }
         if (body.contains("下载失败")) {
+            RxDialogSure sure  = new RxDialogSure(mContext);
+            sure.setTitle("提示信息");
+            sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
+            sure.setSureListener(view -> {
+                sure.dismiss();
+            });
             tvPan.append("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
             return "";
         }
         try {
+            //清楚本地信息
+            SaveTool.delAll();
             body = body.replace("<t1>", "<info>");
             body = body.replace("</t1>", "</info>");
 

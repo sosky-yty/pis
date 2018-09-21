@@ -50,6 +50,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -91,6 +93,9 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="必填"
+                    android:gravity="center"
+                    android:text="男"
                     android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
@@ -113,6 +118,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
@@ -135,6 +142,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:editable="false"/>
             </LinearLayout>
 
@@ -242,6 +251,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:drawableRight="@drawable/ic_down"                    android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>
@@ -263,6 +274,8 @@
                     android:id="@+id/add_ord_hz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
 
@@ -283,6 +296,8 @@
                     android:id="@+id/add_ord_hzsfz"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:hint="必填"
+                    android:gravity="center"
                     android:layout_weight="1"/>
             </LinearLayout>
 
