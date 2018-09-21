@@ -524,10 +524,25 @@ public class MineFragment extends BaseFragment {
                 MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
                 tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
                 if (msgBean.getDataset().getT1().getCode() == 1) {
+                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    sure.setTitle("提示信息");
+                    sure.setContent(msgBean.getDataset().getT1().getMessage() + "\n");
+                    sure.setSureListener(view -> {
+                        sure.dismiss();
+                    });
+                    sure.show();
                     //todo 成功之后
                     tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
                 } else {
                     //todo 失败逻辑
+                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    sure.setTitle("提示信息");
+                    sure.setContent(msgBean.getDataset().getT1().getMessage() + "\n");
+                    sure.setSureListener(view -> {
+                        sure.dismiss();
+                    });
+                    sure.show();
                     tvPan.setTextColor(Color.RED);
                 }
                 RxLogTool.e(response.body());
