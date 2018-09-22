@@ -304,15 +304,34 @@ public class AddPersonActivity extends BaseActivity {
         });
 
         button.setOnClickListener(view -> {
-            if (    !TextUtils.isEmpty(ord_xm.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_zjlb.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_sfz.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_yhzgx.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_hz.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_hzsfz.getText().toString()) &&
-                    !TextUtils.isEmpty(ord_xb.getText().toString())) {
-                    RxToast.error("请确认必填字段已填写！");
+            if (    TextUtils.isEmpty(ord_xm.getText().toString()) ||
+                    TextUtils.isEmpty(ord_zjlb.getText().toString()) ||
+                    TextUtils.isEmpty(ord_sfz.getText().toString()) ||
+                    TextUtils.isEmpty(ord_yhzgx.getText().toString()) ||
+                    TextUtils.isEmpty(ord_hz.getText().toString()) ||
+                    TextUtils.isEmpty(ord_hzsfz.getText().toString()) ||
+                    TextUtils.isEmpty(ord_xb.getText().toString())) {
+                if(TextUtils.isEmpty(ord_zjlb.getText().toString())){
+                    RxToast.error("证件类别为空");
+                }
+                if(TextUtils.isEmpty(ord_yhzgx.getText().toString()))
+                {
+                    RxToast.error("与户主关系为空");
+                }
+                if(TextUtils.isEmpty(ord_hz.getText().toString())){
+                    RxToast.error("户主为为空");
+                }
+
+                if(TextUtils.isEmpty(ord_hzsfz.getText().toString())){
+                    RxToast.error("户主身份证为空");
+                }
+                if(TextUtils.isEmpty(ord_xb.getText().toString())){
+                    RxToast.error("性别为空");
+                }
+                    RxToast.error("请确认必填字段已填写!");
+                return ;
             }
+
             UpPersonBean.InfoBean bean = saveDatas();
             UpFamilyInfoBean.InfoBean bean_fa = new UpFamilyInfoBean.InfoBean();
             if (MyTools.verificationID(bean.getOrd_sfz())) {
