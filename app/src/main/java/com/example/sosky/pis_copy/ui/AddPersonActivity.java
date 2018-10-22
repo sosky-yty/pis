@@ -234,7 +234,22 @@ public class AddPersonActivity extends BaseActivity {
         ord_yhzgx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MyTools.showSelectDialog(yhzgx, mContext, ord_yhzgx);
+                //选择与户主关系
+                AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.mydialog);
+                builder.setTitle("请选择");
+                builder.setItems(yhzgx, (dialog, which) -> {
+                    dialog.dismiss();
+                    ord_yhzgx.setText(yhzgx[which]);
+                    if (which == 0){
+                        if (!TextUtils.isEmpty(ord_xm.getText().toString())&&!TextUtils.isEmpty(ord_sfz.getText().toString()))
+                        ord_hz.setText(ord_xm.getText().toString());
+                        ord_hzsfz.setText(ord_sfz.getText().toString());
+                    }
+                });
+                builder.setPositiveButton("取消", (dialog, which) -> {
+                    dialog.dismiss();
+                });
+                builder.create().show();
             }
         });
 
