@@ -388,7 +388,7 @@ public class AddPersonActivity extends BaseActivity {
 
     }
 
-    //获取控件值,判断身份证是否合格
+    //获取控件值,判断身份证是否合格1
     private UpPersonBean.InfoBean saveDatas() {
         UpPersonBean.InfoBean infoBeans = new UpPersonBean.InfoBean();
         infoBeans.setOrd_xm(ord_xm.getText().toString());
