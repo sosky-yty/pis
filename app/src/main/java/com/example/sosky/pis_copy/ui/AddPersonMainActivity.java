@@ -249,7 +249,7 @@ public class AddPersonMainActivity extends BaseActivity {
             RxToast.error("请选择证件类别");
             return false;
         }
-        if (TextUtils.isEmpty(s_zjlb) || s_zjlb.equals("身份证")) {
+        if (!TextUtils.isEmpty(s_zjlb) && s_zjlb.equals("身份证")) {
             String sfz = editSfz.getText().toString();
             if (TextUtils.isEmpty(sfz)|| sfz.length()< 15){
                 RxToast.error("请填写正确的身份证号");
@@ -258,7 +258,7 @@ public class AddPersonMainActivity extends BaseActivity {
             return  true;
         }
 
-        if (TextUtils.isEmpty(s_zjlb)|| s_zjlb.equals("非身份证")){
+        if (!TextUtils.isEmpty(s_zjlb) && s_zjlb.equals("非身份证")){
             String fsfz = editSfz.getText().toString();
             if (TextUtils.isEmpty(fsfz)){
                 RxToast.error("请填写证件号码");
@@ -266,7 +266,7 @@ public class AddPersonMainActivity extends BaseActivity {
             }
             return true;
         }
-        return true;
+        return false;
     }
 
     /**
