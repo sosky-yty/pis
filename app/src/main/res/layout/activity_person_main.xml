@@ -69,6 +69,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white">
+                <EditText
+                    android:id="@+id/main_zjlb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:hint="类型"
+                    android:gravity="center"
+                    android:drawableRight="@drawable/ic_down"
+                    android:focusableInTouchMode="false"
+                    android:editable="false"
+                    android:textSize="14dp"
+                    android:layout_marginTop="12dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -76,7 +88,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="@dimen/margin"
                     android:gravity="center"
-                    android:text="身份证号:"
+                    android:text="证件号:"
                     android:textColor="@color/important_text_color"/>
                 <com.zyl.customkeyboardview.CustomKeyboardEditText
                     android:id="@+id/edit_sfz"

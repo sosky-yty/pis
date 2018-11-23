@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
+import com.example.sosky.pis_copy.MyTools;
 import com.example.sosky.pis_copy.R;
 import com.example.sosky.pis_copy.SaveTool;
 import com.example.sosky.pis_copy.base.BaseActivity;
@@ -26,6 +27,8 @@ import com.vondear.rxtools.view.RxTitle;
 import com.vondear.rxtools.view.RxToast;
 import com.vondear.rxtools.view.dialog.RxDialogChooseImage;
 import com.zyl.customkeyboardview.CustomKeyboardEditText;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 import java.io.IOException;
@@ -56,11 +59,13 @@ public class AddPersonMainActivity extends BaseActivity {
     private RelativeLayout rlCanlian;
     private TextView tvCanlian;
     private Button btnSave;
+    private EditText zjlb;
 
 
     public static String mName = "";
     public static String mID = "";
     public static String mMode = "";
+    private String[] sfzlb = {"身份证","非身份证"};
 
     /**
      * 图片选项
@@ -112,7 +117,7 @@ public class AddPersonMainActivity extends BaseActivity {
         rlCanlian = findViewById(R.id.rl_canlian);
         tvCanlian = findViewById(R.id.tv_canlian);
         btnSave = findViewById(R.id.btn_save);
-
+        zjlb = findViewById(R.id.main_zjlb);
     }
 
     @Override
@@ -211,6 +216,9 @@ public class AddPersonMainActivity extends BaseActivity {
             RxActivityTool.skipActivity(mContext, addClxxActivity.class, bundle);
         });
 
+        zjlb.setOnClickListener(v -> {
+            MyTools.showSelectDialog(sfzlb,mContext,zjlb);
+        });
     }
 
     private void getEx(Bundle bundle) {
@@ -236,10 +244,27 @@ public class AddPersonMainActivity extends BaseActivity {
      * @return
      */
     private boolean isSFZok() {
-        String string = editSfz.getText().toString();
-        if (TextUtils.isEmpty(string) || string.length() < 8) {
-            RxToast.error("请先正确填写身份证号");
+        String s_zjlb = zjlb.getText().toString();
+        if (TextUtils.isEmpty(s_zjlb)){
+            RxToast.error("请选择证件类别");
             return false;
+        }
+        if (TextUtils.isEmpty(s_zjlb) || s_zjlb.equals("身份证")) {
+            String sfz = editSfz.getText().toString();
+            if (TextUtils.isEmpty(sfz)|| sfz.length()< 15){
+                RxToast.error("请填写正确的身份证号");
+                return false;
+            }
+            return  true;
+        }
+
+        if (TextUtils.isEmpty(s_zjlb)|| s_zjlb.equals("非身份证")){
+            String fsfz = editSfz.getText().toString();
+            if (TextUtils.isEmpty(fsfz)){
+                RxToast.error("请填写证件号码");
+                return false;
+            }
+            return true;
         }
         return true;
     }
