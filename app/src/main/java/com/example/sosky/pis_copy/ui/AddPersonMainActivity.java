@@ -65,6 +65,7 @@ public class AddPersonMainActivity extends BaseActivity {
     public static String mName = "";
     public static String mID = "";
     public static String mMode = "";
+    public static String mZjlb = "";
     private String[] sfzlb = {"身份证","非身份证"};
 
     /**
@@ -129,12 +130,14 @@ public class AddPersonMainActivity extends BaseActivity {
                 mMode = "local";
                 UpPersonBean.InfoBean person = SaveTool.getOnePerson(mID);
                 mName = person.getOrd_xm();
+                mZjlb = person.getOrd_zjlb();
                 editSfz.hideKeyboard();
                 CustomKeyboardEditText.setFlag(false);
                 //todo 本地查看 
                 loadImg();
                 editSfz.setText(mID);
                 editName.setText(mName);
+                zjlb.setText(mZjlb);
             } else {
                 mID = getIntent().getStringExtra("id");
                 CustomKeyboardEditText.setFlag(true);
@@ -223,6 +226,7 @@ public class AddPersonMainActivity extends BaseActivity {
 
     private void getEx(Bundle bundle) {
         bundle.putString("id", editSfz.getText().toString());
+        bundle.putString("zjlb",zjlb.getText().toString());
         bundle.putString("action", mMode);
 
         String name = editName.getText().toString();
@@ -233,6 +237,7 @@ public class AddPersonMainActivity extends BaseActivity {
         }
         mName = name;
         mID = id;
+        mZjlb = zjlb.getText().toString();
         //点击后转为本地查看模式
         mMode = "local";
     }

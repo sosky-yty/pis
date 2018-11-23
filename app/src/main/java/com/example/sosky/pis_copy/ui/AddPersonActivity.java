@@ -34,8 +34,6 @@ public class AddPersonActivity extends BaseActivity {
             "俄罗斯族", "鄂温克族", "德昂族", "保安族", "裕固族", "京族", "塔塔尔族", "独龙族", "鄂伦春族", "赫哲族", "门巴族", "珞巴族", "基诺族"};
 
     String[] sex = {"男", "女"};
-    //证件类型
-    String[] sfzlb = {"身份证", "非身份证"};
     //政治面貌
     String[] zzmm = {"群众", "党员", "团员", "预备党员"};
     //与户主关系
@@ -166,10 +164,12 @@ public class AddPersonActivity extends BaseActivity {
         String string = bundle.getString("action");
         if ("local".equals(string)) {
             mID = getIntent().getStringExtra("id");
+            ord_zjlb.setText(getIntent().getStringExtra("zjlb"));
             loadlocal();
         } else {
             ord_xm.setText(AddPersonMainActivity.mName);
             ord_sfz.setText(AddPersonMainActivity.mID);
+            ord_zjlb.setText(AddPersonMainActivity.mZjlb);
         }
 
     }
@@ -214,13 +214,6 @@ public class AddPersonActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 MyTools.showSelectDialog(hyzk, mContext, ord_hyzk);
-            }
-        });
-
-        ord_zjlb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MyTools.showSelectDialog(sfzlb, mContext, ord_zjlb);
             }
         });
 

@@ -121,7 +121,6 @@
                     android:layout_weight="1"
                     android:hint="必填"
                     android:gravity="center"
-                    android:drawableRight="@drawable/ic_down"
                     android:focusableInTouchMode="false"
                     android:editable="false"/>
             </LinearLayout>

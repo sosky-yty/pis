@@ -685,7 +685,7 @@ public class MyTools {
     public static Boolean verificationID(String ID) {
         if (null == ID || ID.isEmpty()) {
             return false;
-        } else if (ID.length() < 6) {
+        } else if (ID.length() < 2) {
             return false;
         }
         return true;
