@@ -94,12 +94,16 @@ public class localFamilyFragment extends BaseFragment {
                 RxToast.error("请选择查询类型");
                 return;
             }
+            if (type.equals("身份证") && key.length() < 6 || type.equals("姓名") && key.length() > 20){
+                RxToast.error("输入不符合规则");
+                return;
+            }
             //通过身份证查询
             if (type.equals("身份证") && key.length() >= 6) {
                 UpFamilyInfoBean.InfoBean infoBean = new UpFamilyInfoBean.InfoBean();
                 infoBean = searchById(key);
-                if (!TextUtils.isEmpty(infoBean.getOrd_hzsfz())) {
-                    Intent i = new Intent(mContext, AddPersonMainActivity.class);
+                if (infoBean != null && !TextUtils.isEmpty(infoBean.getOrd_hzsfz())) {
+                    Intent i = new Intent(mContext, AddFamilyMainActivity.class);
                     i.putExtra("id", infoBean.getOrd_hzsfz());
                     i.putExtra("action", "local");
                     mContext.startActivity(i);
@@ -111,12 +115,12 @@ public class localFamilyFragment extends BaseFragment {
             if (type.equals("姓名") && key.length() < 20) {
                 List<UpFamilyInfoBean.InfoBean> infoBeans = new ArrayList<UpFamilyInfoBean.InfoBean>();
                 infoBeans = searchByName(key);
-                if (infoBeans.isEmpty()) {
+                if (infoBeans == null || infoBeans.isEmpty()) {
                     RxToast.error("不存在此人");
                     return;
                 }
                 if (infoBeans.size() == 1) {
-                    Intent i = new Intent(mContext, AddPersonMainActivity.class);
+                    Intent i = new Intent(mContext, AddFamilyMainActivity.class);
                     i.putExtra("id", infoBeans.get(0).getOrd_hzsfz());
                     i.putExtra("action", "local");
                     mContext.startActivity(i);

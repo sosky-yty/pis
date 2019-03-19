@@ -95,11 +95,15 @@ public class localPersonFragment extends BaseFragment {
                 RxToast.error("请选择查询类型");
                 return ;
             }
+            if (type.equals("身份证") && key.length() < 6 || type.equals("姓名") && key.length() > 20){
+                RxToast.error("输入不符合规则");
+                return;
+            }
             //通过身份证查询
             if (type.equals("身份证")&&key.length()>=6){
                 UpPersonBean.InfoBean infoBean = new UpPersonBean.InfoBean();
                 infoBean = searchById(key);
-                if (!TextUtils.isEmpty(infoBean.getOrd_sfz())){
+                if (infoBean != null&&!TextUtils.isEmpty(infoBean.getOrd_sfz())){
                     Intent i = new Intent(mContext, AddPersonMainActivity.class);
                     i.putExtra("id", infoBean.getOrd_sfz());
                     i.putExtra("action", "local");
@@ -112,7 +116,7 @@ public class localPersonFragment extends BaseFragment {
             if (type.equals("姓名")&& key.length()<20){
                 List<UpPersonBean.InfoBean> infoBeans = new ArrayList<UpPersonBean.InfoBean>();
                 infoBeans = searchByName(key);
-                if (infoBeans.isEmpty()){
+                if (infoBeans == null ||infoBeans.isEmpty()){
                     RxToast.error("不存在此人");
                     return;
                 }
