@@ -43,6 +43,7 @@ public class MineFragment extends BaseFragment {
     private Button btnDownload;
     private Button btnSync;
     private TextView tvPan;
+    private int total = 0;
 
     @Override
     protected int getContentID() {
@@ -67,17 +68,15 @@ public class MineFragment extends BaseFragment {
         });
 
         btnDownload.setOnClickListener(v -> {
+            total = 0;
             final RxDialogSureCancel rxDialogSureCancel = new RxDialogSureCancel(getContext());
             rxDialogSureCancel.getTitleView().setText("重要提示");
             rxDialogSureCancel.setContent("下载会清空手机当前所有已填写的数据\n可能导致数据丢失\n确定下载?");
-            rxDialogSureCancel.getSureView().setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //清楚本地信息
-                    SaveTool.delAll();
-                    download();
-                    rxDialogSureCancel.cancel();
-                }
+            rxDialogSureCancel.getSureView().setOnClickListener(v1 -> {
+                //清楚本地信息
+                SaveTool.delAll();
+                download();
+                rxDialogSureCancel.cancel();
             });
             rxDialogSureCancel.getCancelView().setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -105,8 +104,8 @@ public class MineFragment extends BaseFragment {
                     ApiManger.upKeyPerson(xml, new StringCallback() {
                         @Override
                         public void onSuccess(Response<String> response) {
-                          
-                            if (response.body() == null||response.body().contains("登录")) {
+
+                            if (response.body() == null || response.body().contains("登录")) {
                                 RxToast.error("错误:请先登录");
                                 RxActivityTool.skipActivityAndFinish(getActivity(), LoginActivity.class);
                                 return;
@@ -154,7 +153,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("特困信息下载完成,正在解析\n");
+                tvPan.append("特困信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -164,9 +163,21 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpVeryStrickenBean veryStrickenBean = gson.fromJson(json, UpVeryStrickenBean.class);
                     List<UpVeryStrickenBean.InfoBean> infoBeans = veryStrickenBean.getInfoBeans();
+
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpVeryStrickenBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneVeryStricken(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -179,7 +190,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("残联信息下载完成,正在解析\n");
+                tvPan.append("残联信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -189,9 +200,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpResidualBean residualBean = gson.fromJson(json, UpResidualBean.class);
                     List<UpResidualBean.InfoBean> infoBeans = residualBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpResidualBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneResidual(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -204,7 +226,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("临时救助信息下载完成,正在解析\n");
+                tvPan.append("临时救助信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -214,9 +236,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpSeekHelpBean seekHelpBean = gson.fromJson(json, UpSeekHelpBean.class);
                     List<UpSeekHelpBean.InfoBean> infoBeans = seekHelpBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpSeekHelpBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneSeekHelp(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -229,7 +262,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("精准信息下载完成,正在解析\n");
+                tvPan.append("精准信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -239,9 +272,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpPovertyBean povertyBean = gson.fromJson(json, UpPovertyBean.class);
                     List<UpPovertyBean.InfoBean> infoBeans = povertyBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpPovertyBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOnePoverty(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -254,7 +298,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("新农保信息下载完成,正在解析\n");
+                tvPan.append("新农保信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -264,9 +308,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpNewAgriculturalBean newAgriculturalBean = gson.fromJson(json, UpNewAgriculturalBean.class);
                     List<UpNewAgriculturalBean.InfoBean> infoBeans = newAgriculturalBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpNewAgriculturalBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneNewAgricultuaral(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -279,7 +334,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("医保信息下载完成,正在解析\n");
+                tvPan.append("医保信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -289,9 +344,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpMedicalBean medicalBean = gson.fromJson(json, UpMedicalBean.class);
                     List<UpMedicalBean.InfoBean> infoBeans = medicalBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpMedicalBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneMedical(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -304,7 +370,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("低保信息下载完成,正在解析\n");
+                tvPan.append("低保信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -314,9 +380,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpLowInsuranceBean lowInsuranceBean = gson.fromJson(json, UpLowInsuranceBean.class);
                     List<UpLowInsuranceBean.InfoBean> infoBeans = lowInsuranceBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpLowInsuranceBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneLowInsurance(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -329,7 +406,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("草原生态保护奖励补助资金登记信息下载完成,正在解析\n");
+                tvPan.append("草原生态保护奖励补助资金登记信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -339,9 +416,22 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpGrasslandBean grasslandBean = gson.fromJson(json, UpGrasslandBean.class);
                     List<UpGrasslandBean.InfoBean> infoBeans = grasslandBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpGrasslandBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneGrassland(bean);
                     }
+                    tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -354,7 +444,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("家庭信息下载完成,正在解析\n");
+                tvPan.append("家庭信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -364,9 +454,20 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpFamilyInfoBean familyInfoBean = gson.fromJson(json, UpFamilyInfoBean.class);
                     List<UpFamilyInfoBean.InfoBean> infoBeans = familyInfoBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     for (UpFamilyInfoBean.InfoBean bean : infoBeans) {
                         SaveTool.saveOneFamily(bean);
                     }
+                    total++;
+                    if (total > 8) {
+                        tvPan.append("所有信息下载完成\n");
+                        tvPan.setTextColor(getContext().getResources().getColor(R.color.md_green_700));
+
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -379,7 +480,7 @@ public class MineFragment extends BaseFragment {
             @Override
             public void onSuccess(Response<String> response) {
                 String body = response.body();
-                tvPan.append("个人信息下载完成,正在解析\n");
+                tvPan.append("个人信息下载完成\n");
                 String json = transString(body);
                 if (null == json || TextUtils.isEmpty(json)) {
                     return;
@@ -389,9 +490,13 @@ public class MineFragment extends BaseFragment {
                     Gson gson = new Gson();
                     UpPersonBean personBean = gson.fromJson(json, UpPersonBean.class);
                     List<UpPersonBean.InfoBean> infoBeans = personBean.getInfoBeans();
+                    if (null != infoBeans) {
+                        tvPan.append("下载了" + infoBeans.size() + "条信息\n");
+
+                    }
                     //无法调试查看异常情况,保全两种方法　todo
-                    if(infoBeans.size()== 0){
-                        RxDialogSure sure  = new RxDialogSure(mContext);
+                    if (infoBeans.size() == 0) {
+                        RxDialogSure sure = new RxDialogSure(mContext);
                         sure.setTitle("提示信息");
                         sure.setContent("解析失败，请联系数据管理员开通下载通道或者审核数据\n");
                         tvPan.setTextColor(Color.RED);
@@ -399,7 +504,7 @@ public class MineFragment extends BaseFragment {
                             sure.dismiss();
                         });
                         sure.show();
-                    }else{
+                    } else {
                         dlfamily();
                         dlgrassland();
                         dllowinsurance();
@@ -415,7 +520,7 @@ public class MineFragment extends BaseFragment {
                     }
 
                 } catch (Exception e) {
-                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    RxDialogSure sure = new RxDialogSure(mContext);
                     sure.setTitle("提示信息");
                     sure.setContent("解析失败，请联系数据管理员开通下载通道或者审核数据\n");
                     sure.setSureListener(view -> {
@@ -443,7 +548,7 @@ public class MineFragment extends BaseFragment {
             return "";
         }
         if (body.contains("下载失败")) {
-            RxDialogSure sure  = new RxDialogSure(mContext);
+            RxDialogSure sure = new RxDialogSure(mContext);
             sure.setTitle("提示信息");
             sure.setContent("下载失败，请联系数据管理员开通下载通道或者审核数据\n");
             sure.setSureListener(view -> {
@@ -456,7 +561,7 @@ public class MineFragment extends BaseFragment {
             body = body.replace("<t1>", "<info>");
             body = body.replace("</t1>", "</info>");
 
-            RxLogTool.e("TAG", body);
+            RxLogTool.e("信息body", body);
             String json = MyTools.xml2JSON(body);
             json = json.replace("\"dataset\" :", "");
             json = json.substring(json.indexOf("{") + 1, json.lastIndexOf("}"));
@@ -524,7 +629,7 @@ public class MineFragment extends BaseFragment {
                 MsgBean msgBean = new Gson().fromJson(json1, MsgBean.class);
                 tvPan.append(msgBean.getDataset().getT1().getMessage() + "\n");
                 if (msgBean.getDataset().getT1().getCode() == 1) {
-                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    RxDialogSure sure = new RxDialogSure(mContext);
                     sure.setTitle("提示信息");
                     sure.setContent(msgBean.getDataset().getT1().getMessage() + "\n");
                     sure.setSureListener(view -> {
@@ -536,7 +641,7 @@ public class MineFragment extends BaseFragment {
 
                 } else {
                     //todo 失败逻辑
-                    RxDialogSure sure  = new RxDialogSure(mContext);
+                    RxDialogSure sure = new RxDialogSure(mContext);
                     sure.setTitle("提示信息");
                     sure.setContent(msgBean.getDataset().getT1().getMessage() + "\n");
                     sure.setSureListener(view -> {
